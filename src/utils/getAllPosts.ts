@@ -4,7 +4,6 @@ function importAll(r: any) {
     module: r(fileName),
   }));
 }
-
 export const posts = importAll(
   require.context("../pages/blog/", true, /\.mdx$/)
 );

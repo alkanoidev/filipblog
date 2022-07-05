@@ -1,10 +1,15 @@
-import type { NextPage } from "next";
-import Head from "next/head";
+import type { GetStaticProps, NextPage } from "next";
 import { Post } from "../components/Post";
 import PostType from "../types/Post";
-import { posts } from "../utils/getAllPosts";
 
-const Home: NextPage = () => {
+export const getStaticProps: GetStaticProps = async (context) => {
+  const res = await fetch(`${process.env.URL}/api/blog/posts`);
+  const data = await res.json();
+
+  return { props: { posts: data.posts } };
+};
+
+export const Home: NextPage<Props> = ({ posts }) => {
   return (
     <>
       {posts.map((post: PostType) => (
@@ -13,5 +18,7 @@ const Home: NextPage = () => {
     </>
   );
 };
+
+type Props = { posts: PostType[] };
 
 export default Home;
