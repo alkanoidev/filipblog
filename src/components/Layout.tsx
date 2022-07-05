@@ -16,6 +16,7 @@ export default function Layout({
         <meta charSet="utf-8" />
         <meta name="Description" content={description}></meta>
         <title>{pageTitle}</title>
+        <link rel="manifest" href="/site.webmanifest" />
       </Head>
       <main>
         {/* <Header /> NAVBAR */}
