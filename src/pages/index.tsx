@@ -1,4 +1,5 @@
 import type { GetStaticProps, NextPage } from "next";
+import Header from "../components/Header";
 import { Post } from "../components/Post";
 import PostType from "../types/Post";
 
@@ -12,9 +13,10 @@ export const getStaticProps: GetStaticProps = async (context) => {
 export const Home: NextPage<Props> = ({ posts }) => {
   return (
     <>
-      {posts.map((post: PostType) => (
+      {/* {posts.map((post: PostType) => (
         <Post key={post.link} post={post} />
-      ))}
+      ))} */}
+      <Header />
     </>
   );
 };
