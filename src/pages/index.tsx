@@ -6,11 +6,7 @@ import PostType from "../types/Post";
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const res = await fetch(
-    `${
-      process.env.NODE_ENV === "production"
-        ? "https://flog.vercel.app"
-        : "http://localhost:3000"
-    }/api/blog/posts`
+    `${process.env.BASE_URL || "http://localhost:3000"}/api/blog/posts`
   );
   const data = await res.json();
 
