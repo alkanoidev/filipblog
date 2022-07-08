@@ -2,7 +2,10 @@ import { AiOutlineEye, AiOutlineHeart, AiOutlineRead } from "react-icons/ai";
 import Stat from "../Stat/Stat";
 
 type Props = {
-  meta: {};
+  meta: {
+    date: string;
+    readTime: number | string;
+  };
 };
 
 export default function StatsTray({ meta }: Props) {
