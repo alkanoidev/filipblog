@@ -1,7 +1,7 @@
 import BlogPostMeta from "../types/BlogPostMeta";
 import BackButton from "./Buttons/BackButton";
 import StatsTray from "./StatsTray";
-import ReactMarkdown from "react-markdown";
+
 export default function BlogPost({
   children,
   meta,
