@@ -5,12 +5,12 @@ import { Post } from "../components/Post";
 import PostType from "../types/Post";
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const res = await fetch(
-    `${process.env.BASE_URL || "http://localhost:3000"}/api/blog/posts`
-  );
-  const data = await res.json();
-
-  return { props: { posts: data.posts } };
+  // const res = await fetch(
+  //   `${process.env.BASE_URL || "http://localhost:3000"}/api/blog/posts`
+  // );
+  // const data = await res.json();
+  const { posts } = require("../utils/getAllPosts");
+  return { props: { posts: JSON.parse(JSON.stringify(posts)) } };
 };
 
 export const Home: NextPage<Props> = ({ posts }) => {

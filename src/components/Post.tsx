@@ -22,12 +22,7 @@ export const Post = ({ post }: { post: PostType }) => {
       hover:ring-primary hover:ring-[1px]"
     >
       <h2>{meta.title}</h2>
-      <div className="flex flex-wrap space-x-2">
-        <Stat data={meta.date} dontShowDot />
-        <Stat icon={<AiOutlineRead />} data={meta.readTime} />
-        <Stat title="views" icon={<AiOutlineEye />} data={120} />
-        <Stat title="likes" icon={<AiOutlineHeart />} data={20} />
-      </div>
+
       <p>{meta.description}</p>
       {/* <div className="w-full flex justify-end">
         <Link href={"/blog" + link}>

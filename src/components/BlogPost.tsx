@@ -1,4 +1,6 @@
 import BlogPostMeta from "../types/BlogPostMeta";
+import BackButton from "./Buttons/BackButton";
+import StatsTray from "./StatsTray";
 
 export default function BlogPost({
   children,
@@ -9,7 +11,10 @@ export default function BlogPost({
 }) {
   return (
     <>
-      <article>{children}</article>
+      <BackButton />
+      <h1 className="my-3">{meta.title}</h1>
+      <StatsTray meta={meta} />
+      <article className="mt-3">{children}</article>
     </>
   );
 }
