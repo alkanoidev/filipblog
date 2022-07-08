@@ -1,7 +1,7 @@
 import BlogPostMeta from "../types/BlogPostMeta";
 import BackButton from "./Buttons/BackButton";
 import StatsTray from "./StatsTray";
-
+import ReactMarkdown from "react-markdown";
 export default function BlogPost({
   children,
   meta,
@@ -11,10 +11,13 @@ export default function BlogPost({
 }) {
   return (
     <>
-      <BackButton />
       <h1 className="my-3">{meta.title}</h1>
       <StatsTray meta={meta} />
-      <article className="mt-3">{children}</article>
+      <article className="mt-3">
+        {/* <ReactMarkdown>{children}</ReactMarkdown> */}
+        {children}
+      </article>
+      <BackButton to={meta.minifiedTitle} />
     </>
   );
 }

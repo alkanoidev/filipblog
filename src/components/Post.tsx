@@ -4,6 +4,7 @@ import PostType from "../types/Post";
 import { useRouter } from "next/router";
 import { AiOutlineRead, AiOutlineEye, AiOutlineHeart } from "react-icons/ai";
 import Stat from "./Stat";
+import StatsTray from "./StatsTray";
 
 export const Post = ({ post }: { post: PostType }) => {
   const {
@@ -14,6 +15,7 @@ export const Post = ({ post }: { post: PostType }) => {
 
   return (
     <article
+      id={meta.minifiedTitle}
       onClick={() => {
         router.push("/blog" + link);
       }}
@@ -22,7 +24,7 @@ export const Post = ({ post }: { post: PostType }) => {
       hover:ring-primary hover:ring-[1px]"
     >
       <h2>{meta.title}</h2>
-
+      <StatsTray meta={meta} />
       <p>{meta.description}</p>
       {/* <div className="w-full flex justify-end">
         <Link href={"/blog" + link}>

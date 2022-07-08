@@ -4,6 +4,7 @@ type BlogPostMeta = {
   date: string;
   readTime: number;
   topics: string[];
+  minifiedTitle: string;
 };
 
 export default BlogPostMeta;

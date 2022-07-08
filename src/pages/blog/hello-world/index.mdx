@@ -2,6 +2,7 @@ import BlogPost from "../../../components/BlogPost";
 
 export const meta = {
   title: "Hello World",
+  minifiedTitle: "helloworld",
   description: "First Blog Post",
   date: "July 05, 2022",
   readTime: 0.2,
@@ -10,4 +11,16 @@ export const meta = {
 
 export default ({ children }) => <BlogPost meta={meta}>{children}</BlogPost>;
 
-First blog post
+# Hello
+
+I’m Filip. I want to start writing more about the stuff I like. That is why I made this blog to host the things I write.
+This web app is created using:
+
+- NextJS
+- TypeScript as the programming language
+- Tailwind for all the styling
+- Framer Motion for page load animation
+- MDX for embeding react components inside markdown
+
+For Blog files are stored locally inside /blog/ directory, then imported with getAllPosts.ts
+And finally imported in index page.

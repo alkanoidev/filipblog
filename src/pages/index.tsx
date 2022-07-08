@@ -20,8 +20,10 @@ export const Home: NextPage<Props> = ({ posts }) => {
       <ul className="flex justify-start gap-2 overflow-x-auto">
         <TopicButton title="all" />
       </ul>
-      {posts &&
-        posts.map((post: PostType) => <Post key={post.link} post={post} />)}
+      <ul className="flex flex-col gap-3 my-5 mx-1">
+        {posts &&
+          posts.map((post: PostType) => <Post key={post.link} post={post} />)}
+      </ul>
     </>
   );
 };

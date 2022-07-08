@@ -21,8 +21,8 @@ export default function Layout({
 
       <main className="w-full h-full flex flex-col items-center px-2 sm:px-0">
         <div className="flex w-full sm:w-[800px]">
-          <div className="w-1/2 h-32 bg-primary relative top-[-70px] blur-[100px] rounded-full"></div>
-          <div className="w-1/2 h-32 bg-secondary relative top-[-70px] blur-[100px] rounded-full"></div>
+          <div className="w-1/2 h-32 bg-primary relative top-[-70px] blur-[50px] sm:blur-[100px] rounded-full"></div>
+          <div className="w-1/2 h-32 bg-secondary relative top-[-70px] blur-[50px] sm:blur-[100px] rounded-full"></div>
         </div>
         <div className="content sm:w-[600px] w-full">{children}</div>
       </main>

@@ -20,7 +20,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
       transition={{ type: "linear", stiffness: 500 }}
     >
       <ThemeProvider>
-        <Layout pageTitle="Flog" description="Filip's Personal Blog">
+        <Layout pageTitle="Filip's Blog" description="Filip's Personal Blog">
           <Component {...pageProps} />
         </Layout>
       </ThemeProvider>

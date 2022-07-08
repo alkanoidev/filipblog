@@ -11,6 +11,7 @@
 html {
   width: 100%;
   @apply bg-light dark:bg-dark;
+  scroll-behavior: smooth;
 }
 body {
   min-height: 100vh;
@@ -37,4 +38,7 @@ a,
 span,
 label {
   @apply text-base;
+}
+ul {
+  @apply list-disc my-2 ml-5;
 }
