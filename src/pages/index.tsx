@@ -1,4 +1,5 @@
 import type { GetStaticProps, NextPage } from "next";
+import TopicButton from "../components/Buttons/TopicButton";
 import Header from "../components/Header";
 import { Post } from "../components/Post";
 import PostType from "../types/Post";
@@ -13,10 +14,13 @@ export const getStaticProps: GetStaticProps = async (context) => {
 export const Home: NextPage<Props> = ({ posts }) => {
   return (
     <>
-      {/* {posts.map((post: PostType) => (
-        <Post key={post.link} post={post} />
-      ))} */}
       <Header />
+      <ul className="flex justify-start gap-2 overflow-x-auto">
+        <TopicButton title="all" />
+      </ul>
+      {posts.map((post: PostType) => (
+        <Post key={post.link} post={post} />
+      ))}
     </>
   );
 };

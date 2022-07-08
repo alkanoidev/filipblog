@@ -10,6 +10,9 @@
 
 html {
   width: 100%;
+  @apply bg-light dark:bg-dark;
+}
+body {
   min-height: 100vh;
   @apply bg-light dark:bg-dark;
 }

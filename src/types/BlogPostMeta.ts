@@ -3,6 +3,7 @@ type BlogPostMeta = {
   description: string;
   date: string;
   readTime: number;
+  topics: string[];
 };
 
 export default BlogPostMeta;

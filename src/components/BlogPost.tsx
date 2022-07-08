@@ -1,5 +1,4 @@
 import BlogPostMeta from "../types/BlogPostMeta";
-import { HeadPost } from "./HeadPost";
 
 export default function BlogPost({
   children,
@@ -10,7 +9,6 @@ export default function BlogPost({
 }) {
   return (
     <>
-      <HeadPost meta={meta} isBlogPost />
       <article>{children}</article>
     </>
   );

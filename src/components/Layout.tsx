@@ -24,7 +24,6 @@ export default function Layout({
           <div className="w-1/2 h-32 bg-primary relative top-[-70px] blur-[100px] rounded-full"></div>
           <div className="w-1/2 h-32 bg-secondary relative top-[-70px] blur-[100px] rounded-full"></div>
         </div>
-        {/* <Header /> NAVBAR */}
         <div className="content sm:w-[600px] w-full">{children}</div>
       </main>
     </>
