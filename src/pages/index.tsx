@@ -18,9 +18,8 @@ export const Home: NextPage<Props> = ({ posts }) => {
       <ul className="flex justify-start gap-2 overflow-x-auto">
         <TopicButton title="all" />
       </ul>
-      {posts.map((post: PostType) => (
-        <Post key={post.link} post={post} />
-      ))}
+      {posts &&
+        posts.map((post: PostType) => <Post key={post.link} post={post} />)}
     </>
   );
 };
