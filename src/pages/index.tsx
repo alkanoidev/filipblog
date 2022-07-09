@@ -4,7 +4,7 @@ import Header from "../components/Header";
 import { Post } from "../components/Post";
 import PostType from "../types/Post";
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps = async () => {
   const { posts } = require("../utils/getAllPosts");
   return { props: { posts: JSON.parse(JSON.stringify(posts)) } };
 };
@@ -13,10 +13,10 @@ export const Home: NextPage<Props> = ({ posts }) => {
   return (
     <>
       <Header />
-      <ul className="flex justify-start gap-2 overflow-x-auto">
+      <ul className="flex m-0 justify-start gap-2 overflow-x-auto">
         <TopicButton title="all" />
       </ul>
-      <ul className="flex flex-col gap-3 my-5 mx-1">
+      <ul className="flex items-center flex-col gap-3 my-5">
         {posts &&
           posts.map((post: PostType) => <Post key={post.link} post={post} />)}
       </ul>

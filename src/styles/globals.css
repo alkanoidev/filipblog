@@ -42,3 +42,6 @@ label {
 ul {
   @apply list-disc my-2 ml-5;
 }
+a {
+  @apply text-secondary;
+}
