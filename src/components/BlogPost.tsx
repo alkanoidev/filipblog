@@ -13,10 +13,7 @@ export default function BlogPost({
     <>
       <h1 className="my-3">{meta.title}</h1>
       <StatsTray meta={meta} />
-      <article className="mt-3">
-        {/* <ReactMarkdown>{children}</ReactMarkdown> */}
-        {children}
-      </article>
+      <article className="mt-3">{children}</article>
       <BackButton to={meta.minifiedTitle} />
     </>
   );
