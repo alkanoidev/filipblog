@@ -7,7 +7,8 @@ import PostType from "../types/Post";
 
 export const getStaticProps: GetStaticProps = async () => {
   const { posts } = require("../utils/getAllPosts");
-  let topics: any = [];
+  let topics: Array<string> = [];
+  topics.push("All");
   posts.map((post: any) => {
     topics.push(...post.module.meta.topics);
   });
@@ -18,21 +19,30 @@ export const getStaticProps: GetStaticProps = async () => {
 };
 
 export const Home: NextPage<Props> = ({ allPosts, topics }) => {
-  const [posts, setPosts] = useState(allPosts);
-  const [selectedTopic, setSelectedTopic] = useState("React");
+  const [posts, setPosts] = useState<PostType[] | undefined>(allPosts);
+  const [selectedTopic, setSelectedTopic] = useState<string | null>(null); // kada je prazno error
+
   useEffect(() => {
-    const items = allPosts.map((post) => {
-      if (post.module.meta.topics.includes(selectedTopic)) {
-        return post;
-      }
-      return;
-    });
-    const filtered = items.filter((item) => {
-      return item !== undefined;
-    });
-    console.log(filtered);
-    setPosts(filtered);
-    // setPosts(items.length);
+    if (!selectedTopic || selectedTopic.toLowerCase() === "all") {
+      setPosts(allPosts);
+    } else {
+      const items = allPosts.map((post) => {
+        if (post.module.meta.topics.includes(selectedTopic)) {
+          return post;
+        }
+        return null;
+      });
+      let filtered;
+      items.map((item) => {
+        if (item !== null) {
+          filtered = items.filter((item) => {
+            return item !== null;
+          });
+        }
+      });
+
+      setPosts(filtered);
+    }
   }, [selectedTopic]);
 
   return (
@@ -40,7 +50,13 @@ export const Home: NextPage<Props> = ({ allPosts, topics }) => {
       <Header />
       <ul className="flex justify-center flex-wrap gap-2 my-5 overflow-x-auto">
         {topics.map((topic) => (
-          <TopicButton title={topic} key={topic} />
+          <TopicButton
+            onClick={() => {
+              setSelectedTopic(topic);
+            }}
+            title={topic}
+            key={topic}
+          />
         ))}
       </ul>
       <ul className="flex items-center flex-col gap-3 my-5">
