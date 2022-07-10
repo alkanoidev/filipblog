@@ -1,4 +1,5 @@
 import type { GetStaticProps, NextPage } from "next";
+import { useEffect, useState } from "react";
 import TopicButton from "../components/Buttons/TopicButton";
 import Header from "../components/Header";
 import { Post } from "../components/Post";
@@ -12,11 +13,28 @@ export const getStaticProps: GetStaticProps = async () => {
   });
 
   return {
-    props: { posts: JSON.parse(JSON.stringify(posts)), topics },
+    props: { allPosts: JSON.parse(JSON.stringify(posts)), topics },
   };
 };
 
-export const Home: NextPage<Props> = ({ posts, topics }) => {
+export const Home: NextPage<Props> = ({ allPosts, topics }) => {
+  const [posts, setPosts] = useState(allPosts);
+  const [selectedTopic, setSelectedTopic] = useState("React");
+  useEffect(() => {
+    const items = allPosts.map((post) => {
+      if (post.module.meta.topics.includes(selectedTopic)) {
+        return post;
+      }
+      return;
+    });
+    const filtered = items.filter((item) => {
+      return item !== undefined;
+    });
+    console.log(filtered);
+    setPosts(filtered);
+    // setPosts(items.length);
+  }, [selectedTopic]);
+
   return (
     <>
       <Header />
@@ -33,6 +51,6 @@ export const Home: NextPage<Props> = ({ posts, topics }) => {
   );
 };
 
-type Props = { posts: PostType[]; topics: Array<string> };
+type Props = { allPosts: PostType[]; topics: Array<string> };
 
 export default Home;
