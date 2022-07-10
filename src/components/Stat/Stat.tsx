@@ -13,10 +13,10 @@ export default function Stat({ title, icon, data, dontShowDot }: PropTypes) {
           .
         </div>
       )}
-      <div className="flex items-center gap-1 text-light-text/50 dark:text-dark-text/50">
+      <div className="flex items-center gap-1 text-light-text/80 dark:text-dark-text/50">
         {icon && icon}
         {data}
-        <span className="text-light-text/50 dark:text-dark-text/50">
+        <span className="text-light-text/80 dark:text-dark-text/50">
           {title && title}
         </span>
       </div>

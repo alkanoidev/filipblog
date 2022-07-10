@@ -1,6 +1,7 @@
 import PostType from "../types/Post";
 import { useRouter } from "next/router";
 import StatsTray from "./StatsTray";
+import TopicsTray from "./TopicsTray";
 
 export const Post = ({ post }: { post: PostType }) => {
   const {
@@ -21,6 +22,7 @@ export const Post = ({ post }: { post: PostType }) => {
     >
       <h2>{meta.title}</h2>
       <StatsTray meta={meta} />
+      <TopicsTray topics={meta.topics} />
       <p>{meta.description}</p>
     </article>
   );

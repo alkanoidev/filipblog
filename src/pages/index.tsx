@@ -6,15 +6,24 @@ import PostType from "../types/Post";
 
 export const getStaticProps: GetStaticProps = async () => {
   const { posts } = require("../utils/getAllPosts");
-  return { props: { posts: JSON.parse(JSON.stringify(posts)) } };
+  let topics: any = [];
+  posts.map((post: any) => {
+    topics.push(...post.module.meta.topics);
+  });
+
+  return {
+    props: { posts: JSON.parse(JSON.stringify(posts)), topics },
+  };
 };
 
-export const Home: NextPage<Props> = ({ posts }) => {
+export const Home: NextPage<Props> = ({ posts, topics }) => {
   return (
     <>
       <Header />
-      <ul className="flex m-0 justify-start gap-2 overflow-x-auto">
-        <TopicButton title="all" />
+      <ul className="flex justify-center flex-wrap gap-2 my-5 overflow-x-auto">
+        {topics.map((topic) => (
+          <TopicButton title={topic} key={topic} />
+        ))}
       </ul>
       <ul className="flex items-center flex-col gap-3 my-5">
         {posts &&
@@ -24,6 +33,6 @@ export const Home: NextPage<Props> = ({ posts }) => {
   );
 };
 
-type Props = { posts: PostType[] };
+type Props = { posts: PostType[]; topics: Array<string> };
 
 export default Home;

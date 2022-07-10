@@ -1,14 +1,8 @@
 function TopicButton({ title }: { title: string }) {
   return (
-    <div className="bg-gradient-to-tr p-[2px] my-2 mt-4 from-primary to-secondary rounded-md group">
-      <button
-        className="text-dark transition duration-200 capitalize 
-        group-hover:bg-transparent bg-light dark:bg-dark dark:text-light 
-        font-bold rounded-md px-3 group-hover:text-dark"
-      >
-        {title}
-      </button>
-    </div>
+    <button className="rounded-md transition ease-out hover:bg-secondary/50 dark:hover:bg-secondary/50 border-secondary/70 dark:border-secondary/80 border-2 px-2">
+      {title}
+    </button>
   );
 }
 
