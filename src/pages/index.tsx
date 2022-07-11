@@ -54,6 +54,7 @@ export const Home: NextPage<Props> = ({ allPosts, topics }) => {
             onClick={() => {
               setSelectedTopic(topic);
             }}
+            selectedTopic={selectedTopic}
             title={topic}
             key={topic}
           />
