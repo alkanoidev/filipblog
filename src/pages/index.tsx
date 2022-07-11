@@ -12,6 +12,9 @@ export const getStaticProps: GetStaticProps = async () => {
   posts.map((post: any) => {
     topics.push(...post.module.meta.topics);
   });
+  topics = topics.filter((topic, index) => {
+    return topics.indexOf(topic) === index;
+  });
 
   return {
     props: { allPosts: JSON.parse(JSON.stringify(posts)), topics },
@@ -48,7 +51,7 @@ export const Home: NextPage<Props> = ({ allPosts, topics }) => {
   return (
     <>
       <Header />
-      <ul className="flex justify-center flex-wrap gap-2 my-5 overflow-x-auto">
+      <ul className="flex justify-start gap-2 w-full my-5 overflow-x-auto pb-2">
         {topics.map((topic) => (
           <TopicButton
             onClick={() => {
