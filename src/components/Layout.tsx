@@ -2,7 +2,7 @@ import dynamic from "next/dynamic";
 import Head from "next/head";
 import Footer from "./Footer";
 
-const ScrollToTop = dynamic(() => import("./Buttons/ScrollToTop/ScrollToTop"), {
+const ScrollToTop = dynamic(() => import("./Buttons/ScrollToTop"), {
   ssr: false,
 });
 

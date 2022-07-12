@@ -5,7 +5,6 @@
 
 * {
   font-family: "Karla", sans-serif;
-  @apply text-light-text dark:text-dark-text;
 }
 
 html {
@@ -16,13 +15,14 @@ html {
 body {
   min-height: 100vh;
   @apply bg-light dark:bg-dark;
+  @apply text-light-text dark:text-dark-text;
 }
 #__next {
   width: 100%;
   height: 100%;
 }
 h1 {
-  @apply text-4xl text-light-text dark:text-dark-text;
+  @apply text-4xl;
 }
 h2,
 i {
@@ -40,7 +40,7 @@ label {
   @apply text-base;
 }
 a {
-  @apply text-secondary;
+  @apply text-secondary underline hover:text-secondary/50 transition;
 }
 .blog-content {
   h1 {
@@ -92,22 +92,9 @@ a {
     }
   }
 }
-::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  @apply bg-light dark:bg-dark;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  @apply bg-secondary rounded-md;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  @apply bg-secondary/80;
+footer {
+  a {
+    text-decoration: underline;
+    @apply transition hover:text-secondary/50;
+  }
 }
