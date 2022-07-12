@@ -1,4 +1,10 @@
+import dynamic from "next/dynamic";
 import Head from "next/head";
+import Footer from "./Footer";
+
+const ScrollToTop = dynamic(() => import("./Buttons/ScrollToTop/ScrollToTop"), {
+  ssr: false,
+});
 
 export default function Layout({
   children,
@@ -24,7 +30,12 @@ export default function Layout({
           <div className="w-1/2 h-32 bg-primary relative top-[-70px]  blur-[50px] dark:blur-[80px] sm:blur-[50px] dark:sm:blur-[100px] rounded-full"></div>
           <div className="w-1/2 h-32 bg-secondary relative top-[-70px] blur-[50px] dark:blur-[80px] sm:blur-[50px] dark:sm:blur-[100px] rounded-full"></div>
         </div>
-        <div className="content sm:w-[600px] w-full">{children}</div>
+        <div className="content sm:w-[600px] w-full">
+          {children}
+
+          <Footer />
+          <ScrollToTop />
+        </div>
       </main>
     </>
   );
