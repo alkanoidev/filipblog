@@ -15,10 +15,12 @@ export default function BlogPost({
       <Head>
         <title>{meta.title}</title>
       </Head>
-      <BackButton to={meta.minifiedTitle} />
-      <h1 className="my-3">{meta.title}</h1>
-      <StatsTray meta={meta} />
-      <article className="mt-3 mb-6 blog-content">{children}</article>
+      <div className="flex w-full flex-col">
+        <BackButton to={meta.minifiedTitle} />
+        <h1 className="my-3">{meta.title}</h1>
+        <StatsTray meta={meta} />
+        <article className="mt-3 mb-6 blog-content">{children}</article>
+      </div>
     </>
   );
 }

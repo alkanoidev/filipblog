@@ -14,6 +14,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
     <motion.div
       key={router.route}
       variants={variants}
+      className="h-full"
       initial="hidden"
       animate="enter"
       exit="exit"
