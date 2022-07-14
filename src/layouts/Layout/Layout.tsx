@@ -1,11 +1,14 @@
 import dynamic from "next/dynamic";
 import Head from "next/head";
-import BackgroundLight from "./BackgroundLight";
-import Footer from "./Footer";
+import BackgroundLight from "../../components/BackgroundLight";
+import Footer from "../../components/Footer";
 
-const ScrollToTop = dynamic(() => import("./Buttons/ScrollToTop"), {
-  ssr: false,
-});
+const ScrollToTop = dynamic(
+  () => import("../../components/Buttons/ScrollToTop"),
+  {
+    ssr: false,
+  }
+);
 
 export default function Layout({
   children,
@@ -28,7 +31,7 @@ export default function Layout({
 
       <div className="w-full h-full relative z-0 flex flex-col items-center px-2 sm:px-0">
         <BackgroundLight />
-        <main className="content min-h-screen flex flex-col justify-between sm:w-[600px] mt-10 w-full">
+        <main className="content min-h-screen flex flex-col justify-between sm:w-[600px] pt-10 w-full">
           {children}
 
           <Footer />

@@ -1,10 +1,10 @@
 import type { GetStaticProps, NextPage } from "next";
 import { useEffect, useState } from "react";
 import TopicButton from "../components/Buttons/TopicButton";
-import Header from "../components/Header";
-import { Post } from "../components/Post";
+import PostLink from "../components/PostLink";
 import PostType from "../types/Post";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
+import TopAppBar from "../components/TopAppBar";
 
 export const getStaticProps: GetStaticProps = async () => {
   const { posts } = require("../utils/getAllPosts");
@@ -51,7 +51,9 @@ export const Home: NextPage<Props> = ({ allPosts, topics }) => {
 
   return (
     <div>
-      <Header />
+      <div className=" flex flex-col gap-3">
+        <TopAppBar />
+      </div>
       <ul className="flex justify-start gap-2 w-full mt-5 overflow-x-auto">
         {topics.map((topic) => (
           <TopicButton
@@ -64,24 +66,17 @@ export const Home: NextPage<Props> = ({ allPosts, topics }) => {
           />
         ))}
       </ul>
-      <motion.div
-        className="content"
-        variants={container}
-        initial="initial"
-        animate="animate"
-      >
-        <ul className="flex items-center flex-col gap-5 px-2 sm:px-0 my-5">
-          {posts &&
-            posts.map((post: PostType) => <Post key={post.link} post={post} />)}
-        </ul>
-      </motion.div>
+
+      <ul className="flex items-center flex-col gap-5 px-2 sm:px-0 my-5">
+        {posts &&
+          posts.map((post: PostType) => (
+            <PostLink key={post.link} post={post} />
+          ))}
+      </ul>
     </div>
   );
 };
-const container = {
-  initial: { opacity: 0 },
-  animate: { opacity: 1, transition: { staggerChildren: 0.12 } },
-};
+
 type Props = { allPosts: PostType[]; topics: Array<string> };
 
 export default Home;
