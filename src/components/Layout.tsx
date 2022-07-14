@@ -26,15 +26,15 @@ export default function Layout({
         <link rel="manifest" href="/site.webmanifest" />
       </Head>
 
-      <main className="w-full h-full flex flex-col items-center px-2 sm:px-0">
+      <div className="w-full h-full relative z-0 flex flex-col items-center px-2 sm:px-0">
         <BackgroundLight />
-        <div className="content min-h-screen flex flex-col justify-start sm:w-[600px] mt-10 w-full">
+        <main className="content min-h-screen flex flex-col justify-between sm:w-[600px] mt-10 w-full">
           {children}
 
           <Footer />
           <ScrollToTop />
-        </div>
-      </main>
+        </main>
+      </div>
     </>
   );
 }

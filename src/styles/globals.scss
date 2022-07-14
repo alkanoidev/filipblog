@@ -44,22 +44,22 @@ a {
 }
 .blog-content {
   h1 {
-    @apply text-5xl text-primary;
+    @apply text-5xl text-primary font-bold;
   }
   h2 {
-    @apply text-4xl text-secondary;
+    @apply text-4xl text-primary;
   }
   h3 {
-    @apply text-3xl text-secondary;
+    @apply text-3xl text-primary;
   }
   h4 {
-    @apply text-2xl text-secondary;
+    @apply text-2xl text-primary;
   }
   h5 {
-    @apply text-xl text-secondary;
+    @apply text-xl text-primary;
   }
   h6 {
-    @apply text-lg text-secondary;
+    @apply text-lg text-primary;
   }
   h1,
   h2,
@@ -76,19 +76,13 @@ a {
     @apply text-base w-full;
   }
   a {
-    @apply text-primary underline;
+    @apply text-secondary hover:text-secondary/50 transition underline;
   }
   blockquote {
     @apply bg-off-light my-5 rounded-lg dark:bg-off-dark p-4 flex gap-2 items-center;
     &::before {
       content: ">";
       @apply text-3xl;
-    }
-  }
-  code {
-    @apply text-light/50;
-    * {
-      @apply text-light/50;
     }
   }
 }

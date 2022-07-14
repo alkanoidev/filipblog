@@ -5,19 +5,19 @@ export default function ScrollToTop() {
   const [classes, setClasses] = useState("");
 
   useEffect(() => {
+    setClasses("translate-y-[100px]");
+
     document.addEventListener("scroll", () => {
       if (
         document.documentElement.scrollTop > 200 ||
         document.body.scrollTop > 200
       ) {
-        // Show button
         setClasses("translate-y-0");
       } else {
-        // Hide button
         setClasses("translate-y-[100px]");
       }
     });
-  }, [document.body.scrollTop, document.documentElement.scrollTop]);
+  }, []);
 
   return (
     <button

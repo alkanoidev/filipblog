@@ -4,7 +4,7 @@ type Props = {};
 
 export default function Footer({}: Props) {
   return (
-    <footer className="w-full mt-20 mb-5 flex justify-start flex-col sm:flex-row sm:justify-between">
+    <footer className="w-full mt-auto mb-10 flex justify-start flex-col sm:flex-row sm:justify-between">
       <p>
         Built with{" "}
         <a className="text-secondary" href="https://nextjs.org/">

@@ -4,6 +4,7 @@ import TopicButton from "../components/Buttons/TopicButton";
 import Header from "../components/Header";
 import { Post } from "../components/Post";
 import PostType from "../types/Post";
+import { motion } from "framer-motion";
 
 export const getStaticProps: GetStaticProps = async () => {
   const { posts } = require("../utils/getAllPosts");
@@ -23,7 +24,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
 export const Home: NextPage<Props> = ({ allPosts, topics }) => {
   const [posts, setPosts] = useState<PostType[] | undefined>(allPosts);
-  const [selectedTopic, setSelectedTopic] = useState<string | null>(null); // kada je prazno error
+  const [selectedTopic, setSelectedTopic] = useState<string | null>(null);
 
   useEffect(() => {
     if (!selectedTopic || selectedTopic.toLowerCase() === "all") {
@@ -49,9 +50,9 @@ export const Home: NextPage<Props> = ({ allPosts, topics }) => {
   }, [selectedTopic]);
 
   return (
-    <>
+    <div>
       <Header />
-      <ul className="flex justify-start gap-2 w-full my-5 overflow-x-auto pb-2">
+      <ul className="flex justify-start gap-2 w-full mt-5 overflow-x-auto">
         {topics.map((topic) => (
           <TopicButton
             onClick={() => {
@@ -63,14 +64,24 @@ export const Home: NextPage<Props> = ({ allPosts, topics }) => {
           />
         ))}
       </ul>
-      <ul className="flex items-center flex-col gap-3 my-5">
-        {posts &&
-          posts.map((post: PostType) => <Post key={post.link} post={post} />)}
-      </ul>
-    </>
+      <motion.div
+        className="content"
+        variants={container}
+        initial="initial"
+        animate="animate"
+      >
+        <ul className="flex items-center flex-col gap-5 px-2 sm:px-0 my-5">
+          {posts &&
+            posts.map((post: PostType) => <Post key={post.link} post={post} />)}
+        </ul>
+      </motion.div>
+    </div>
   );
 };
-
+const container = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1, transition: { staggerChildren: 0.12 } },
+};
 type Props = { allPosts: PostType[]; topics: Array<string> };
 
 export default Home;

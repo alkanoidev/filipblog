@@ -4,7 +4,7 @@ export default function BackgroundLight() {
       width="921"
       height="515"
       viewBox="0 0 921 515"
-      className="w-full sm:w-auto fixed top-0 z-0 pointer-events-none"
+      className="w-auto block fixed h-56 sm:h-auto top-0 z-[-1] pointer-events-none"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -34,9 +34,9 @@ export default function BackgroundLight() {
           width="919.429"
           height="787.522"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -45,6 +45,7 @@ export default function BackgroundLight() {
           />
           <feGaussianBlur
             stdDeviation="58.5"
+            // stdDeviation="36"
             result="effect1_foregroundBlur_30_18"
           />
         </filter>
