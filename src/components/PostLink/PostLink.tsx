@@ -20,10 +20,10 @@ export const PostLink = ({ post }: { post: PostType }) => {
 			hover:cursor-pointer hover:shadow-[0px_0px_10px_-1px_rgba(0,0,0,0.50)] hover:shadow-secondary 
       hover:ring-secondary hover:ring-[1px] shadow hover:text-light-text dark:hover:text-dark-text"
       layout="position"
-      initial={{ filter: "blur(20px)" }}
-      animate={{ filter: "none" }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
       transition={{
-        filter: { ease: "easeIn" },
+        opacity: { ease: "easeIn" },
         layout: { duration: 0.5 },
       }}
     >

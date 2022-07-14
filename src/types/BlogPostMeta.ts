@@ -1,7 +1,7 @@
 type BlogPostMeta = {
   title: string;
   description: string;
-  date: string;
+  date: Date;
   readTime: number;
   topics: string[];
   minifiedTitle: string;

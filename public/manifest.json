@@ -1,11 +1,12 @@
 {
-    "name": "Filip's Blog",
-    "short_name": "Flog",
+    "name": "Filip's Personal Blog",
+    "short_name": "Filip's Blog",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
             "sizes": "192x192",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "maskable"
         },
         {
             "src": "/android-chrome-512x512.png",
@@ -13,7 +14,8 @@
             "type": "image/png"
         }
     ],
-    "theme_color": "#000",
-    "background_color": "#000",
-    "display": "standalone"
+    "theme_color": "#080808",
+    "background_color": "#080808",
+    "display": "standalone",
+    "start_url": "/"
 }

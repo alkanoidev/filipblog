@@ -12,6 +12,11 @@ export const getStaticProps: GetStaticProps = async () => {
   posts.map((post: any) => {
     topics.push(...post.module.meta.topics);
   });
+
+  posts.sort((a: any, b: any) => {
+    return b.module.meta.date - a.module.meta.date;
+  });
+
   topics = topics.filter((topic, index) => {
     return topics.indexOf(topic) === index;
   });
