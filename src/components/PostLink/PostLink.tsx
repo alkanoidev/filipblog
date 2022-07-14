@@ -18,13 +18,13 @@ export const PostLink = ({ post }: { post: PostType }) => {
       className="transition-all text-light-text dark:text-dark-text no-underline w-full
       ease-out flex flex-col p-6 rounded-lg gap-1 bg-off-light dark:bg-off-dark 
 			hover:cursor-pointer hover:shadow-[0px_0px_10px_-1px_rgba(0,0,0,0.50)] hover:shadow-secondary 
-      hover:ring-secondary hover:ring-[1px] shadow"
+      hover:ring-secondary hover:ring-[1px] shadow hover:text-light-text dark:hover:text-dark-text"
       layout="position"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
+      initial={{ filter: "blur(20px)" }}
+      animate={{ filter: "none" }}
       transition={{
-        opacity: { ease: "linear" },
-        layout: { duration: 0.3 },
+        filter: { ease: "easeIn" },
+        layout: { duration: 0.5 },
       }}
     >
       <h2>{meta.title}</h2>

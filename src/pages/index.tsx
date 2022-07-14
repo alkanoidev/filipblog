@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import TopicButton from "../components/Buttons/TopicButton";
 import PostLink from "../components/PostLink";
 import PostType from "../types/Post";
-import { AnimatePresence, motion } from "framer-motion";
 import TopAppBar from "../components/TopAppBar";
 
 export const getStaticProps: GetStaticProps = async () => {
