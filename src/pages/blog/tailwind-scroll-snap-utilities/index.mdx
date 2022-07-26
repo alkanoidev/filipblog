@@ -1,0 +1,163 @@
+import BlogPost from "../../../components/BlogPost";
+import Component1 from "./_Component1.tsx";
+import Component2 from "./_Component2.tsx";
+import Component3 from "./_Component3.tsx";
+import Component4 from "./_Component4.tsx";
+import Component5 from "./_Component5.tsx";
+import Component6 from "./_Component6.tsx";
+import Component7 from "./_Component7.tsx";
+import Component8 from "./_Component8.tsx";
+import TOC from "../../../components/TOC";
+
+export const meta = {
+  title: "Tailwind Scroll Snap Utilities",
+  minifiedTitle: "tailwind-scroll-snap-utilities",
+  description:
+    "Learn how to implement scroll snapping utilities in tailwindcss.",
+  date: new Date("July 26, 2022"),
+  readTime: 5,
+  topics: ["TailwindCSS", "tips-and-snippets"],
+};
+export default ({ children }) => <BlogPost meta={meta}>{children}</BlogPost>;
+
+<TOC>
+  <ul>
+    <li>[What is Scroll Snap?](#what-is-scroll-snap?)</li>
+    <li>[Quick Demo](#quick-demo)</li>
+    <li>[Scroll Snapping in Tailwind](#scroll-snapping-in-tailwind)</li>
+    <ul>
+      <li>[Scroll Snap Type](#scroll-snap-type)</li>
+      <ul>
+        <li>[snap-y](#snap-y)</li>
+        <li>[snap-mandatory](#snap-mandatory)</li>
+        <li>[snap-proximity](#snap-proximity)</li>
+      </ul>
+      <li>[Scroll Snap Align](#scroll-snap-align)</li>
+      <ul>
+        <li>[snap-center](#snap-center)</li>
+        <li>[snap-start](#snap-start)</li>
+        <li>[snap-end](#snap-end)</li>
+      </ul>
+      <li>[Scroll Snap Stop](#scroll-snap-stop)</li>
+      <ul>
+        <li>[snap-always](#snap-always)</li>
+        <li>[snap-normal](#snap-normal)</li>
+      </ul>
+      <li>[Snap Padding](#snap-padding)</li>
+      <li>[Snap Margin](#snap-margin)</li>
+    </ul>
+
+  </ul>
+</TOC>
+
+## What is Scroll Snap? <a name="what-is-scroll-snap?"></a>
+
+Scroll snapping is a CSS technique that allows customizable scrolling experiences.
+This gives us a way to scroll to certain points as the user scrolls through a document.
+This can be helpful in creating a more app-like experience on mobile.
+
+### Quick Demo <a name="quick-demo"></a>
+
+<Component1 />
+
+## Scroll Snapping in Tailwind <a name="scroll-snapping-in-tailwind"></a>
+
+Utility classes for scroll snapping were added in TailwindCSS v3  
+With these classes we can define things like scroll snap type, alignment, whether the scrolling will always be stopped on an element, padding and margin for items.
+
+### Scroll Snap Type <a name="scroll-snap-type"></a>
+
+Define the orientation of the snap container and how strict it is on the elements.
+
+- These classes can only be applied to scrolling containers.
+
+| Class            | Description                                                 |
+| ---------------- | ----------------------------------------------------------- |
+| `snap-x`         | enable horizontal scroll snapping                           |
+| `snap-y`         | enable vertical scroll snapping                             |
+| `snap-mandatory` | force a snap container to always come to rest on an element |
+| `snap-proximity` | don't force a snap container to always rest on an element   |
+| `snap-both`      | enable horizontal as well as vertical scroll snapping       |
+| `snap-none`      | disable scroll snapping                                     |
+
+#### snap-x <a name="snap-x"></a>
+
+<Component1 />
+
+#### snap-y <a name="snap-y"></a>
+
+<Component2 />
+
+#### snap-mandatory <a name="snap-mandatory"></a>
+
+<Component3 />
+
+#### snap-proximity <a name="snap-proximity"></a>
+
+<Component4 />
+
+### Scroll Snap Align <a name="scroll-snap-align"></a>
+
+These classes are used to specify the alignment of elements in a container.
+To put it in another way: how the item is positioned when snapped.
+
+- Apply these classes to elements inside a container
+
+| Class         | Description                              |
+| ------------- | ---------------------------------------- |
+| `snap-center` | align in the center of the container     |
+| `snap-start`  | align on the left side of the container  |
+| `snap-end`    | align on the right side of the container |
+
+#### snap-center <a name="snap-center"></a>
+
+<Component5 position="snap-center" />
+
+#### snap-start <a name="snap-start"></a>
+
+<Component5 position="snap-start" />
+
+#### snap-end <a name="snap-end"></a>
+
+<Component5 position="snap-end" />
+
+### Scroll Snap Stop <a name="scroll-snap-stop"></a>
+
+Define whether the scrolling should always be stopped on an element or not.
+
+| Class         | Description                                      |
+| ------------- | ------------------------------------------------ |
+| `snap-always` | always stop on an element while scrolling        |
+| `snap-normal` | allow scrolling to be stopped outside an element |
+
+#### snap-always <a name="snap-always"></a>
+
+<Component6 stop="snap-always" />
+
+#### snap-normal <a name="snap-normal"></a>
+
+<Component6 stop="snap-normal" />
+
+### Snap Padding <a name="snap-padding"></a>
+
+Define the offset of an element within a snap container.
+You can use it like: `scroll-` followed by the usual padding class.
+For Example: `scroll-px-3`
+
+- Apply these to the container
+
+<Component7 />
+
+### Snap Margin <a name="snap-margin"></a>
+
+Define gaps around elements in a snap container.
+You can use it like: `scroll-` followed by the usual margin classes.
+For Example: `scroll-ml-3`
+
+- Apply it to the elements within the scrolling container.
+
+<Component8 />
+
+##### Thank you for reading all the way through!
+
+![](https://i.giphy.com/media/Od7ni7IRVbqz6/giphy.webp)

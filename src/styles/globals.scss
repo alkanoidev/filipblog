@@ -11,6 +11,7 @@ html {
   width: 100%;
   @apply bg-light dark:bg-dark;
   scroll-behavior: smooth;
+  scroll-padding-top: 20px;
 }
 body {
   min-height: 100vh;
@@ -40,7 +41,7 @@ label {
   @apply text-base;
 }
 a {
-  @apply text-secondary underline hover:text-secondary/50 transition;
+  @apply text-secondary underline transition;
 }
 .blog-content {
   h1 {
@@ -71,18 +72,68 @@ a {
   }
   ul {
     @apply list-disc ml-5;
+    li::marker {
+      @apply text-secondary/50;
+    }
   }
   p {
     @apply text-base w-full;
   }
   a {
-    @apply text-secondary hover:text-secondary/50 transition underline;
+    @apply text-secondary transition underline;
   }
   blockquote {
     @apply bg-off-light my-5 rounded-lg dark:bg-off-dark p-4 flex gap-2 items-center;
     &::before {
       content: ">";
       @apply text-3xl;
+    }
+  }
+  tr {
+    @apply bg-off-light dark:bg-off-dark;
+  }
+
+  th,
+  td {
+    padding: 6px 13px;
+  }
+  th {
+    @apply border-b border-b-secondary;
+  }
+  table tr:nth-child(2n) {
+    @apply bg-light dark:bg-dark;
+  }
+  .TOC {
+    .list {
+      transition: all 0.2s;
+      opacity: 0;
+      transform: scaleY(40%);
+      transform-origin: top;
+      height: 0px;
+    }
+    .show {
+      opacity: 1;
+      height: 100%;
+      transform: scaleY(100%);
+    }
+    ul {
+      position: relative;
+      list-style: none;
+      li {
+        padding: 0.2rem 0px;
+        a {
+          text-decoration: none;
+          @apply hover:underline text-dark dark:text-light;
+        }
+      }
+    }
+    ul::before {
+      content: "";
+      width: 2px;
+      height: 100%;
+      @apply bg-secondary/50;
+      position: absolute;
+      left: -1rem;
     }
   }
 }

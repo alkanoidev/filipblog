@@ -7,7 +7,7 @@ type Props = {
 
 export default function TopicsTray({ topics }: Props) {
   return (
-    <ul className="w-full flex flex-wrap">
+    <ul className="w-full flex gap-2 flex-wrap">
       {topics.map((topic) => (
         <li
           key={topic}
