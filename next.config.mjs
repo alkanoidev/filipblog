@@ -3,6 +3,7 @@ import remarkGfm from "remark-gfm";
 import createMDX from "@next/mdx";
 import withPWA from "next-pwa";
 import pkg from "next-compose-plugins";
+import runtimeCaching from "next-pwa/cache.js";
 const { withPlugins } = pkg;
 
 /** @type {import('next').NextConfig} */
@@ -24,7 +25,11 @@ const withPWA1 = withPWA({
     dest: "public",
     register: true,
     skipWaiting: true,
+    runtimeCaching,
   },
 });
 
-export default withPlugins([[withMDX], [withPWA1]], nextConfig);
+export default withPlugins([[withPWA1], [withMDX]], {
+  reactStrictMode: true,
+  pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx"],
+});

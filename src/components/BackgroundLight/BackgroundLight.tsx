@@ -8,7 +8,7 @@ export default function BackgroundLight() {
       width="921"
       height="515"
       viewBox="0 0 921 515"
-      className="w-auto block absolute h-56 sm:h-auto top-0 z-[-1] pointer-events-none"
+      className="w-screen block absolute h-56 sm:h-auto top-0 z-[-1] pointer-events-none"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >

@@ -58,7 +58,7 @@ export const Home: NextPage<Props> = ({ allPosts, topics }) => {
       <div className=" flex flex-col gap-3">
         <TopAppBar />
       </div>
-      <ul className="flex justify-start gap-2 w-full mt-5 overflow-x-auto">
+      <ul className="flex justify-start gap-2 max-w-full mt-5 overflow-x-auto">
         {topics.map((topic) => (
           <TopicButton
             onClick={() => {
