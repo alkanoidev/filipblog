@@ -104,17 +104,22 @@ a {
     @apply bg-light dark:bg-dark;
   }
   .TOC {
+    transition: height 2s;
+
     .list {
       transition: all 0.2s;
       opacity: 0;
-      transform: scaleY(40%);
+      position: absolute;
+      z-index: 1;
+      visibility: hidden;
+      transform: translateY(-50px);
       transform-origin: top;
-      height: 0px;
+      left: 0px;
     }
     .show {
       opacity: 1;
-      height: 100%;
-      transform: scaleY(100%);
+      visibility: visible;
+      transform: translateY(0px);
     }
     ul {
       position: relative;
