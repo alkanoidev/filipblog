@@ -1,22 +1,9 @@
 /** @type {import('next').NextConfig} */
-// const runtimeCaching = require("next-pwa/cache");
-// const withPlugins = require("next-compose-plugins");
-// const withPWA = require("next-pwa")({
-//   pwa: {
-//     dest: "public",
-//     runtimeCaching,
-//     register: true,
-//     skipWaiting: true,
-//   },
-// });
-
-// module.exports = withPWA(
-//   withMDX({
-//     pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx"],
-//   })
-// );
 import remarkGfm from "remark-gfm";
 import createMDX from "@next/mdx";
+import withPWA from "next-pwa";
+import pkg from "next-compose-plugins";
+const { withPlugins } = pkg;
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -32,4 +19,12 @@ const withMDX = createMDX({
   },
 });
 
-export default withMDX(nextConfig);
+const withPWA1 = withPWA({
+  pwa: {
+    dest: "public",
+    register: true,
+    skipWaiting: true,
+  },
+});
+
+export default withPlugins([[withMDX], [withPWA1]], nextConfig);
