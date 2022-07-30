@@ -5,6 +5,7 @@ import withPWA from "next-pwa";
 import pkg from "next-compose-plugins";
 import runtimeCaching from "next-pwa/cache.js";
 const { withPlugins } = pkg;
+import remarkPrism from "remark-prism";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -15,7 +16,7 @@ const nextConfig = {
 const withMDX = createMDX({
   extension: /\.mdx?$/,
   options: {
-    remarkPlugins: [remarkGfm],
+    remarkPlugins: [remarkGfm, remarkPrism],
     rehypePlugins: [],
   },
 });

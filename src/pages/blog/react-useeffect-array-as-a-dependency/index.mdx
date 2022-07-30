@@ -1,6 +1,5 @@
-import { CopyBlock, atomOneDark } from "react-code-blocks";
 import BlogPost from "../../../components/BlogPost";
-
+import TOC from "../../../components/TOC";
 export const meta = {
   title: "React useEffect: array as a dependency",
   minifiedTitle: "react-useeffect-array-as-a-dependency",
@@ -11,54 +10,63 @@ export const meta = {
 };
 export default ({ children }) => <BlogPost meta={meta}>{children}</BlogPost>;
 
-## Introduction
+<TOC>
+  <ul>
+    <li>[Introduction](#intro)</li>
+    <li>[useEffect](#use-effect)</li>
+    <li>[useEffect Structure](#use-effect-structure)</li>
+    <li>[Dependencies](#dependencies)</li>
+    <li>[Array As Dependency](#array-as-dependency)</li>
+    <li>[The Problematic Code](#the-problematic-code)</li>
+    <li>[Solution](#solution)</li>
+    <li>[Final Code](#final-code)</li>
+    <li>[Summary](#summary)</li>
+    <li>[Author](#author)</li>
+  </ul>
+</TOC>
 
-Generally, infinite loops are seen as bad practices. But in some cases you don’t have any other choices. When the infinite loop is running without any breaking points the browser will kill the tab on witch your code is running. We of course need to prevent that from happening.
+## Introduction <a name="intro"></a>
 
-## useEffect
+Generally, infinite loops are seen as bad practices. But in some cases you don’t have any other choices.
+When the infinite loop is running without any breaking points the browser will kill the tab on witch your code is running. We of course need to prevent that from happening.
 
-useEffect hook allows us to perform side effects in functional components. In earlier versions of React, we had lifecycle methods for each one of the side effects such as componentDidMount, componentDidUpdate, componentWillUnmount,...
+## useEffect <a name="use-effect"></a>
 
+useEffect hook allows us to perform side effects in functional components. In earlier versions of React, we had lifecycle methods for each one of the side effects such as componentDidMount, componentDidUpdate, componentWillUnmount,...  
 useEffect accepts a callback function that will be fired on every render of the component or when a certain value changes that is passed to the dependency array.
 [Using the useEffect Hook](https://reactjs.org/docs/hooks-effect.html)
 
-## useEffect structure
+## useEffect Structure <a name="use-effect-structure"></a>
 
-<CopyBlock
-  text={`useEffect(() => {
+```js
+useEffect(
+  () => {
     // Mounting
     return () => {
-        // Cleanup function
-    }
-}, [ // Dependency array ])`}
-  language="js"
-  theme={atomOneDark}
-  showLineNumbers={props.showLineNumbers}
-  wrapLines
-/>
+      // Cleanup function
+    };
+  },
+  [ // Dependency array ]
+);
+```
 
-## Dependencies
+## Dependencies <a name="dependencies"></a>
 
-The dependency array is the second optional argument in the useEffect hook. It is an array of dependencies that when changed from the previous render will call the callback function passed as the first argument.
+The dependency array is the second optional argument in the useEffect hook.  
+It is an array of dependencies that when changed from the previous render will call the callback function passed as the first argument.
 
-## Array as dependency
+## Array As Dependency <a name="array-as-dependency"></a>
 
-In JavaScript, the shallow comparison for two arrays is always **false**.
+In JavaScript, the shallow comparison for two arrays is always **false**.  
 That's why passing an array as a dependency will lead to an infinite loop.
 
-<CopyBlock
-  text={`[] === []; // false`}
-  language="js"
-  theme={atomOneDark}
-  showLineNumbers={props.showLineNumbers}
-  wrapLines
-/>
+```js
+[] === []; // false
+```
 
-## The problematic code
+## The Problematic Code <a name="the-problematic-code"></a>
 
-<CopyBlock
-  text={`import React, { useEffect, useState } from "react";
-
+```js import React, {(useEffect, useState)} from "react";
 export default function App() {
   const [items, setItems] = useState([]);
   useEffect(() => {
@@ -71,46 +79,42 @@ export default function App() {
     };
 
     getItems();
+  }, [items]);
 
-}, [items]);
+  return (
+    <div className="App">
+      {items.map((item) => (
+        <Item item={item} />
+      ))}
+    </div>
+  );
+}
+```
 
-return (
+Here we are trying to fetch some data whenever the items array changes,
+but we are setting the items over and over again in the same useEffect where it is
+used as a dependency, which leads to an infinite loop.
 
-<div className="App">
-  {items.map((item) => (
-    <Item item={item} />
-  ))}
-</div>
-); }`} language="js" theme={atomOneDark}
-showLineNumbers={props.showLineNumbers}
-wrapLines />
+## Solution <a name="solution"></a>
 
-Here we are trying to fetch some data whenever the items array changes, but we are setting the items over and over again in the same useEffect where it is used as a dependency, which leads to an infinite loop.
-
-## Solution
-
-To solve this problem we need to use a hook called `useRef`.  
+To solve this problem we need to use a hook called `useRef`.
 useRef hook returns a mutable object containing a current initial value.
 We are using it like this:
 
-<CopyBlock
-  text={`const { current: itemsRef } = useRef(items);
-// passing items as the initial value`}
-  language="js"
-  theme={atomOneDark}
-  showLineNumbers={props.showLineNumbers}
-  wrapLines
-/>
+```js
+const { current: itemsRef } = useRef(items);
+// passing items as the initial value
+```
 
 Then we are passing `itemsRef` in the dependency array.  
 This now works because `useRef` creates a plain JavaScript object but remembers the initial object and it isn`t creating a new one on every render.
 
 [useRef hook reference](https://reactjs.org/docs/hooks-reference.html#useref)
 
-## Final code
+## Final Code <a name="final-code"></a>
 
-<CopyBlock
-  text={`import React, {(useEffect, useState, useRef)} from "react";
+```js
+import React, {(useEffect, useState, useRef)} from "react";
 
 export default function App() {
   const [items, setItems] = useState([]);
@@ -135,17 +139,16 @@ return (
     <Item item={item} />
   ))}
 </div>
-); }`} language="js" theme={atomOneDark}
-showLineNumbers={props.showLineNumbers}
-wrapLines />
+); }
+```
 
-## Summary
+## Summary <a name="summary"></a>
 
 We have successfully used our array as a dependency without it causing an infinite loop and costing us thousands of dollars in production.
 
 > Note: There are more ways for solving this issue, this is just one of the approaches.
 
-## Author
+## Author <a name="author"></a>
 
 Filip Ivanovic
 
@@ -157,4 +160,3 @@ Thanks for reading all the way through, I hope this has helped anyone how it wou
 <center>
   <img src="https://i.giphy.com/media/UIIUlAXbqc5rLqcAYJ/giphy.webp" />
 </center>
-```
