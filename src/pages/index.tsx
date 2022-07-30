@@ -4,6 +4,7 @@ import TopicButton from "../components/Buttons/TopicButton";
 import PostLink from "../components/PostLink";
 import PostType from "../types/Post";
 import TopAppBar from "../components/TopAppBar";
+import { motion } from "framer-motion";
 
 export const getStaticProps: GetStaticProps = async () => {
   const { posts } = require("../utils/getAllPosts");
@@ -55,21 +56,27 @@ export const Home: NextPage<Props> = ({ allPosts, topics }) => {
 
   return (
     <div>
-      <div className=" flex flex-col gap-3">
-        <TopAppBar />
-      </div>
-      <ul className="flex justify-start gap-2 max-w-full mt-5 overflow-x-auto">
-        {topics.map((topic) => (
-          <TopicButton
-            onClick={() => {
-              setSelectedTopic(topic);
-            }}
-            selectedTopic={selectedTopic}
-            title={topic}
-            key={topic}
-          />
-        ))}
-      </ul>
+      <motion.div
+        initial={{ scale: 0.5, y: -50 }}
+        animate={{ scale: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <div className=" flex flex-col gap-3">
+          <TopAppBar />
+        </div>
+        <ul className="flex justify-start gap-2 max-w-full mt-5 overflow-x-auto">
+          {topics.map((topic) => (
+            <TopicButton
+              onClick={() => {
+                setSelectedTopic(topic);
+              }}
+              selectedTopic={selectedTopic}
+              title={topic}
+              key={topic}
+            />
+          ))}
+        </ul>
+      </motion.div>
 
       <ul className="flex items-center flex-col gap-5 px-2 sm:px-0 my-5">
         {posts &&
