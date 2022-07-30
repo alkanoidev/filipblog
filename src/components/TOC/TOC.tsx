@@ -29,7 +29,7 @@ export default function TOC({ children }: { children: React.ReactNode[] }) {
       <div
         className={`list ${
           opened && "show"
-        } bg-off-light dark:bg-off-dark px-2 py-1 shadow-md w-full rounded-b-lg`}
+        } bg-off-light dark:bg-off-dark py-1 shadow-md w-full rounded-b-lg`}
       >
         {children}
       </div>
