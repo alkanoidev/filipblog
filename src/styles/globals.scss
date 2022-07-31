@@ -581,6 +581,7 @@ footer {
 @media only screen and (min-width: 700px) {
   ::-webkit-scrollbar {
     width: 8px;
+    height: 8px;
   }
 
   ::-webkit-scrollbar-track {
@@ -590,8 +591,4 @@ footer {
   ::-webkit-scrollbar-thumb {
     @apply dark:bg-primary/50 bg-primary/70;
   }
-}
-
-.avia-safari #full_slider_1 {
-  margin-top: -1px !important;
 }
