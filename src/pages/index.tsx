@@ -5,9 +5,11 @@ import PostLink from "../components/PostLink";
 import PostType from "../types/Post";
 import TopAppBar from "../components/TopAppBar";
 import { motion } from "framer-motion";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 
 export const getStaticProps: GetStaticProps = async () => {
   const { posts } = require("../utils/getAllPosts");
+
   let topics: Array<string> = [];
   topics.push("All");
   posts.map((post: any) => {
@@ -30,6 +32,7 @@ export const getStaticProps: GetStaticProps = async () => {
 export const Home: NextPage<Props> = ({ allPosts, topics }) => {
   const [posts, setPosts] = useState<PostType[] | undefined>(allPosts);
   const [selectedTopic, setSelectedTopic] = useState<string | null>(null);
+  const [blogLinksList] = useAutoAnimate<HTMLUListElement>();
 
   useEffect(() => {
     if (!selectedTopic || selectedTopic.toLowerCase() === "all") {
@@ -57,8 +60,8 @@ export const Home: NextPage<Props> = ({ allPosts, topics }) => {
   return (
     <div>
       <motion.div
-        initial={{ scale: 0.5, y: -50 }}
-        animate={{ scale: 1, y: 0 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
       >
         <div className=" flex flex-col gap-3">
@@ -78,7 +81,10 @@ export const Home: NextPage<Props> = ({ allPosts, topics }) => {
         </ul>
       </motion.div>
 
-      <ul className="flex items-center flex-col gap-5 px-2 sm:px-0 my-5">
+      <ul
+        ref={blogLinksList}
+        className="flex items-center flex-col gap-5 px-2 sm:px-0 my-5"
+      >
         {posts &&
           posts.map((post: PostType) => (
             <PostLink key={post.link} post={post} />
