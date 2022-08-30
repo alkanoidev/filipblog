@@ -22,26 +22,24 @@ export default function TOC({ children }: { children: React.ReactNode[] }) {
 
   return (
     <div
-      className={`TOC relative bg-off-light dark:bg-off-dark transition-all shadow px-3 pb-3 rounded-lg`}
+      className={`TOC relative bg-off-light dark:bg-off-dark w-full transition-all shadow px-3 pb-3 rounded-lg hover:cursor-pointer`}
       ref={wrapperRef}
+      onClick={() => {
+        setOpened((prev) => !prev);
+      }}
+      onBlur={() => {
+        setTimeout(() => {
+          setOpened(false);
+        }, 500);
+      }}
     >
       <div className="flex justify-between items-end">
         <h4 className="leading-tight text-dark dark:text-light font-normal">
           Table Of Contents
         </h4>
-        <button
-          onClick={() => {
-            setOpened((prev) => !prev);
-          }}
-          onBlur={() => {
-            setTimeout(() => {
-              setOpened(false);
-            }, 500);
-          }}
-          className="rounded-md transition ease-out px-2 mb-1 text-lg"
-        >
+        <div className="rounded-md transition ease-out px-2 mb-1 text-lg text-dark dark:text-light">
           {opened ? <FaAngleUp /> : <FaAngleDown />}
-        </button>
+        </div>
       </div>
       <div
         className={`list ${
