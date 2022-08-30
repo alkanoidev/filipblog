@@ -64,7 +64,7 @@ export const Home: NextPage<Props> = ({ allPosts, topics }) => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
       >
-        <div className=" flex flex-col gap-3">
+        <div className="flex flex-col gap-3">
           <TopAppBar />
         </div>
         <ul className="flex justify-start gap-2 max-w-full mt-5 overflow-x-auto">
