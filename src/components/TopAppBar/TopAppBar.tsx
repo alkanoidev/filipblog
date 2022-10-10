@@ -15,8 +15,8 @@ function TopAppBar({}) {
           />
         </div>
         <div>
-          <h1 className="tracking-wider">Filip</h1>
-          <h2 className="text-xl tracking-wider">Front-End Developer</h2>
+          <h1>Filip</h1>
+          <h2>Front-End Developer</h2>
         </div>
       </div>
       <div>
