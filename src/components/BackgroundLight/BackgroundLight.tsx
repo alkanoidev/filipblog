@@ -1,14 +1,10 @@
-import { useThemeContext } from "../../context/Theme";
-
 export default function BackgroundLight() {
-  const { theme } = useThemeContext();
-
   return (
     <svg
       width="921"
       height="515"
       viewBox="0 0 921 515"
-      className="w-screen sm:w-auto block absolute h-56 sm:h-auto top-0 z-[-1] pointer-events-none"
+      className="w-screen sm:w-auto md:w-[calc(100vw-30vw)] block absolute h-56 sm:h-auto top-0 z-[0] pointer-events-none"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
