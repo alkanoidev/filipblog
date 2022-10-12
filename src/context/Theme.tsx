@@ -35,8 +35,10 @@ export default function ThemeProvider({ children }: Props) {
 
     if (theme === "dark") {
       document.documentElement.classList.add("dark");
+      document.documentElement.style.colorScheme = "dark";
     } else {
       document.documentElement.classList.remove("dark");
+      document.documentElement.style.colorScheme = "light";
     }
   }, [theme]);
 

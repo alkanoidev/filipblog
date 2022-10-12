@@ -29,14 +29,14 @@ export default function Layout({
         <link rel="manifest" href="/site.webmanifest" />
       </Head>
 
-      <div className="w-full h-full relative z-0 flex flex-col items-center px-2 sm:px-0">
+      <div className="w-full h-full absolute top-0 -z-1 flex justify-center pointer-events-none">
         <BackgroundLight />
-        <main className="content min-h-screen flex flex-col justify-between sm:w-[600px] pt-10 w-full">
-          {children}
+      </div>
+      <div className="content min-h-screen flex flex-col justify-between pt-10 w-full lg:px-5 md:px-2 sm:px-2">
+        {children}
 
-          <Footer />
-          <ScrollToTop />
-        </main>
+        <Footer />
+        <ScrollToTop />
       </div>
     </>
   );

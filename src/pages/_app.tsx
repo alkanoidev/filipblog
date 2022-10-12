@@ -5,6 +5,7 @@ import ThemeProvider, { useThemeContext } from "../context/Theme";
 import { motion } from "framer-motion";
 import { useEffect } from "react";
 import Head from "next/head";
+import NextNProgress from "nextjs-progressbar";
 
 const variants = {
   hidden: { opacity: 0 },
@@ -22,6 +23,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
 
   return (
     <>
+      <NextNProgress height={3} color="#68AF73" />
       <Head>
         <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
