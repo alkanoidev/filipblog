@@ -15,7 +15,7 @@ function TopAppBar({}) {
           />
         </div>
         <div>
-          <h2>Filip's Blog</h2>
+          <h2>Filip&apos;s Blog</h2>
         </div>
       </div>
       <div>
