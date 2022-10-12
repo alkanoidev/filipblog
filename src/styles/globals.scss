@@ -5,6 +5,7 @@
 
 * {
   font-family: "Karla", sans-serif;
+  @apply selection:bg-dark selection:text-light dark:selection:bg-light dark:selection:text-dark;
 }
 
 html {
@@ -17,6 +18,8 @@ body {
   min-height: 100vh;
   @apply bg-light dark:bg-dark;
   @apply text-light-text dark:text-dark-text;
+  transition: background-color 0.2s;
+  @apply ease-out;
 }
 #__next {
   width: 100%;
@@ -105,6 +108,9 @@ a {
   }
   th {
     @apply border-b border-b-secondary;
+  }
+  table{
+    width: 100%;
   }
   table tr:nth-child(2n) {
     @apply bg-light dark:bg-dark;
@@ -575,20 +581,5 @@ footer {
   a {
     text-decoration: underline;
     @apply transition hover:text-secondary/50;
-  }
-}
-
-@media only screen and (min-width: 700px) {
-  ::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
-  }
-
-  ::-webkit-scrollbar-track {
-    @apply bg-off-light dark:bg-off-dark;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    @apply dark:bg-primary/50 bg-primary/70 rounded-full;
   }
 }

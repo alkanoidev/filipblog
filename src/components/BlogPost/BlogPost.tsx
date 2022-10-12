@@ -15,7 +15,7 @@ export default function BlogPost({
       <Head>
         <title>{meta.title}</title>
       </Head>
-      <div className="flex w-full flex-col">
+      <div className="flex lg:px-60 md:px-10 px-2 w-full flex-col">
         <BackButton to={meta.minifiedTitle} />
         <h1 className="my-3">{meta.title}</h1>
         <StatsTray meta={meta} />

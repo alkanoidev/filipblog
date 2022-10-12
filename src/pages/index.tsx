@@ -58,7 +58,7 @@ export const Home: NextPage<Props> = ({ allPosts, topics }) => {
   }, [selectedTopic]);
 
   return (
-    <div>
+    <main>
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -67,30 +67,34 @@ export const Home: NextPage<Props> = ({ allPosts, topics }) => {
         <div className="flex flex-col gap-3">
           <TopAppBar />
         </div>
-        <ul className="flex justify-start gap-2 max-w-full mt-5 overflow-x-auto">
-          {topics.map((topic) => (
-            <TopicButton
-              onClick={() => {
-                setSelectedTopic(topic);
-              }}
-              selectedTopic={selectedTopic}
-              title={topic}
-              key={topic}
-            />
-          ))}
-        </ul>
       </motion.div>
 
-      <ul
-        ref={blogLinksList}
-        className="flex items-center flex-col gap-5 px-2 sm:px-0 my-5"
-      >
-        {posts &&
-          posts.map((post: PostType) => (
-            <PostLink key={post.link} post={post} />
-          ))}
-      </ul>
-    </div>
+      <div className="home flex gap-2 lg:flex-row flex-col-reverse md:flex-col-reverse mt-5 sm:justify-between">
+        <ul
+          ref={blogLinksList}
+          className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 w-full auto-rows-auto gap-4"
+        >
+          {posts &&
+            posts.map((post: PostType) => (
+              <PostLink key={post.link} post={post} />
+            ))}
+        </ul>
+        <div className="lg:w-2/6 md:w-full sm:w-full">
+          <ul className="flex justify-start items-start flex-shrink-0 sm:flex-wrap gap-2 w-full overflow-x-auto pb-3">
+            {topics.map((topic) => (
+              <TopicButton
+                onClick={() => {
+                  setSelectedTopic(topic);
+                }}
+                selectedTopic={selectedTopic}
+                title={topic}
+                key={topic}
+              />
+            ))}
+          </ul>
+        </div>
+      </div>
+    </main>
   );
 };
 

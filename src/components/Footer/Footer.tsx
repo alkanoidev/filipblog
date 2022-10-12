@@ -1,8 +1,4 @@
-import React from "react";
-
-type Props = {};
-
-export default function Footer({}: Props) {
+export default function Footer() {
   return (
     <footer className="w-full mb-10 flex justify-start flex-col sm:flex-row sm:justify-between">
       <p>

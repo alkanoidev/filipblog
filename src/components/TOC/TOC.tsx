@@ -22,7 +22,7 @@ export default function TOC({ children }: { children: React.ReactNode[] }) {
 
   return (
     <div
-      className={`TOC relative bg-off-light dark:bg-off-dark w-full transition-all shadow px-3 pb-3 rounded-lg hover:cursor-pointer`}
+      className={`TOC relative bg-off-light dark:bg-off-dark lg:w-2/3 sm:w-full transition-all shadow px-3 pb-3 rounded-lg hover:cursor-pointer`}
       ref={wrapperRef}
       onClick={() => {
         setOpened((prev) => !prev);
