@@ -1,6 +1,3 @@
-import React from "react";
-import TopicButton from "../Buttons/TopicButton";
-
 type Props = {
   topics: Array<string>;
 };

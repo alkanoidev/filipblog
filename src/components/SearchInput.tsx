@@ -15,7 +15,7 @@ export default function SearchInput({}: Props) {
       <input
         placeholder="Search"
         type="text"
-        className="bg-off-light dark:bg-off-dark w-full h-10 leading-7 pl-10 py-4 border-2 border-transparent rounded-lg outline-none transition motion-reduce:transition-none ease-in hover:ring-2 hover:ring-secondary focus:ring-2 focus:ring-secondary"
+        className="bg-off-light dark:bg-off-dark w-full h-10 leading-7 pl-10 py-4 border-2 shadow border-transparent rounded-lg outline-none transition motion-reduce:transition-none ease-in hover:ring-2 hover:ring-secondary focus:ring-2 focus:ring-secondary"
       />
     </div>
   );

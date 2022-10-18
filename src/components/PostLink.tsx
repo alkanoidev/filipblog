@@ -1,10 +1,10 @@
-import PostType from "../../types/Post";
+import PostType from "../types/Post";
 import { useRouter } from "next/router";
-import StatsTray from "../StatsTray";
-import TopicsTray from "../TopicsTray";
+import StatsTray from "./StatsTray";
+import TopicsTray from "./TopicsTray";
 import Link from "next/dist/client/link";
 
-export const PostLink = ({ post }: { post: PostType }) => {
+const PostLink = ({ post }: { post: PostType }) => {
   const {
     link,
     module: { meta },
@@ -27,3 +27,5 @@ export const PostLink = ({ post }: { post: PostType }) => {
     </Link>
   );
 };
+
+export default PostLink;

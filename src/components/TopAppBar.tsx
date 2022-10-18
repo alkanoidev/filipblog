@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { ThemeContext } from "../../context/Theme";
+import { ThemeContext } from "../context/Theme";
 import { MdOutlineNightlight, MdOutlineLightMode } from "react-icons/md";
 
 function TopAppBar({}) {
@@ -20,7 +20,7 @@ function TopAppBar({}) {
       </div>
       <div>
         <button
-          className="text-2xl bg-off-light dark:bg-off-dark rounded-lg p-1"
+          className="text-2xl bg-off-light dark:bg-off-dark rounded-lg p-1 shadow"
           onClick={() => {
             toggleTheme();
           }}

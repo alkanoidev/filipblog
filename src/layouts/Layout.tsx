@@ -1,9 +1,9 @@
 import dynamic from "next/dynamic";
 import Head from "next/head";
-import Footer from "../../components/Footer";
+import Footer from "../components/Footer";
 
 const ScrollToTop = dynamic(
-  () => import("../../components/Buttons/ScrollToTop"),
+  () => import("../components/Buttons/ScrollToTop"),
   {
     ssr: false,
   }

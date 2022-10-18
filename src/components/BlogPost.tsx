@@ -1,6 +1,6 @@
-import BlogPostMeta from "../../types/BlogPostMeta";
-import BackButton from "../Buttons/BackButton";
-import StatsTray from "../StatsTray";
+import BlogPostMeta from "../types/BlogPostMeta";
+import BackButton from "./Buttons/BackButton";
+import StatsTray from "./StatsTray";
 import Head from "next/head";
 
 export default function BlogPost({

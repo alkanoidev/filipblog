@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { AiOutlineRead } from "react-icons/ai";
-import Stat from "../Stat/Stat";
+import Stat from "./Stat";
 
 type Props = {
   meta: {
