@@ -31,9 +31,11 @@ export const getStaticProps: GetStaticProps = async () => {
 };
 
 export const Home: NextPage<Props> = ({ allPosts, topics }) => {
-  const [posts, setPosts] = useState<PostType[] | undefined>(allPosts);
+  const [posts, setPosts] = useState<PostType[] | null>(allPosts);
   const [selectedTopic, setSelectedTopic] = useState<string | null>(null);
   const [blogLinksList] = useAutoAnimate<HTMLUListElement>();
+  const [searchQuery, setSearchQuery] = useState<string | undefined>();
+  const [searchError, setSearchError] = useState("");
 
   useEffect(() => {
     if (!selectedTopic || selectedTopic.toLowerCase() === "all") {
@@ -45,18 +47,39 @@ export const Home: NextPage<Props> = ({ allPosts, topics }) => {
         }
         return null;
       });
-      let filtered;
+      let filtered: PostType[] = [];
       items.map((item) => {
         if (item !== null) {
-          filtered = items.filter((item) => {
-            return item !== null;
-          });
+          filtered.push(item);
         }
       });
 
       setPosts(filtered);
     }
-  }, [selectedTopic]);
+    if (typeof searchQuery !== "undefined") {
+      const searchedPosts = allPosts.map((post) => {
+        if (
+          post.module.meta.title
+            .toLocaleLowerCase()
+            .includes(searchQuery.toLocaleLowerCase())
+        )
+          return post;
+      });
+      let filtered: PostType[] = [];
+      searchedPosts.map((item) => {
+        if (item !== undefined) {
+          filtered.push(item);
+        }
+      });
+      if (filtered.length > 0) {
+        setSearchError("");
+        setPosts(filtered);
+      } else {
+        setSearchError("No Posts Found ;(");
+        setPosts(null);
+      }
+    }
+  }, [selectedTopic, searchQuery]);
 
   return (
     <main>
@@ -67,7 +90,10 @@ export const Home: NextPage<Props> = ({ allPosts, topics }) => {
       >
         <div className="flex flex-col gap-3">
           <TopAppBar />
-          <SearchInput />
+          <SearchInput
+            searchQuery={searchQuery}
+            setSearchQuery={setSearchQuery}
+          />
           <ul className="flex items-start justify-center flex-shrink-0 sm:flex-wrap gap-2 w-full overflow-x-auto pb-3">
             {topics.map((topic) => (
               <TopicButton
@@ -84,6 +110,9 @@ export const Home: NextPage<Props> = ({ allPosts, topics }) => {
       </motion.div>
 
       <ul ref={blogLinksList} className="flex flex-col w-full gap-4">
+        {searchError !== "" && (
+          <h2 className="text-center my-auto">{searchError}</h2>
+        )}
         {posts &&
           posts.map((post: PostType) => (
             <PostLink key={post.link} post={post} />

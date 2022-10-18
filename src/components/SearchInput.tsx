@@ -1,8 +1,17 @@
-type Props = {};
+import { Dispatch, SetStateAction, useRef } from "react";
 
-export default function SearchInput({}: Props) {
+type Props = {
+  searchQuery: string | undefined;
+  setSearchQuery: Dispatch<SetStateAction<string | undefined>>;
+};
+
+export default function SearchInput({ searchQuery, setSearchQuery }: Props) {
+  const inputRef = useRef<any>();
   return (
-    <div className="flex leading-7 items-center relative w-full">
+    <form className="flex leading-7 items-center relative w-full" onSubmit={(e) => {
+      e.preventDefault();
+      setSearchQuery(inputRef.current.value);
+    }}>
       <svg
         className="absolute left-4 fill-secondary h-5 w-5"
         aria-hidden="true"
@@ -13,10 +22,11 @@ export default function SearchInput({}: Props) {
         </g>
       </svg>
       <input
-        placeholder="Search"
+        placeholder="Search by title"
+        ref={inputRef}
         type="text"
         className="bg-off-light dark:bg-off-dark w-full h-10 leading-7 pl-10 py-4 border-2 shadow border-transparent rounded-lg outline-none transition motion-reduce:transition-none ease-in hover:ring-2 hover:ring-secondary focus:ring-2 focus:ring-secondary"
       />
-    </div>
+    </form>
   );
 }
