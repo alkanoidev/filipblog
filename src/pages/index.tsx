@@ -35,7 +35,6 @@ export const Home: NextPage<Props> = ({ allPosts, topics }) => {
   const [selectedTopic, setSelectedTopic] = useState<string | null>(null);
   const [blogLinksList] = useAutoAnimate<HTMLUListElement>();
   const [searchQuery, setSearchQuery] = useState<string | undefined>();
-  const [searchError, setSearchError] = useState("");
 
   useEffect(() => {
     if (!selectedTopic || selectedTopic.toLowerCase() === "all") {
@@ -56,7 +55,7 @@ export const Home: NextPage<Props> = ({ allPosts, topics }) => {
 
       setPosts(filtered);
     }
-    if (typeof searchQuery !== "undefined") {
+    if (typeof searchQuery !== "undefined" && searchQuery !== "") {
       const searchedPosts = allPosts.map((post) => {
         if (
           post.module.meta.title
@@ -72,10 +71,8 @@ export const Home: NextPage<Props> = ({ allPosts, topics }) => {
         }
       });
       if (filtered.length > 0) {
-        setSearchError("");
         setPosts(filtered);
       } else {
-        setSearchError("No Posts Found ;(");
         setPosts(null);
       }
     }
@@ -94,29 +91,35 @@ export const Home: NextPage<Props> = ({ allPosts, topics }) => {
             searchQuery={searchQuery}
             setSearchQuery={setSearchQuery}
           />
-          <ul className="flex items-start justify-center flex-shrink-0 sm:flex-wrap gap-2 w-full overflow-x-auto pb-3">
-            {topics.map((topic) => (
-              <TopicButton
-                onClick={() => {
-                  setSelectedTopic(topic);
-                }}
-                selectedTopic={selectedTopic}
-                title={topic}
-                key={topic}
-              />
-            ))}
-          </ul>
+          {(searchQuery === "" || typeof searchQuery === "undefined") && (
+            <motion.ul
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="flex items-start justify-center flex-shrink-0 sm:flex-wrap gap-2 w-full overflow-x-auto"
+            >
+              {topics.map((topic) => (
+                <TopicButton
+                  onClick={() => {
+                    setSelectedTopic(topic);
+                  }}
+                  selectedTopic={selectedTopic}
+                  title={topic}
+                  key={topic}
+                />
+              ))}
+            </motion.ul>
+          )}
         </div>
       </motion.div>
 
-      <ul ref={blogLinksList} className="flex flex-col w-full gap-4">
-        {searchError !== "" && (
-          <h2 className="text-center my-auto">{searchError}</h2>
-        )}
-        {posts &&
+      <ul ref={blogLinksList} className="flex flex-col w-full gap-4 pt-3">
+        {posts ? (
           posts.map((post: PostType) => (
             <PostLink key={post.link} post={post} />
-          ))}
+          ))
+        ) : (
+          <h2 className="text-center">No Blog Posts Found ;(</h2>
+        )}
       </ul>
     </main>
   );
