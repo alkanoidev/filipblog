@@ -21,9 +21,9 @@ export const getStaticProps: GetStaticProps = async () => {
     return b.module.meta.date - a.module.meta.date;
   });
 
-  topics = topics.filter((topic, index) => {
-    return topics.indexOf(topic) === index;
-  });
+  // topics = topics.filter((topic, index) => {
+  //   return topics.indexOf(topic) === index;
+  // });
 
   return {
     props: { allPosts: JSON.parse(JSON.stringify(posts)), topics },
@@ -95,7 +95,7 @@ export const Home: NextPage<Props> = ({ allPosts, topics }) => {
             <motion.ul
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="flex items-start justify-center flex-shrink-0 sm:flex-wrap gap-2 w-full overflow-x-auto"
+              className="flex items-start justify-start sm:justify-center sm:flex-wrap gap-2 min-w-full overflow-x-auto"
             >
               {topics.map((topic) => (
                 <TopicButton
