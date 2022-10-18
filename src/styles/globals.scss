@@ -19,6 +19,7 @@ body {
   @apply bg-light dark:bg-dark;
   @apply text-light-text dark:text-dark-text;
   transition: background-color 0.2s;
+  @apply motion-reduce:transition-none;
   @apply ease-out;
 }
 #__next {
@@ -118,6 +119,7 @@ a {
   .TOC {
     .list {
       transition: all 0.2s;
+      @apply motion-reduce:transition-none;
       opacity: 0;
       position: absolute;
       z-index: 1;
@@ -580,6 +582,6 @@ a {
 footer {
   a {
     text-decoration: underline;
-    @apply transition hover:text-secondary/50;
+    @apply transition hover:text-secondary/50 motion-reduce:transition-none;
   }
 }

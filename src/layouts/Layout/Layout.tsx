@@ -1,6 +1,5 @@
 import dynamic from "next/dynamic";
 import Head from "next/head";
-import BackgroundLight from "../../components/BackgroundLight";
 import Footer from "../../components/Footer";
 
 const ScrollToTop = dynamic(
@@ -29,10 +28,7 @@ export default function Layout({
         <link rel="manifest" href="/site.webmanifest" />
       </Head>
 
-      <div className="w-full h-full absolute top-0 -z-1 flex justify-center pointer-events-none">
-        <BackgroundLight />
-      </div>
-      <div className="content min-h-screen flex flex-col justify-between pt-10 w-full lg:px-5 md:px-2 sm:px-2 px-2">
+      <div className="content min-h-screen flex flex-col sm:mx-auto justify-between pt-5 w-full sm:w-[652px] lg:px-5 md:px-2 sm:px-2 px-2">
         {children}
 
         <Footer />

@@ -20,7 +20,7 @@ function TopAppBar({}) {
       </div>
       <div>
         <button
-          className="text-2xl"
+          className="text-2xl bg-off-light dark:bg-off-dark rounded-lg p-1"
           onClick={() => {
             toggleTheme();
           }}

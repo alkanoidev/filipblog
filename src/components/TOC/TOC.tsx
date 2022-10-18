@@ -22,7 +22,7 @@ export default function TOC({ children }: { children: React.ReactNode[] }) {
 
   return (
     <div
-      className={`TOC relative bg-off-light dark:bg-off-dark lg:w-2/3 sm:w-full transition-all shadow px-3 pb-3 rounded-lg hover:cursor-pointer`}
+      className={`TOC relative bg-off-light dark:bg-off-dark w-full transition-all motion-reduce:transition-none shadow px-3 pb-3 rounded-lg hover:cursor-pointer`}
       ref={wrapperRef}
       onClick={() => {
         setOpened((prev) => !prev);
@@ -37,7 +37,7 @@ export default function TOC({ children }: { children: React.ReactNode[] }) {
         <h4 className="leading-tight text-dark dark:text-light font-normal">
           Table Of Contents
         </h4>
-        <div className="rounded-md transition ease-out px-2 mb-1 text-lg text-dark dark:text-light">
+        <div className="rounded-md transition motion-reduce:transition-none ease-out px-2 mb-1 text-lg text-dark dark:text-light">
           {opened ? <FaAngleUp /> : <FaAngleDown />}
         </div>
       </div>

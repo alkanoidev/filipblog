@@ -15,10 +15,9 @@ export const PostLink = ({ post }: { post: PostType }) => {
     <Link href={router.basePath + "/blog" + link}>
       <div
         id={meta.minifiedTitle}
-        className="transition-shadow z-0 text-light-text dark:text-dark-text no-underline w-full sm:max-w-sm 
-      ease-out flex flex-col p-6 rounded-lg gap-1 bg-off-light dark:bg-off-dark h-max sm:h-auto
-			hover:cursor-pointer hover:shadow-[0px_0px_10px_-1px_rgba(0,0,0,0.50)] hover:shadow-secondary 
-      hover:ring-secondary hover:ring-[1px] shadow hover:text-light-text dark:hover:text-dark-text"
+        className="transition-shadow motion-reduce:transition-none z-0 text-light-text dark:text-dark-text no-underline w-full relative
+      ease-out flex flex-col p-6 rounded-lg gap-1 bg-off-light dark:bg-off-dark h-max sm:h-auto 
+			hover:cursor-pointer hover:ring-secondary hover:ring-2 shadow hover:text-light-text dark:hover:text-dark-text"
       >
         <h2>{meta.title}</h2>
         <StatsTray meta={meta} />

@@ -6,6 +6,7 @@ import PostType from "../types/Post";
 import TopAppBar from "../components/TopAppBar";
 import { motion } from "framer-motion";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
+import SearchInput from "../components/SearchInput";
 
 export const getStaticProps: GetStaticProps = async () => {
   const { posts } = require("../utils/getAllPosts");
@@ -66,21 +67,8 @@ export const Home: NextPage<Props> = ({ allPosts, topics }) => {
       >
         <div className="flex flex-col gap-3">
           <TopAppBar />
-        </div>
-      </motion.div>
-
-      <div className="home flex gap-2 lg:flex-row flex-col-reverse md:flex-col-reverse mt-5 sm:justify-between">
-        <ul
-          ref={blogLinksList}
-          className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 w-full auto-rows-auto gap-4"
-        >
-          {posts &&
-            posts.map((post: PostType) => (
-              <PostLink key={post.link} post={post} />
-            ))}
-        </ul>
-        <div className="lg:w-2/6 md:w-full sm:w-full">
-          <ul className="flex justify-start items-start flex-shrink-0 sm:flex-wrap gap-2 w-full overflow-x-auto pb-3">
+          <SearchInput />
+          <ul className="flex items-start justify-center flex-shrink-0 sm:flex-wrap gap-2 w-full overflow-x-auto pb-3">
             {topics.map((topic) => (
               <TopicButton
                 onClick={() => {
@@ -93,7 +81,14 @@ export const Home: NextPage<Props> = ({ allPosts, topics }) => {
             ))}
           </ul>
         </div>
-      </div>
+      </motion.div>
+
+      <ul ref={blogLinksList} className="flex flex-col w-full gap-4">
+        {posts &&
+          posts.map((post: PostType) => (
+            <PostLink key={post.link} post={post} />
+          ))}
+      </ul>
     </main>
   );
 };
