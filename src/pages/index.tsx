@@ -47,11 +47,7 @@ export const Home: NextPage<Props> = ({ allPosts, topics }) => {
           .toLocaleLowerCase()
           .includes(searchQuery.toLocaleLowerCase())
       );
-      if (searchedPosts.length > 0) {
-        setPosts(searchedPosts);
-      } else {
-        setPosts(null);
-      }
+      setPosts(searchedPosts.length > 0 ? searchedPosts : null);
     }
   }, [selectedTopic, searchQuery]);
 
