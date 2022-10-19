@@ -1,4 +1,4 @@
-import type { GetStaticProps, NextPage } from "next";
+import type { GetStaticProps, InferGetServerSidePropsType, InferGetStaticPropsType, NextPage } from "next";
 import { useEffect, useState } from "react";
 import TopicButton from "../components/Buttons/TopicButton";
 import PostLink from "../components/PostLink";
@@ -11,7 +11,7 @@ import SearchInput from "../components/SearchInput";
 export const getStaticProps: GetStaticProps = async () => {
   const { posts } = require("../utils/getAllPosts");
 
-  let topics: Array<string> = [];
+  let topics: string[] = [];
   topics.push("All");
   posts.map((post: any) => {
     topics.push(...post.module.meta.topics);
@@ -20,10 +20,6 @@ export const getStaticProps: GetStaticProps = async () => {
   posts.sort((a: any, b: any) => {
     return b.module.meta.date - a.module.meta.date;
   });
-
-  // topics = topics.filter((topic, index) => {
-  //   return topics.indexOf(topic) === index;
-  // });
 
   return {
     props: { allPosts: JSON.parse(JSON.stringify(posts)), topics },
@@ -40,38 +36,19 @@ export const Home: NextPage<Props> = ({ allPosts, topics }) => {
     if (!selectedTopic || selectedTopic.toLowerCase() === "all") {
       setPosts(allPosts);
     } else {
-      const items = allPosts.map((post) => {
-        if (post.module.meta.topics.includes(selectedTopic)) {
-          return post;
-        }
-        return null;
-      });
-      let filtered: PostType[] = [];
-      items.map((item) => {
-        if (item !== null) {
-          filtered.push(item);
-        }
-      });
-
-      setPosts(filtered);
+      const selectedPosts = allPosts.filter((post) =>
+        post.module.meta.topics.includes(selectedTopic)
+      );
+      setPosts(selectedPosts);
     }
     if (typeof searchQuery !== "undefined" && searchQuery !== "") {
-      const searchedPosts = allPosts.map((post) => {
-        if (
-          post.module.meta.title
-            .toLocaleLowerCase()
-            .includes(searchQuery.toLocaleLowerCase())
-        )
-          return post;
-      });
-      let filtered: PostType[] = [];
-      searchedPosts.map((item) => {
-        if (item !== undefined) {
-          filtered.push(item);
-        }
-      });
-      if (filtered.length > 0) {
-        setPosts(filtered);
+      const searchedPosts = allPosts.filter((post) =>
+        post.module.meta.title
+          .toLocaleLowerCase()
+          .includes(searchQuery.toLocaleLowerCase())
+      );
+      if (searchedPosts.length > 0) {
+        setPosts(searchedPosts);
       } else {
         setPosts(null);
       }
