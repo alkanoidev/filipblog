@@ -28,7 +28,7 @@ export default function Layout({
         <link rel="manifest" href="/site.webmanifest" />
       </Head>
 
-      <div className="content min-h-screen flex flex-col sm:mx-auto justify-between pt-5 w-full sm:w-[652px] lg:px-5 md:px-2 sm:px-2 px-2">
+      <div className="content min-h-screen flex flex-col sm:mx-auto justify-between pt-5 w-full sm:w-[652px] lg:w-[1024px] lg:px-5 md:px-2 sm:px-2 px-2">
         {children}
 
         <Footer />

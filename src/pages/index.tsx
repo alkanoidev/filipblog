@@ -1,4 +1,9 @@
-import type { GetStaticProps, InferGetServerSidePropsType, InferGetStaticPropsType, NextPage } from "next";
+import type {
+  GetStaticProps,
+  InferGetServerSidePropsType,
+  InferGetStaticPropsType,
+  NextPage,
+} from "next";
 import { useEffect, useState } from "react";
 import TopicButton from "../components/Buttons/TopicButton";
 import PostLink from "../components/PostLink";
@@ -59,11 +64,12 @@ export const Home: NextPage<Props> = ({ allPosts, topics }) => {
         transition={{ duration: 0.5 }}
       >
         <div className="flex flex-col gap-3">
-          <TopAppBar />
-          <SearchInput
-            searchQuery={searchQuery}
-            setSearchQuery={setSearchQuery}
-          />
+          <TopAppBar>
+            <SearchInput
+              searchQuery={searchQuery}
+              setSearchQuery={setSearchQuery}
+            />
+          </TopAppBar>
           {(searchQuery === "" || typeof searchQuery === "undefined") && (
             <motion.ul
               initial={{ opacity: 0 }}
@@ -85,7 +91,7 @@ export const Home: NextPage<Props> = ({ allPosts, topics }) => {
         </div>
       </motion.div>
 
-      <ul ref={blogLinksList} className="flex flex-col w-full gap-4 pt-3">
+      <ul ref={blogLinksList} className="flex flex-wrap gap-4 pt-3 w-full justify-center">
         {posts ? (
           posts.map((post: PostType) => (
             <PostLink key={post.link} post={post} />

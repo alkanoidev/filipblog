@@ -2,11 +2,11 @@ import { useContext } from "react";
 import { ThemeContext } from "../context/Theme";
 import { MdOutlineNightlight, MdOutlineLightMode } from "react-icons/md";
 
-function TopAppBar({}) {
+function TopAppBar({ children }: { children: any }) {
   const { theme, toggleTheme } = useContext(ThemeContext);
   return (
-    <div className="flex w-full justify-between items-center">
-      <div className="flex items-center gap-2">
+    <div className="flex w-full justify-start items-start sm:items-center gap-3 flex-col sm:flex-row relative">
+      <div className="flex items-center gap-2 min-w-max">
         <div className="bg-gradient-to-r from-primary to-secondary rounded-full p-[0.3rem]">
           <img
             src="/avatar.png"
@@ -18,7 +18,8 @@ function TopAppBar({}) {
           <h2>Filip&apos;s Blog</h2>
         </div>
       </div>
-      <div>
+      {children}
+      <div className="absolute sm:relative right-0 top-5 sm:right-auto sm:top-auto">
         <button
           className="text-2xl bg-off-light dark:bg-off-dark rounded-lg p-1 shadow"
           onClick={() => {
