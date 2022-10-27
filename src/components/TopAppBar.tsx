@@ -25,6 +25,7 @@ function TopAppBar({ children }: { children: any }) {
           onClick={() => {
             toggleTheme();
           }}
+          aria-label="toggle-theme"
         >
           {theme === "light" ? <MdOutlineNightlight /> : <MdOutlineLightMode />}
         </button>

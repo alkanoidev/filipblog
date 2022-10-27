@@ -82,6 +82,7 @@ export const Home: NextPage<Props> = ({ allPosts, topics }) => {
               className="mt-2 sm:mt-0 flex items-start justify-start sm:justify-center sm:flex-wrap gap-2 min-w-full overflow-x-auto"
             >
               {topics.map((topic) => (
+                <li>
                 <TopicButton
                   onClick={() => {
                     setSelectedTopic(topic);
@@ -90,6 +91,7 @@ export const Home: NextPage<Props> = ({ allPosts, topics }) => {
                   title={topic}
                   key={topic}
                 />
+                </li>
               ))}
             </motion.ul>
           )}
@@ -102,12 +104,17 @@ export const Home: NextPage<Props> = ({ allPosts, topics }) => {
       >
         {posts && !isLoading
           ? posts.map((post: PostType) => (
-              <PostLink key={post.link} post={post} />
+                <PostLink key={post.link} post={post} />
             ))
           : !isLoading && (
               <h2 className="text-center">No Blog Posts Found ;(</h2>
             )}
-        {isLoading && posts?.map((post) => <PostSkeleton key={post.link} />)}
+        {isLoading &&
+          posts?.map((post) => (
+            <li>
+              <PostSkeleton key={post.link} />
+            </li>
+          ))}
       </ul>
     </main>
   );
