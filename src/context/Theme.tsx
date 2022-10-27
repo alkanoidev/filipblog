@@ -1,4 +1,10 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, {
+  Dispatch,
+  SetStateAction,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 
 type Props = {
   children: any;
@@ -7,6 +13,7 @@ type Theme = "light" | "dark";
 type ThemeContextType = {
   theme: Theme;
   toggleTheme: () => void;
+  setTheme: Dispatch<SetStateAction<Theme>>;
 };
 
 export const ThemeContext = React.createContext<ThemeContextType>(
@@ -14,9 +21,9 @@ export const ThemeContext = React.createContext<ThemeContextType>(
 );
 
 export const useThemeContext = () => {
-  const { theme, toggleTheme } = useContext(ThemeContext);
+  const { theme, toggleTheme, setTheme } = useContext(ThemeContext);
 
-  return { theme, toggleTheme };
+  return { theme, toggleTheme, setTheme };
 };
 
 export default function ThemeProvider({ children }: Props) {
@@ -53,7 +60,7 @@ export default function ThemeProvider({ children }: Props) {
   };
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider value={{ theme, toggleTheme, setTheme }}>
       {children}
     </ThemeContext.Provider>
   );

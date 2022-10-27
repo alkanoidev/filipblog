@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { useEffect } from "react";
 import Head from "next/head";
 import NextNProgress from "nextjs-progressbar";
+import Script from "next/script";
 
 const variants = {
   hidden: { opacity: 0 },
@@ -14,12 +15,6 @@ const variants = {
 };
 function MyApp({ Component, pageProps, router }: AppProps) {
   const { theme } = useThemeContext();
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const loader = document.getElementById("splashscreen");
-      if (loader) loader.style.display = "none";
-    }
-  }, []);
 
   return (
     <>
@@ -50,6 +45,10 @@ function MyApp({ Component, pageProps, router }: AppProps) {
         <meta
           name="theme-color"
           content={theme === "dark" ? "#080808" : "#F5F5F5"}
+        />
+        <meta
+          name="keywords"
+          content="Development Blog, Dev Blog, Blog, Dev, React, NextJS, Tailwind, JavaScript, Frontend"
         />
       </Head>
       <motion.div
