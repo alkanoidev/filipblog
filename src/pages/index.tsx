@@ -12,6 +12,7 @@ import TopAppBar from "../components/TopAppBar";
 import { motion } from "framer-motion";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import SearchInput from "../components/SearchInput";
+import PostSkeleton from "../components/Skeletons/PostSkeleton";
 
 export const getStaticProps: GetStaticProps = async () => {
   const { posts } = require("../utils/getAllPosts");
@@ -36,6 +37,7 @@ export const Home: NextPage<Props> = ({ allPosts, topics }) => {
   const [selectedTopic, setSelectedTopic] = useState<string | null>(null);
   const [blogLinksList] = useAutoAnimate<HTMLUListElement>();
   const [searchQuery, setSearchQuery] = useState<string | undefined>();
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     if (!selectedTopic || selectedTopic.toLowerCase() === "all") {
@@ -54,6 +56,9 @@ export const Home: NextPage<Props> = ({ allPosts, topics }) => {
       );
       setPosts(searchedPosts.length > 0 ? searchedPosts : null);
     }
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
   }, [selectedTopic, searchQuery]);
 
   return (
@@ -74,7 +79,7 @@ export const Home: NextPage<Props> = ({ allPosts, topics }) => {
             <motion.ul
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="flex items-start justify-start sm:justify-center sm:flex-wrap gap-2 min-w-full overflow-x-auto"
+              className="mt-2 sm:mt-0 flex items-start justify-start sm:justify-center sm:flex-wrap gap-2 min-w-full overflow-x-auto"
             >
               {topics.map((topic) => (
                 <TopicButton
@@ -91,14 +96,18 @@ export const Home: NextPage<Props> = ({ allPosts, topics }) => {
         </div>
       </motion.div>
 
-      <ul ref={blogLinksList} className="flex flex-wrap gap-4 pt-3 w-full justify-center">
-        {posts ? (
-          posts.map((post: PostType) => (
-            <PostLink key={post.link} post={post} />
-          ))
-        ) : (
-          <h2 className="text-center">No Blog Posts Found ;(</h2>
-        )}
+      <ul
+        ref={blogLinksList}
+        className="flex flex-wrap gap-4 mt-5 w-full justify-center"
+      >
+        {posts && !isLoading
+          ? posts.map((post: PostType) => (
+              <PostLink key={post.link} post={post} />
+            ))
+          : !isLoading && (
+              <h2 className="text-center">No Blog Posts Found ;(</h2>
+            )}
+        {isLoading && posts?.map((post) => <PostSkeleton key={post.link} />)}
       </ul>
     </main>
   );

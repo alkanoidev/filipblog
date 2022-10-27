@@ -13,8 +13,15 @@ module.exports = {
         primary: "#68AF73",
         secondary: "#62AEEF",
         off: {
-          light: "#f7f7f7",
+          light: "#fff",
           dark: "#101010",
+        },
+      },
+      keyframes: {
+        shimmer: {
+          "100%": {
+            transform: "translateX(100%)",
+          },
         },
       },
     },
