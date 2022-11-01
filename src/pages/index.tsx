@@ -82,7 +82,7 @@ export const Home: NextPage<Props> = ({ allPosts, topics }) => {
               className="mt-2 sm:mt-0 flex items-start justify-start sm:justify-center sm:flex-wrap gap-2 min-w-full overflow-x-auto"
             >
               {topics.map((topic) => (
-                <li>
+                <li key={topic}>
                 <TopicButton
                   onClick={() => {
                     setSelectedTopic(topic);
@@ -111,7 +111,7 @@ export const Home: NextPage<Props> = ({ allPosts, topics }) => {
             )}
         {isLoading &&
           posts?.map((post) => (
-            <li>
+            <li key={post.module.meta.minifiedTitle}>
               <PostSkeleton key={post.link} />
             </li>
           ))}
