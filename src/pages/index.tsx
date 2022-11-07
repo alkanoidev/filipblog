@@ -111,7 +111,7 @@ export const Home: NextPage<Props> = ({ allPosts, topics }) => {
             )}
         {isLoading &&
           posts?.map((post) => (
-            <li key={post.module.meta.minifiedTitle}>
+            <li key={post.module.meta.minifiedTitle} className="w-full sm:w-auto">
               <PostSkeleton key={post.link} />
             </li>
           ))}
