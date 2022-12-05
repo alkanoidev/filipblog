@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import { FaAngleDown, FaAngleUp } from "react-icons/fa";
 
 export default function TOC({ children }: { children: React.ReactNode[] }) {
   const [opened, setOpened] = useState(false);
@@ -38,7 +37,37 @@ export default function TOC({ children }: { children: React.ReactNode[] }) {
           Table Of Contents
         </h4>
         <div className="rounded-md transition motion-reduce:transition-none ease-out px-2 mb-1 text-lg text-dark dark:text-light">
-          {opened ? <FaAngleUp /> : <FaAngleDown />}
+          {opened ? (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-6 h-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M4.5 15.75l7.5-7.5 7.5 7.5"
+              />
+            </svg>
+          ) : (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-6 h-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+              />
+            </svg>
+          )}
         </div>
       </div>
       <div
