@@ -14,6 +14,11 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 60px;
 }
+@media only screen and (max-width: 768px) {
+  html{
+    scroll-padding-top: 110px;
+  }
+}
 body {
   min-height: 100vh;
   @apply bg-light dark:bg-dark;
