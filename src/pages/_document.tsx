@@ -8,6 +8,7 @@ export default function Document() {
           dangerouslySetInnerHTML={{
             __html: `
             if ("theme" in localStorage) {
+              const theme = localStorage.getItem("theme");
               if (theme === "dark") {
                 document.documentElement.classList.add("dark");
                 document.documentElement.style.colorScheme = "dark";
