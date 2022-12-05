@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<url><loc>https://filipblog.netlify.app</loc><lastmod>2022-12-05T21:07:50.413Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://filipblog.netlify.app/blog/hello-world</loc><lastmod>2022-12-05T21:07:50.413Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://filipblog.netlify.app/blog/react-useeffect-array-as-a-dependency</loc><lastmod>2022-12-05T21:07:50.413Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://filipblog.netlify.app/blog/tailwind-scroll-snap-utilities</loc><lastmod>2022-12-05T21:07:50.413Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://filipblog.netlify.app/blog/tailwind-scroll-snap-utilities/_Component1</loc><lastmod>2022-12-05T21:07:50.413Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://filipblog.netlify.app/blog/tailwind-scroll-snap-utilities/_Component2</loc><lastmod>2022-12-05T21:07:50.413Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://filipblog.netlify.app/blog/tailwind-scroll-snap-utilities/_Component3</loc><lastmod>2022-12-05T21:07:50.413Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://filipblog.netlify.app/blog/tailwind-scroll-snap-utilities/_Component4</loc><lastmod>2022-12-05T21:07:50.413Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://filipblog.netlify.app/blog/tailwind-scroll-snap-utilities/_Component5</loc><lastmod>2022-12-05T21:07:50.413Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://filipblog.netlify.app/blog/tailwind-scroll-snap-utilities/_Component6</loc><lastmod>2022-12-05T21:07:50.413Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://filipblog.netlify.app/blog/tailwind-scroll-snap-utilities/_Component7</loc><lastmod>2022-12-05T21:07:50.413Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://filipblog.netlify.app/blog/tailwind-scroll-snap-utilities/_Component8</loc><lastmod>2022-12-05T21:07:50.413Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+</urlset>

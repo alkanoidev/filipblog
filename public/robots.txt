@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://filipblog.netlify.app/
+
+# Sitemaps
+Sitemap: https://filipblog.netlify.app/sitemap.xml

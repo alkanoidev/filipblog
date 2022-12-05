@@ -1,18 +1,5 @@
 import { Html, Head, Main, NextScript } from "next/document";
 
-import Terser from "terser";
-import mem from "mem";
-
-// const minify = mem(Terser.minify);
-
-// const InlineJs: React.FunctionComponent<{ code: string; children?: never }> = ({
-//   code,
-// }) => {
-//   const codeMinified = String(minify(code));
-
-//   return <script dangerouslySetInnerHTML={{ __html: codeMinified }} />;
-// };
-
 export default function Document() {
   return (
     <Html lang="en">
