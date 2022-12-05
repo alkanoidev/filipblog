@@ -18,7 +18,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
 
   return (
     <>
-      <NextNProgress height={3} color="#68AF73" />
+      <NextNProgress height={3} color="#62aeef" options={{ showSpinner: false }} />
       <Head>
         <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />

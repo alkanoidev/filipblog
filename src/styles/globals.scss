@@ -12,7 +12,7 @@ html {
   width: 100%;
   @apply bg-light dark:bg-dark;
   scroll-behavior: smooth;
-  scroll-padding-top: 20px;
+  scroll-padding-top: 60px;
 }
 body {
   min-height: 100vh;
@@ -45,26 +45,26 @@ label {
   @apply text-base;
 }
 a {
-  @apply text-secondary underline transition;
+  @apply text-primary underline transition;
 }
 .blog-content {
   h1 {
-    @apply text-5xl text-primary font-bold;
+    @apply text-5xl;
   }
   h2 {
-    @apply text-3xl text-primary;
+    @apply text-4xl;
   }
   h3 {
-    @apply text-3xl text-primary;
+    @apply text-3xl;
   }
   h4 {
-    @apply text-2xl text-primary;
+    @apply text-2xl;
   }
   h5 {
-    @apply text-xl text-primary;
+    @apply text-xl;
   }
   h6 {
-    @apply text-lg text-primary;
+    @apply text-lg;
   }
   h1,
   h2,
@@ -72,22 +72,22 @@ a {
   h4,
   h5,
   h6 {
-    @apply mt-4;
+    @apply mt-4 mb-2 text-dark dark:text-light font-bold;
   }
   ul {
     @apply list-disc ml-5;
     li::marker {
-      @apply text-secondary/50;
+      @apply text-primary/50;
     }
   }
   ol {
     @apply list-decimal ml-5;
   }
   p {
-    @apply text-base w-full pl-3;
+    @apply text-base w-full;
   }
   a {
-    @apply text-secondary transition underline;
+    @apply text-primary transition underline;
   }
   blockquote {
     @apply bg-off-light my-5 rounded-lg dark:bg-off-dark p-4 flex gap-2 items-center;
@@ -108,15 +108,18 @@ a {
     padding: 6px 13px;
   }
   th {
-    @apply border-b border-b-secondary;
+    @apply border-b border-b-primary;
   }
-  table{
+  table {
     width: 100%;
   }
   table tr:nth-child(2n) {
     @apply bg-light dark:bg-dark;
   }
   .TOC {
+    h4 {
+      font-weight: normal;
+    }
     .list {
       transition: all 0.2s;
       @apply motion-reduce:transition-none;
@@ -135,8 +138,10 @@ a {
       list-style: none;
       li {
         padding: 0.2rem 0px;
+        width: 100%;
         a {
           text-decoration: none;
+          width: 100%;
           @apply hover:underline text-dark dark:text-light;
         }
       }
@@ -145,7 +150,7 @@ a {
       content: "";
       width: 2px;
       height: 100%;
-      @apply bg-secondary/50;
+      @apply bg-primary/50;
       position: absolute;
       left: -1rem;
     }
@@ -582,6 +587,6 @@ a {
 footer {
   a {
     text-decoration: underline;
-    @apply transition hover:text-secondary/50 motion-reduce:transition-none;
+    @apply transition hover:text-primary/50 motion-reduce:transition-none;
   }
 }

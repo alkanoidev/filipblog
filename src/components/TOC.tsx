@@ -21,7 +21,7 @@ export default function TOC({ children }: { children: React.ReactNode[] }) {
 
   return (
     <div
-      className={`TOC relative bg-off-light dark:bg-off-dark w-full transition-all motion-reduce:transition-none shadow px-3 pb-3 rounded-lg hover:cursor-pointer`}
+      className={`TOC relative bg-off-light dark:bg-off-dark w-full p-2 transition-all motion-reduce:transition-none shadow rounded-lg hover:cursor-pointer`}
       ref={wrapperRef}
       onClick={() => {
         setOpened((prev) => !prev);
@@ -32,43 +32,41 @@ export default function TOC({ children }: { children: React.ReactNode[] }) {
         }, 500);
       }}
     >
-      <div className="flex justify-between items-end">
-        <h4 className="leading-tight text-dark dark:text-light font-normal">
+      <div className="flex justify-between items-center">
+        <span className="leading-tight text-dark dark:text-light font-normal m-0">
           Table Of Contents
-        </h4>
-        <div className="rounded-md transition motion-reduce:transition-none ease-out px-2 mb-1 text-lg text-dark dark:text-light">
-          {opened ? (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-6 h-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M4.5 15.75l7.5-7.5 7.5 7.5"
-              />
-            </svg>
-          ) : (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-6 h-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-              />
-            </svg>
-          )}
-        </div>
+        </span>
+        {opened ? (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-6 h-6"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M4.5 15.75l7.5-7.5 7.5 7.5"
+            />
+          </svg>
+        ) : (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-6 h-6"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+            />
+          </svg>
+        )}
       </div>
       <div
         className={`list ${
