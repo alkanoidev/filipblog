@@ -79,7 +79,7 @@ export const Home: NextPage<Props> = ({ allPosts, topics }) => {
             <motion.ul
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="mt-2 sm:mt-0 flex items-start scroll-mb-2 justify-start sm:justify-center sm:flex-wrap gap-2 min-w-full overflow-x-auto"
+              className="mt-2 sm:mt-0 flex items-start justify-start sm:justify-center sm:flex-wrap gap-2 min-w-full overflow-x-auto"
             >
               {topics.map((topic) => (
                 <li key={topic}>
