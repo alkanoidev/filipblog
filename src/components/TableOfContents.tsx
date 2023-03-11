@@ -1,6 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 
-export default function TOC({ children }: { children: React.ReactNode[] }) {
+export default function TableOfContents({
+  children,
+}: {
+  children: React.ReactNode[];
+}) {
   const [opened, setOpened] = useState(false);
   const wrapperRef = useRef<null | HTMLDivElement>(null);
 
@@ -33,7 +37,7 @@ export default function TOC({ children }: { children: React.ReactNode[] }) {
       }}
     >
       <div className="flex justify-between items-center">
-        <span className="leading-tight text-dark dark:text-light font-normal m-0">
+        <span className="leading-tight text-dark text-xl dark:text-light font-normal m-0">
           Table Of Contents
         </span>
         {opened ? (
