@@ -24,7 +24,7 @@ export default function StatsTray({ meta }: Props) {
   }, []);
 
   return (
-    <div className="flex flex-wrap space-x-2">
+    <div className="flex flex-wrap space-x-2 mx-2">
       <Stat data={date} dontShowDot />
       <Stat
         icon={

@@ -16,14 +16,14 @@ export default function BlogPost({
       <Head>
         <title>{meta.title}</title>
       </Head>
-      <div className="flex px-2 w-full flex-col">
-        <div className="flex justify-between items-center sticky rounded-b-lg z-10 top-1 backdrop-blur-md">
+      <div className="flex w-full flex-col">
+        <div className="flex justify-between items-center sticky rounded-b-lg z-10 top-0 p-1 backdrop-blur-md">
           <BackButton to={meta.minifiedTitle} />
           <ChangeThemeBtn />
         </div>
-        <h1 className="my-3 font-bold text-primary">{meta.title}</h1>
+        <h1 className="my-3 mx-2 font-bold text-primary">{meta.title}</h1>
         <StatsTray meta={meta} />
-        <article className="mt-3 mb-6 blog-content">{children}</article>
+        <article className="mt-3 mx-2 mb-6 blog-content">{children}</article>
       </div>
     </>
   );

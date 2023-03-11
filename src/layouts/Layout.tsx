@@ -2,12 +2,9 @@ import dynamic from "next/dynamic";
 import Head from "next/head";
 import Footer from "../components/Footer";
 
-const ScrollToTop = dynamic(
-  () => import("../components/Buttons/ScrollToTop"),
-  {
-    ssr: false,
-  }
-);
+const ScrollToTop = dynamic(() => import("../components/Buttons/ScrollToTop"), {
+  ssr: false,
+});
 
 export default function Layout({
   children,
@@ -28,7 +25,7 @@ export default function Layout({
         <link rel="manifest" href="/site.webmanifest" />
       </Head>
 
-      <div className="content min-h-screen flex flex-col sm:mx-auto justify-between pt-5 w-full sm:w-[652px] lg:w-[1024px] lg:px-5 md:px-2 sm:px-2 px-2">
+      <div className="content min-h-screen flex flex-col sm:mx-auto justify-between pt-5 w-full sm:w-[652px] lg:w-[1024px] lg:px-5 md:px-2 sm:px-2 px-0">
         {children}
 
         <Footer />
