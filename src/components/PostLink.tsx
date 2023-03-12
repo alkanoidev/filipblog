@@ -12,19 +12,21 @@ const PostLink = ({ post }: { post: PostType }) => {
   const router = useRouter();
 
   return (
-      <Link href={router.basePath + "/blog" + link}>
-        <div
-          id={meta.minifiedTitle}
-          className="transition-all motion-reduce:transition-none z-0 text-light-text dark:text-dark-text no-underline
-         w-full sm:w-72 relative ease-out flex flex-col p-5 rounded-2xl gap-2 bg-off-light dark:bg-off-dark h-max sm:h-56 
-         overflow-y-hidden hover:cursor-pointer hover:ring-primary hover:ring-2 shadow hover:text-light-text dark:hover:text-dark-text"
-        >
-          <h2>{meta.title}</h2>
-          <StatsTray meta={meta} />
-          <TopicsTray topics={meta.topics} />
-          <p>{meta.description}</p>
-        </div>
-      </Link>
+    <Link href={router.basePath + "/blog" + link}>
+      <div
+        id={meta.minifiedTitle}
+        className="transition-all motion-reduce:transition-none z-0 text-light-text dark:text-dark-text no-underline
+         w-full sm:w-80 relative ease-out flex flex-col p-5 rounded-2xl gap-2 bg-off-light dark:bg-off-dark h-max sm:h-56 
+         overflow-y-hidden hover:cursor-pointer hover:text-light-text dark:hover:text-dark-text
+         ring-2 ring-off-dark/20 dark:ring-off-light/10 hover:ring-primary dark:hover:ring-primary hover:ring-2
+         "
+      >
+        <h2>{meta.title}</h2>
+        <StatsTray meta={meta} />
+        <TopicsTray topics={meta.topics} />
+        <p className="mt-2">{meta.description}</p>
+      </div>
+    </Link>
   );
 };
 
