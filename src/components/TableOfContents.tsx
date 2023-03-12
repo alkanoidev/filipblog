@@ -37,7 +37,7 @@ export default function TableOfContents({
       }}
     >
       <div className="flex justify-between items-center">
-        <span className="leading-tight text-dark text-xl dark:text-light font-normal m-0">
+        <span className="leading-tight text-dark text-xl dark:text-light font-bold m-0">
           Table Of Contents
         </span>
         {opened ? (
@@ -45,7 +45,7 @@ export default function TableOfContents({
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
-            strokeWidth={1.5}
+            strokeWidth={2}
             stroke="currentColor"
             className="w-6 h-6"
           >
@@ -60,7 +60,7 @@ export default function TableOfContents({
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
-            strokeWidth={1.5}
+            strokeWidth={2}
             stroke="currentColor"
             className="w-6 h-6"
           >

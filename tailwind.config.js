@@ -13,9 +13,12 @@ module.exports = {
         primary: "#62aeef",
         secondary: "#68af73",
         off: {
-          light: "#dcdcdc",
+          light: "#e8e8e8",
           dark: "#0b0b0b",
         },
+      },
+      gridTemplateColumns: {
+        fluid: "repeat(auto-fit, minmax(15rem, 1fr))"
       },
       keyframes: {
         shimmer: {
