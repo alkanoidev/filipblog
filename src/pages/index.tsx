@@ -83,14 +83,14 @@ export const Home: NextPage<Props> = ({ allPosts, topics }) => {
             >
               {topics.map((topic) => (
                 <li key={topic}>
-                <TopicButton
-                  onClick={() => {
-                    setSelectedTopic(topic);
-                  }}
-                  selectedTopic={selectedTopic}
-                  title={topic}
-                  key={topic}
-                />
+                  <TopicButton
+                    onClick={() => {
+                      setSelectedTopic(topic);
+                    }}
+                    selectedTopic={selectedTopic}
+                    title={topic}
+                    key={topic}
+                  />
                 </li>
               ))}
             </motion.ul>
@@ -100,18 +100,21 @@ export const Home: NextPage<Props> = ({ allPosts, topics }) => {
 
       <ul
         ref={blogLinksList}
-        className="flex flex-wrap gap-4 mt-5 w-full justify-center"
+        className="gap-4 mt-5 w-full grid grid-cols-fluid"
       >
         {posts && !isLoading
           ? posts.map((post: PostType) => (
-                <PostLink key={post.link} post={post} />
+              <PostLink key={post.link} post={post} />
             ))
           : !isLoading && (
               <h2 className="text-center">No Blog Posts Found ;(</h2>
             )}
         {isLoading &&
           posts?.map((post) => (
-            <li key={post.module.meta.minifiedTitle} className="w-full sm:w-auto">
+            <li
+              key={post.module.meta.minifiedTitle}
+              className="w-full sm:w-auto"
+            >
               <PostSkeleton key={post.link} />
             </li>
           ))}

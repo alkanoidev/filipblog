@@ -158,7 +158,7 @@ a {
       content: "";
       width: 2px;
       height: 100%;
-      @apply bg-primary/50;
+      @apply dark:bg-white/30 bg-black/30;
       position: absolute;
       left: -1rem;
     }

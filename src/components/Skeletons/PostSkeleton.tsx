@@ -1,6 +1,6 @@
 export default function PostSkeleton() {
   return (
-    <div className="space-y-5 rounded-2xl bg-off-white dark:bg-off-dark p-5 h-52 w-full sm:w-72 relative shadow">
+    <div className="space-y-5 rounded-2xl bg-off-white dark:bg-off-dark p-5 h-52 w-full sm:w-72 relative ring-1 ring-off-dark/20 dark:ring-off-light/20">
       <div className="h-4 rounded-lg bg-off-dark/20 dark:bg-off-light/20"></div>
       <div className="space-y-3">
         <div className="h-3 w-3/5 rounded-lg bg-off-dark/20 dark:bg-off-light/20"></div>
