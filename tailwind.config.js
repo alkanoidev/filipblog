@@ -17,6 +17,9 @@ module.exports = {
           dark: "#0b0b0b",
         },
       },
+      boxShadow: {
+        'center': ': 0px 0px 5px 0px rgba(0,0,0,0.75)',
+      },
       gridTemplateColumns: {
         fluid: "repeat(auto-fit, minmax(15rem, 1fr))"
       },
