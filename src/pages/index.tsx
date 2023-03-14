@@ -62,7 +62,7 @@ export const Home: NextPage<Props> = ({ allPosts, topics }) => {
   }, [selectedTopic, searchQuery]);
 
   return (
-    <main>
+    <main className="px-2 sm:px-0">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

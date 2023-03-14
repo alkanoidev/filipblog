@@ -10,8 +10,8 @@ module.exports = {
         dark: "#121212",
         "light-text": "#080808",
         "dark-text": "#E0E0E0",
-        primary: "#62aeef",
-        secondary: "#68af73",
+        primary: "#0369a1",
+        secondary: "#0369a1",
         off: {
           light: "#e8e8e8",
           dark: "#0b0b0b",
