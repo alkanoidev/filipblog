@@ -1,4 +1,3 @@
-
 import ChangeThemeBtn from "./Buttons/ChangeThemeBtn";
 
 function TopAppBar({ children }: { children: any }) {
@@ -9,7 +8,7 @@ function TopAppBar({ children }: { children: any }) {
           <img
             src="/avatar.png"
             alt="avatar"
-            className="rounded-full w-16 h-16 ring-2 ring-light dark:ring-dark"
+            className="rounded-full w-16 h-16 ring-2 bg-light dark:bg-dark transition-none ring-light dark:ring-dark"
           />
         </div>
         <div>

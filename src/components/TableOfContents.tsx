@@ -75,7 +75,7 @@ export default function TableOfContents({
       <div
         className={`list ${
           opened && "show"
-        } bg-off-light dark:bg-off-dark py-1 shadow-md w-full rounded-b-lg`}
+        } bg-off-light dark:bg-off-dark py-4 pb-1 pl-4 shadow-md w-full rounded-b-lg`}
       >
         {children}
       </div>
