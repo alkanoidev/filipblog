@@ -18,7 +18,7 @@ const PostLink = ({ post }: { post: PostType }) => {
         className="transition-all motion-reduce:transition-none z-0 text-light-text dark:text-dark-text no-underline
          w-full sm:w-80 relative ease-out flex flex-col p-5 rounded-2xl gap-2 bg-off-light dark:bg-off-dark h-max sm:h-56 
          overflow-y-hidden hover:cursor-pointer hover:text-light-text dark:hover:text-dark-text
-         ring-2 ring-off-dark/20 dark:ring-off-light/10 hover:ring-primary dark:hover:ring-primary hover:ring-2
+         ring-2 ring-off-dark/20 dark:ring-off-light/10 hover:shadow-lg dark:hover:shadow-primary hover:shadow-primary dark:hover:shadow-sm  hover:ring-2
          "
       >
         <h2>{meta.title}</h2>
