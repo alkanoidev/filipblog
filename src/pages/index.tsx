@@ -34,7 +34,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
 export const Home: NextPage<Props> = ({ allPosts, topics }) => {
   const [posts, setPosts] = useState<PostType[] | null>(allPosts);
-  const [selectedTopic, setSelectedTopic] = useState<string | null>(null);
+  const [selectedTopic, setSelectedTopic] = useState<string | null>("All");
   const [blogLinksList] = useAutoAnimate<HTMLUListElement>();
   const [searchQuery, setSearchQuery] = useState<string | undefined>();
   const [isLoading, setIsLoading] = useState(true);

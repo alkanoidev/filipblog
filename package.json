@@ -23,7 +23,7 @@
     "nextjs-progressbar": "^0.0.15",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "sass": "^1.53.0"
+    "tailwindcss-ripple": "^0.7.1"
   },
   "devDependencies": {
     "@types/node": "^18.0.0",

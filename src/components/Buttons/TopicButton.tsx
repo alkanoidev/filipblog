@@ -1,4 +1,5 @@
 import { MouseEventHandler } from "react";
+import classNames from "../../utils/classNames";
 
 function TopicButton({
   title,
@@ -12,9 +13,14 @@ function TopicButton({
   return (
     <button
       onClick={onClick}
-      className={`rounded-md transition motion-reduce:transition-none ease-out hover:bg-primary/50 dark:hover:bg-primary/50
-       border-primary/70 dark:border-primary/80 border-2 px-2 min-w-max
-       ${selectedTopic === title && "bg-primary/50"}`}
+      className={classNames(
+        "text-center px-2 rounded-lg transition",
+        "border-2 border-off-dark/20 dark:border-off-light/10",
+        "hover:bg-off-dark/20 dark:hover:bg-off-light/20",
+        selectedTopic === title
+          ? "bg-primary hover:bg-primary text-light border-primary"
+          : "bg-off-light dark:bg-off-dark"
+      )}
     >
       {title}
     </button>
