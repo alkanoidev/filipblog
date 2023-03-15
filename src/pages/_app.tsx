@@ -18,7 +18,11 @@ function MyApp({ Component, pageProps, router }: AppProps) {
 
   return (
     <>
-      <NextNProgress height={3} color="#62aeef" options={{ showSpinner: false }} />
+      <NextNProgress
+        height={3}
+        color="#62aeef"
+        options={{ showSpinner: false }}
+      />
       <Head>
         <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
@@ -28,20 +32,8 @@ function MyApp({ Component, pageProps, router }: AppProps) {
         />
         <meta name="description" content="Filip's personal blog" />
 
-        <link rel="manifest" href="/manifest.json" />
-        <link
-          href="/favicon-16x16.png"
-          rel="icon"
-          type="image/png"
-          sizes="16x16"
-        />
-        <link
-          href="/favicon-32x32.png"
-          rel="icon"
-          type="image/png"
-          sizes="32x32"
-        />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png"></link>
+        <link href="/favicon.svg" rel="icon" type="image/svg" />
+
         <meta
           name="theme-color"
           content={theme === "dark" ? "#080808" : "#F5F5F5"}
