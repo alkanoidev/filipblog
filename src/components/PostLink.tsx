@@ -23,7 +23,7 @@ const PostLink = ({ post }: { post: PostType }) => {
           "ring-2 ring-off-dark/20 dark:ring-off-light/10 hover:shadow-lg dark:hover:shadow-off-light/10 hover:ring-2"
         )}
       >
-        <h2>{meta.title}</h2>
+        <h1 className="text-xl">{meta.title}</h1>
         <StatsTray meta={meta} />
         <TopicsTray topics={meta.topics} />
         <p className="mt-2">{meta.description}</p>
