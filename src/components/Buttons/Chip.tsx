@@ -1,7 +1,7 @@
 import { MouseEventHandler } from "react";
 import classNames from "../../utils/classNames";
 
-function TopicButton({
+function Chip({
   title,
   onClick,
   selectedTopic,
@@ -27,4 +27,4 @@ function TopicButton({
   );
 }
 
-export default TopicButton;
+export default Chip;

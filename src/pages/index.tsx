@@ -1,11 +1,5 @@
-import type {
-  GetStaticProps,
-  InferGetServerSidePropsType,
-  InferGetStaticPropsType,
-  NextPage,
-} from "next";
+import type { GetStaticProps, NextPage } from "next";
 import { useEffect, useState } from "react";
-import TopicButton from "../components/Buttons/TopicButton";
 import PostLink from "../components/PostLink";
 import PostType from "../types/Post";
 import TopAppBar from "../components/TopAppBar";
@@ -13,6 +7,7 @@ import { motion } from "framer-motion";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import SearchInput from "../components/SearchInput";
 import PostSkeleton from "../components/Skeletons/PostSkeleton";
+import Chip from "../components/Buttons/Chip";
 
 export const getStaticProps: GetStaticProps = async () => {
   const { posts } = require("../utils/getAllPosts");
@@ -83,7 +78,7 @@ export const Home: NextPage<Props> = ({ allPosts, topics }) => {
             >
               {topics.map((topic) => (
                 <li key={topic}>
-                  <TopicButton
+                  <Chip
                     onClick={() => {
                       setSelectedTopic(topic);
                     }}
