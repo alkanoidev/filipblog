@@ -13,7 +13,7 @@ const PostLink = ({ post }: { post: PostType }) => {
   const router = useRouter();
 
   return (
-    <Link href={router.basePath + "/blog" + link}>
+    <Link href={router.basePath + link}>
       <div
         id={meta.minifiedTitle}
         className={classNames(
