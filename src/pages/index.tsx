@@ -6,7 +6,6 @@ import TopAppBar from "../components/TopAppBar";
 import { motion } from "framer-motion";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import SearchInput from "../components/SearchInput";
-import PostSkeleton from "../components/Skeletons/PostSkeleton";
 import Chip from "../components/Buttons/Chip";
 
 export const getStaticProps: GetStaticProps = async () => {
