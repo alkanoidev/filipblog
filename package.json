@@ -14,16 +14,13 @@
   },
   "dependencies": {
     "@formkit/auto-animate": "^1.0.0-beta.1",
-    "@heroicons/react": "^2.0.13",
     "@next/mdx": "^12.2.0",
     "framer-motion": "^6.4.3",
     "next": "12.2.0",
     "next-compose-plugins": "^2.2.1",
-    "next-pwa": "^5.5.4",
     "nextjs-progressbar": "^0.0.15",
     "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "tailwindcss-ripple": "^0.7.1"
+    "react-dom": "18.2.0"
   },
   "devDependencies": {
     "@types/node": "^18.0.0",
