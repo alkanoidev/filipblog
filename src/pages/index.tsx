@@ -34,7 +34,6 @@ export const Home: NextPage<Props> = ({ allPosts, topics }) => {
   const [selectedTopic, setSelectedTopic] = useState<string | null>("All");
   const [blogLinksList] = useAutoAnimate<HTMLUListElement>();
   const [searchQuery, setSearchQuery] = useState<string | undefined>();
-  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     if (!selectedTopic || selectedTopic.toLowerCase() === "all") {
@@ -53,9 +52,6 @@ export const Home: NextPage<Props> = ({ allPosts, topics }) => {
       );
       setPosts(searchedPosts.length > 0 ? searchedPosts : null);
     }
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
   }, [selectedTopic, searchQuery]);
 
   return (
@@ -99,22 +95,13 @@ export const Home: NextPage<Props> = ({ allPosts, topics }) => {
         ref={blogLinksList}
         className="gap-4 mt-5 2xl:max-w-7xl xl:max-w-6xl lg:max-w-4xl md:max-w-2xl sm:max-w-xl mx-auto flex flex-wrap justify-center"
       >
-        {posts && !isLoading
-          ? posts.map((post: PostType, index) => (
-              <PostLink key={post.link} post={post} />
-            ))
-          : !isLoading && (
-              <h2 className="text-center">No Blog Posts Found ;(</h2>
-            )}
-        {isLoading &&
-          posts?.map((post) => (
-            <li
-              key={post.module.meta.minifiedTitle}
-              className="w-full sm:w-auto"
-            >
-              <PostSkeleton key={post.link} />
-            </li>
-          ))}
+        {posts ? (
+          posts.map((post: PostType, index) => (
+            <PostLink key={post.link} post={post} />
+          ))
+        ) : (
+          <h2 className="text-center">No Blog Posts Found ;(</h2>
+        )}
       </ul>
     </main>
   );
