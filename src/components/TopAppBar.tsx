@@ -2,11 +2,11 @@ import ChangeThemeBtn from "./Buttons/ChangeThemeBtn";
 
 function TopAppBar({ children }: { children: any }) {
   return (
-    <div className="flex w-full justify-start items-start sm:items-center gap-3 flex-col sm:flex-row relative">
+    <div className="flex mx-auto w-full sm:w-[652px] lg:w-[1024px] justify-start items-start sm:items-center gap-3 flex-col sm:flex-row relative">
       <div className="flex items-center gap-2 min-w-max">
         <div className="bg-gradient-to-r from-primary to-secondary rounded-full p-[0.3rem]">
           <img
-            src="/avatar.png"
+            src="/Avatar.webp"
             alt="avatar"
             className="rounded-full w-16 h-16 ring-2 bg-light dark:bg-dark transition-none ring-light dark:ring-dark"
           />

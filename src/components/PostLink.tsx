@@ -5,7 +5,13 @@ import TopicsTray from "./TopicsTray";
 import Link from "next/dist/client/link";
 import classNames from "../utils/classNames";
 
-const PostLink = ({ post }: { post: PostType }) => {
+const PostLink = ({
+  post,
+  spotlight,
+}: {
+  post: PostType;
+  spotlight?: boolean;
+}) => {
   const {
     link,
     module: { meta },
@@ -17,10 +23,11 @@ const PostLink = ({ post }: { post: PostType }) => {
       <div
         id={meta.minifiedTitle}
         className={classNames(
-          "transition-all motion-reduce:transition-none z-0 text-light-text dark:text-dark-text no-underline",
-          "w-full sm:w-80 relative ease-out flex flex-col p-5 rounded-2xl gap-2 bg-off-light dark:bg-off-dark h-max sm:h-56",
+          "transition-all motion-reduce:transition-none z-0 text-on-surface-light dark:text-on-surface-dark no-underline",
+          "relative ease-out flex flex-col p-5 rounded-2xl gap-2 bg-surface-light dark:bg-surface-dark h-max sm:h-56",
           "overflow-y-hidden hover:cursor-pointer hover:text-light-text dark:hover:text-dark-text",
-          "ring-2 ring-off-dark/20 dark:ring-off-light/10 hover:shadow-lg dark:hover:shadow-off-light/10 hover:ring-2"
+          "ring-off-dark/20 dark:ring-off-light/10 hover:shadow-lg dark:hover:shadow-off-light/10 hover:ring-2",
+          spotlight ? "w-full" : "w-full sm:max-w-xs"
         )}
       >
         <h1 className="text-xl">{meta.title}</h1>

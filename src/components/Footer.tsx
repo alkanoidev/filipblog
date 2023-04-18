@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="w-full my-5 flex justify-start flex-col sm:flex-row sm:justify-between">
+    <footer className="w-full mx-auto sm:w-[652px] lg:w-[1024px] my-5 flex justify-start flex-col sm:flex-row sm:justify-between">
       <p>
         Built with{" "}
         <a className="text-primary" href="https://nextjs.org/">

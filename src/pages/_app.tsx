@@ -1,6 +1,6 @@
 import "../styles/globals.scss";
 import type { AppProps } from "next/app";
-import Layout from "../layouts/Layout";
+import Layout from "../components/Layout";
 import ThemeProvider, { useThemeContext } from "../context/Theme";
 import { motion } from "framer-motion";
 import { useEffect } from "react";
@@ -32,7 +32,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
         />
         <meta name="description" content="Filip's personal blog" />
 
-        <link href="/favicon.svg" rel="icon" type="image/svg" />
+        <link href="/Avatar.png" rel="icon" type="image/svg" />
 
         <meta
           name="theme-color"

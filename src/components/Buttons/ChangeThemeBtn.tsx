@@ -4,7 +4,7 @@ export default function ChangeThemeBtn() {
   const { toggleTheme, theme } = useThemeContext();
   return (
     <button
-      className="text-2xl bg-off-light dark:bg-off-dark rounded-lg p-2 shadow"
+      className="text-2xl bg-surface-light dark:bg-surface-dark rounded-lg p-2 shadow"
       onClick={() => {
         toggleTheme();
       }}

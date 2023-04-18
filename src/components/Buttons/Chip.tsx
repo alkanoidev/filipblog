@@ -16,10 +16,10 @@ function Chip({
       className={classNames(
         "text-center px-2 rounded-lg transition",
         "border-2 border-off-dark/20 dark:border-off-light/10",
-        "hover:bg-off-dark/20 dark:hover:bg-off-light/20",
+        "hover:bg-off-dark/20 dark:hover:bg-off-light/20 whitespace-nowrap",
         selectedTopic === title
-          ? "bg-primary hover:bg-primary text-light border-primary"
-          : "bg-off-light dark:bg-off-dark"
+          ? "bg-primary-light hover:bg-primary-light dark:bg-primary-dark dark:hover:bg-primary-dark text-light dark:text-dark border-primary"
+          : "bg-surface-light dark:bg-surface-dark"
       )}
     >
       {title}

@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function BackButton({ to }: { to: string }) {
   return (
     <Link href={"/" + "#" + to}>
-      <div className="flex rounded-lg bg-off-light dark:bg-off-dark p-2 text-dark dark:text-light font-bold gap-2 items-center justify-center hover:cursor-pointer">
+      <div className="flex rounded-lg bg-surface-light dark:bg-surface-dark p-2 text-dark dark:text-light font-bold gap-2 items-center justify-center hover:cursor-pointer">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"

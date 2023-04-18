@@ -22,7 +22,7 @@ html {
 body {
   min-height: 100vh;
   @apply bg-light dark:bg-dark;
-  @apply text-light-text dark:text-dark-text;
+  @apply text-on-light dark:text-on-dark;
   transition: background-color 0.2s;
   @apply motion-reduce:transition-none;
   @apply ease-out;
@@ -50,7 +50,7 @@ label {
   @apply text-base;
 }
 a {
-  @apply text-primary underline transition;
+  @apply text-primary-light dark:text-primary-dark underline transition;
 }
 .blog-content {
   h1 {
@@ -77,12 +77,12 @@ a {
   h4,
   h5,
   h6 {
-    @apply mt-4 mb-2 text-dark dark:text-light font-bold;
+    @apply mt-4 mb-2 text-on-light dark:text-on-dark font-bold;
   }
   ul {
     @apply list-disc ml-5;
     li::marker {
-      @apply text-primary/50;
+      @apply text-primary-light/50 dark:text-primary-dark/50;
     }
   }
   ol {
@@ -92,7 +92,7 @@ a {
     @apply text-base w-full;
   }
   a {
-    @apply text-primary transition underline;
+    @apply text-primary-light dark:text-primary-dark transition underline;
   }
   blockquote {
     @apply bg-off-light my-5 rounded-lg dark:bg-off-dark p-4 flex gap-2 items-center;
@@ -113,7 +113,7 @@ a {
     padding: 6px 13px;
   }
   th {
-    @apply border-b border-b-primary;
+    @apply border-b border-b-primary-light dark:border-b-primary-dark;
   }
   table {
     width: 100%;
@@ -150,7 +150,7 @@ a {
         a {
           text-decoration: none;
           width: 100%;
-          @apply hover:underline text-dark dark:text-light;
+          @apply hover:underline text-on-light dark:text-on-dark;
         }
       }
     }
@@ -595,6 +595,6 @@ a {
 footer {
   a {
     text-decoration: underline;
-    @apply transition hover:text-primary/50 motion-reduce:transition-none;
+    @apply transition hover:text-primary-light/50 dark:hover:text-primary-dark/50 motion-reduce:transition-none;
   }
 }

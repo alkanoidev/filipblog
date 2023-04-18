@@ -17,7 +17,9 @@ export const getStaticProps: GetStaticProps = async () => {
   posts.map((post: any) => {
     topics.push(...post.module.meta.topics);
   });
-
+  topics = topics.filter((element, index) => {
+    return topics.indexOf(element) === index;
+  });
   posts.sort((a: any, b: any) => {
     return b.module.meta.date - a.module.meta.date;
   });
@@ -95,10 +97,10 @@ export const Home: NextPage<Props> = ({ allPosts, topics }) => {
 
       <ul
         ref={blogLinksList}
-        className="gap-4 mt-5 w-full grid grid-cols-fluid"
+        className="gap-4 mt-5 2xl:max-w-7xl xl:max-w-6xl lg:max-w-4xl md:max-w-2xl sm:max-w-xl mx-auto flex flex-wrap justify-center"
       >
         {posts && !isLoading
-          ? posts.map((post: PostType) => (
+          ? posts.map((post: PostType, index) => (
               <PostLink key={post.link} post={post} />
             ))
           : !isLoading && (
