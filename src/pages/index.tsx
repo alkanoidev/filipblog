@@ -32,7 +32,7 @@ export const Home: NextPage<Props> = ({ allPosts, topics }) => {
   const [posts, setPosts] = useState<PostType[] | null>(allPosts);
   const [selectedTopic, setSelectedTopic] = useState<string | null>("All");
   const [blogLinksList] = useAutoAnimate<HTMLUListElement>();
-  const [searchQuery, setSearchQuery] = useState<string | undefined>();
+  const [searchQuery, setSearchQuery] = useState<string | undefined>("");
 
   useEffect(() => {
     if (!selectedTopic || selectedTopic.toLowerCase() === "all") {
@@ -90,17 +90,41 @@ export const Home: NextPage<Props> = ({ allPosts, topics }) => {
         </div>
       </motion.div>
 
-      <ul
+      {/* <ul
         ref={blogLinksList}
-        className="gap-4 mt-5 2xl:max-w-7xl xl:max-w-6xl lg:max-w-4xl md:max-w-2xl sm:max-w-xl mx-auto flex flex-wrap justify-center"
+        className="mt-5 mx-auto w-full sm:w-[652px] lg:w-[1024px] block space-y-4"
       >
         {posts ? (
-          posts.map((post: PostType, index) => (
-            <PostLink key={post.link} post={post} />
-          ))
+          <>
+            <PostLink key={posts[0]?.link} post={posts[0]!} spotlight />
+            <div
+              ref={grid}
+              className="grid grid-cols-1 sm:grid-cols-3 w-full gap-4"
+            >
+              {posts.map((post: PostType, index) => {
+                if (index > 0) return <PostLink key={post.link} post={post} />;
+              })}
+            </div>
+          </>
         ) : (
           <h2 className="text-center">No Blog Posts Found ;(</h2>
         )}
+      </ul> */}
+      <ul
+        ref={blogLinksList}
+        className="gap-4 mt-5 w-full flex flex-wrap justify-center"
+      >
+        {posts
+          ? posts.map((post: PostType, index) => (
+              <PostLink
+                key={post.link}
+                post={post}
+                spotlight={
+                  index === 0 && selectedTopic === "All" && searchQuery === ""
+                }
+              />
+            ))
+          : null}
       </ul>
     </main>
   );

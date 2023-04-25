@@ -25,7 +25,7 @@ export default function TableOfContents({
 
   return (
     <div
-      className={`TOC relative bg-off-light dark:bg-off-dark w-full p-2 transition-all motion-reduce:transition-none shadow rounded-lg hover:cursor-pointer`}
+      className={`TOC my-5 relative bg-surface-light dark:bg-surface-dark w-full p-2 transition-all motion-reduce:transition-none shadow rounded-lg hover:cursor-pointer`}
       ref={wrapperRef}
       onClick={() => {
         setOpened((prev) => !prev);
@@ -37,7 +37,7 @@ export default function TableOfContents({
       }}
     >
       <div className="flex justify-between items-center">
-        <span className="leading-tight text-dark text-xl dark:text-light font-bold m-0">
+        <span className="leading-tight text-on-surface-light text-xl dark:text-on-surface-dark font-bold m-0">
           Table Of Contents
         </span>
         {opened ? (
@@ -75,7 +75,7 @@ export default function TableOfContents({
       <div
         className={`list ${
           opened && "show"
-        } bg-off-light dark:bg-off-dark py-4 pb-1 pl-4 shadow-md w-full rounded-b-lg`}
+        } bg-surface-light dark:bg-surface-dark py-4 pb-1 pl-4 shadow-md w-full rounded-b-lg`}
       >
         {children}
       </div>

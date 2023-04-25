@@ -1,4 +1,5 @@
 import { Dispatch, SetStateAction, useRef } from "react";
+import classNames from "../utils/classNames";
 
 type Props = {
   searchQuery: string | undefined;
@@ -28,7 +29,10 @@ export default function SearchInput({ searchQuery, setSearchQuery }: Props) {
         placeholder="Search by title"
         ref={inputRef}
         type="text"
-        className="bg-surface-light dark:bg-surface-dark ease-out w-full h-10 leading-7 pl-10 py-4 border-2 shadow border-transparent rounded-lg outline-none transition motion-reduce:transition-none hover:ring-2 hover:ring-primary-light dark:hover:ring-primary-dark focus:ring-2 focus:ring-primary-light dark:focus:ring-primary-dark"
+        className={classNames(
+          "bg-surface-light dark:bg-surface-dark ease-out w-full h-10 leading-7 pl-10 py-5 border-2 shadow border-transparent rounded-2xl outline-none transition motion-reduce:transition-none",
+          "focus:ring-2 focus:ring-primary-light dark:focus:ring-primary-dark/50"
+        )}
       />
     </form>
   );

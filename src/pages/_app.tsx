@@ -3,10 +3,8 @@ import type { AppProps } from "next/app";
 import Layout from "../components/Layout";
 import ThemeProvider, { useThemeContext } from "../context/Theme";
 import { motion } from "framer-motion";
-import { useEffect } from "react";
 import Head from "next/head";
 import NextNProgress from "nextjs-progressbar";
-import Script from "next/script";
 
 const variants = {
   hidden: { opacity: 0 },

@@ -1,25 +1,40 @@
 export default function Footer() {
   return (
-    <footer className="w-full mx-auto sm:w-[652px] lg:w-[1024px] my-5 flex justify-start flex-col sm:flex-row sm:justify-between">
+    <footer className="mx-auto w-full my-5 flex justify-start flex-col sm:flex-row sm:justify-between">
       <p>
         Built with{" "}
-        <a className="text-primary" href="https://nextjs.org/">
+        <a
+          className="text-primary-light dark:text-primary-dark"
+          href="https://nextjs.org/"
+        >
           Next.js
         </a>
         ,{" "}
-        <a className="text-primary" href="https://mdxjs.com/">
+        <a
+          className="text-primary-light dark:text-primary-dark"
+          href="https://mdxjs.com/"
+        >
           MDX
         </a>{" "}
         and{" "}
-        <a className="text-primary" href="https://tailwindcss.com/">
+        <a
+          className="text-primary-light dark:text-primary-dark"
+          href="https://tailwindcss.com/"
+        >
           Tailwind
         </a>
       </p>
       <p>
-        <a className="text-primary" href="https://filipivanovic.netlify.app/">
+        <a
+          className="text-primary-light dark:text-primary-dark"
+          href="https://filipivanovic.netlify.app/"
+        >
           Portfolio
         </a>{" "}
-        <a className="text-primary" href="https://github.com/alkanoidev">
+        <a
+          className="text-primary-light dark:text-primary-dark"
+          href="https://github.com/alkanoidev"
+        >
           GitHub
         </a>
       </p>

@@ -24,16 +24,55 @@ const PostLink = ({
         id={meta.minifiedTitle}
         className={classNames(
           "transition-all motion-reduce:transition-none z-0 text-on-surface-light dark:text-on-surface-dark no-underline",
-          "relative ease-out flex flex-col p-5 rounded-2xl gap-2 bg-surface-light dark:bg-surface-dark h-max sm:h-56",
+          "relative ease-out flex flex-col p-4 rounded-2xl gap-2 bg-surface-light dark:bg-surface-dark  sm:h-56",
           "overflow-y-hidden hover:cursor-pointer hover:text-light-text dark:hover:text-dark-text",
-          "ring-off-dark/20 dark:ring-off-light/10 hover:shadow-lg dark:hover:shadow-off-light/10 hover:ring-2",
-          spotlight ? "w-full" : "w-full sm:max-w-xs"
+          "hover:scale-105",
+          spotlight
+            ? "w-full"
+            : "md:w-[calc(50%-1rem)] lg:w-[calc(33.333333%-1rem)] w-full"
         )}
       >
         <h1 className="text-xl">{meta.title}</h1>
         <StatsTray meta={meta} />
         <TopicsTray topics={meta.topics} />
-        <p className="mt-2">{meta.description}</p>
+        <p className="mt-6 sm:mt-2">{meta.description}</p>
+
+        {spotlight ? (
+          <svg
+            height="150"
+            viewBox="0 0 450 300"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="absolute right-0 bottom-0 h-24 sm:h-36 z-0"
+          >
+            <circle
+              cx="112.5"
+              cy="187.5"
+              r="37.5"
+              className="fill-primary-light dark:fill-primary-dark"
+            />
+            <path
+              d="M210 187.5C210 208.211 226.789 225 247.5 225H450V150H247.5C226.789 150 210 166.789 210 187.5Z"
+              className="fill-primary-light dark:fill-primary-dark"
+            />
+            <path
+              d="M294 112.5C294 133.211 310.789 150 331.5 150H450V75H331.5C310.789 75 294 91.7893 294 112.5Z"
+              className="fill-[#BDBDBF] dark:fill-[#2A2D31]"
+            />
+            <path
+              d="M225 262.5C225 283.211 241.789 300 262.5 300H337.5C358.211 300 375 283.211 375 262.5C375 241.789 358.211 225 337.5 225H262.5C241.789 225 225 241.789 225 262.5Z"
+              className="fill-[#BDBDBF] dark:fill-[#2A2D31]"
+            />
+            <path
+              d="M75 37.5C75 58.2107 91.7893 75 112.5 75H262.5C283.211 75 300 58.2107 300 37.5C300 16.7893 283.211 0 262.5 0H112.5C91.7893 0 75 16.7893 75 37.5Z"
+              className="fill-secondary-light dark:fill-secondary-dark"
+            />
+            <path
+              d="M375 262.5C375 283.211 391.789 300 412.5 300H450V225H412.5C391.789 225 375 241.789 375 262.5Z"
+              className="fill-secondary-light dark:fill-secondary-dark"
+            />
+          </svg>
+        ) : null}
       </div>
     </Link>
   );
