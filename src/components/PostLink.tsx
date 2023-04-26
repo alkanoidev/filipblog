@@ -4,23 +4,33 @@ import StatsTray from "./StatsTray";
 import TopicsTray from "./TopicsTray";
 import Link from "next/dist/client/link";
 import classNames from "../utils/classNames";
+import { motion } from "framer-motion";
 
-const PostLink = ({
+export default function PostLink({
   post,
   spotlight,
 }: {
   post: PostType;
   spotlight?: boolean;
-}) => {
+}) {
   const {
     link,
     module: { meta },
   } = post;
-  const router = useRouter();
+  const basePath = useRouter().basePath;
 
   return (
-    <Link href={router.basePath + link}>
-      <div
+    <Link href={basePath + link}>
+      <motion.div
+        key={post.link}
+        variants={{
+          hidden: { y: 10, opacity: 0 },
+          show: { y: 0, opacity: 1 },
+          initial: { y: 10, opacity: 0 },
+          animate: { y: 0, opacity: 1 },
+          exit: { y: -10, opacity: 0 },
+        }}
+        whileHover={{ scale: 1.05 }}
         id={meta.minifiedTitle}
         className={classNames(
           "transition-all motion-reduce:transition-none z-0 text-on-surface-light dark:text-on-surface-dark no-underline",
@@ -35,7 +45,9 @@ const PostLink = ({
         <h1 className="text-xl">{meta.title}</h1>
         <StatsTray meta={meta} />
         <TopicsTray topics={meta.topics} />
-        <p className="mt-6 sm:mt-2">{meta.description}</p>
+        <p className={`mt-6 sm:mt-2 ${spotlight && "pr-36 sm:pr-56"}`}>
+          {meta.description}
+        </p>
 
         {spotlight ? (
           <svg
@@ -73,9 +85,7 @@ const PostLink = ({
             />
           </svg>
         ) : null}
-      </div>
+      </motion.div>
     </Link>
   );
-};
-
-export default PostLink;
+}

@@ -60,10 +60,12 @@ export default function BlogPost({
             }
           />
         </div>
-        <h1 className="my-3 mx-2 font-bold text-primary-light dark:text-primary-dark">
+        <h1 className="my-3 mx-2 font-bold text-primary-light dark:text-primary-dark text-5xl">
           {meta.title}
         </h1>
-        <StatsTray meta={meta} />
+        <div className="ml-2">
+          <StatsTray meta={meta} />
+        </div>
         <article className="mt-3 mx-2 mb-6 blog-content">{children}</article>
       </div>
     </>

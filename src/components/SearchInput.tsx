@@ -2,11 +2,10 @@ import { Dispatch, SetStateAction, useRef } from "react";
 import classNames from "../utils/classNames";
 
 type Props = {
-  searchQuery: string | undefined;
   setSearchQuery: Dispatch<SetStateAction<string | undefined>>;
 };
 
-export default function SearchInput({ searchQuery, setSearchQuery }: Props) {
+export default function SearchInput({ setSearchQuery }: Props) {
   const inputRef = useRef<any>();
   return (
     <form
@@ -30,8 +29,8 @@ export default function SearchInput({ searchQuery, setSearchQuery }: Props) {
         ref={inputRef}
         type="text"
         className={classNames(
-          "bg-surface-light dark:bg-surface-dark ease-out w-full h-10 leading-7 pl-10 py-5 border-2 shadow border-transparent rounded-2xl outline-none transition motion-reduce:transition-none",
-          "focus:ring-2 focus:ring-primary-light dark:focus:ring-primary-dark/50"
+          "bg-surface-light dark:bg-surface-dark ease-out w-full h-10 leading-7 pl-10 py-5 border-2 shadow border-transparent rounded-3xl outline-none transition motion-reduce:transition-none",
+          "focus:ring-2 focus:ring-primary-light/50 dark:focus:ring-primary-dark/50"
         )}
       />
     </form>

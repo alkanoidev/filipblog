@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import PostLink from "../components/PostLink";
 import PostType from "../types/Post";
 import TopAppBar from "../components/TopAppBar";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import SearchInput from "../components/SearchInput";
 import Chip from "../components/Buttons/Chip";
@@ -56,16 +56,14 @@ export const Home: NextPage<Props> = ({ allPosts, topics }) => {
   return (
     <main className="px-2 sm:px-0">
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
+        initial={{ y: -10, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        exit={{ y: 10, opacity: 0 }}
+        transition={{ duration: 0.2 }}
       >
         <div className="flex flex-col gap-3">
           <TopAppBar>
-            <SearchInput
-              searchQuery={searchQuery}
-              setSearchQuery={setSearchQuery}
-            />
+            <SearchInput setSearchQuery={setSearchQuery} />
           </TopAppBar>
           {(searchQuery === "" || typeof searchQuery === "undefined") && (
             <motion.ul
@@ -90,28 +88,18 @@ export const Home: NextPage<Props> = ({ allPosts, topics }) => {
         </div>
       </motion.div>
 
-      {/* <ul
-        ref={blogLinksList}
-        className="mt-5 mx-auto w-full sm:w-[652px] lg:w-[1024px] block space-y-4"
-      >
-        {posts ? (
-          <>
-            <PostLink key={posts[0]?.link} post={posts[0]!} spotlight />
-            <div
-              ref={grid}
-              className="grid grid-cols-1 sm:grid-cols-3 w-full gap-4"
-            >
-              {posts.map((post: PostType, index) => {
-                if (index > 0) return <PostLink key={post.link} post={post} />;
-              })}
-            </div>
-          </>
-        ) : (
-          <h2 className="text-center">No Blog Posts Found ;(</h2>
-        )}
-      </ul> */}
-      <ul
-        ref={blogLinksList}
+      <motion.ul
+        variants={{
+          hidden: { opacity: 0 },
+          show: {
+            opacity: 1,
+            transition: {
+              staggerChildren: 0.2,
+            },
+          },
+        }}
+        initial="hidden"
+        animate="show"
         className="gap-4 mt-5 w-full flex flex-wrap justify-center"
       >
         {posts
@@ -125,7 +113,7 @@ export const Home: NextPage<Props> = ({ allPosts, topics }) => {
               />
             ))
           : null}
-      </ul>
+      </motion.ul>
     </main>
   );
 };
