@@ -66,8 +66,7 @@ h3 a {
 
 footer {
   a {
-    text-decoration: none;
-    @apply transition hover:text-primary-light/50 dark:hover:text-primary-dark/50 motion-reduce:transition-none;
+    @apply font-semibold text-primary-light dark:text-primary-dark hover:text-primary-light/50 dark:hover:text-primary-dark/50 motion-reduce:transition-none no-underline;
   }
 }
 .blog-content {
@@ -98,7 +97,7 @@ footer {
     @apply mt-4 mb-2 text-on-light dark:text-on-dark font-bold;
   }
   ul {
-    @apply list-disc ml-5;
+    @apply list-disc ml-5 my-4;
     li::marker {
       @apply text-primary-light/50 dark:text-primary-dark/50;
     }
@@ -143,35 +142,16 @@ footer {
     @apply bg-light dark:bg-dark;
   }
   .TOC {
-    position: relative;
-    h4 {
-      font-weight: normal;
-    }
-    .list {
-      transition: all 0.2s;
-      @apply motion-reduce:transition-none;
-      opacity: 0;
-      position: absolute;
-      z-index: 1;
-      visibility: hidden;
-      transform: scale(95%);
-      left: 0px;
-    }
-    .show {
-      opacity: 1;
-      visibility: visible;
-      transform: scale(100%);
-    }
     ul {
       position: relative;
       list-style: none;
+      @apply my-1;
       li {
         padding: 0.2rem 0px;
         width: 100%;
         a {
-          text-decoration: none;
           width: 100%;
-          @apply hover:underline text-on-light dark:text-on-dark;
+          @apply text-lg font-semibold text-on-surface-light dark:text-on-surface-dark hover:text-primary-light dark:hover:text-primary-dark motion-reduce:transition-none no-underline;
         }
       }
     }

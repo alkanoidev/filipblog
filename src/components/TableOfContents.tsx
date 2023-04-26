@@ -1,84 +1,36 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 
 export default function TableOfContents({
   children,
 }: {
   children: React.ReactNode[];
 }) {
-  const [opened, setOpened] = useState(false);
-  const wrapperRef = useRef<null | HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent | TouchEvent): void => {
-      if (
-        wrapperRef.current &&
-        !wrapperRef.current.contains(event.target as Node)
-      ) {
-        setOpened(false);
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [wrapperRef]);
-
   return (
     <div
-      className={`TOC my-5 relative bg-surface-light dark:bg-surface-dark w-full p-2 transition-all motion-reduce:transition-none shadow rounded-lg hover:cursor-pointer`}
-      ref={wrapperRef}
-      onClick={() => {
-        setOpened((prev) => !prev);
-      }}
-      onBlur={() => {
-        setTimeout(() => {
-          setOpened(false);
-        }, 500);
-      }}
+      className={`TOC my-5 relative bg-surface-light dark:bg-surface-dark w-full p-4 shadow rounded-lg`}
     >
-      <div className="flex justify-between items-center">
-        <span className="leading-tight text-on-surface-light text-xl dark:text-on-surface-dark font-bold m-0">
+      <div className="flex gap-2">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={1.5}
+          stroke="currentColor"
+          className="w-6 h-6"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zM3.75 12h.007v.008H3.75V12zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm-.375 5.25h.007v.008H3.75v-.008zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
+          />
+        </svg>
+
+        <span className="leading-tight font-bold text-on-surface-light text-2xl dark:text-on-surface-dark m-0">
           Table Of Contents
         </span>
-        {opened ? (
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={2}
-            stroke="currentColor"
-            className="w-6 h-6"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M4.5 15.75l7.5-7.5 7.5 7.5"
-            />
-          </svg>
-        ) : (
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={2}
-            stroke="currentColor"
-            className="w-6 h-6"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-            />
-          </svg>
-        )}
       </div>
-      <div
-        className={`list ${
-          opened && "show"
-        } bg-surface-light dark:bg-surface-dark py-4 pb-1 pl-4 shadow-md w-full rounded-b-lg`}
-      >
-        {children}
-      </div>
+
+      <div className="bg-surface-light dark:bg-surface-dark">{children}</div>
     </div>
   );
 }
