@@ -2,6 +2,7 @@ import { useThemeContext } from "../context/Theme";
 import BlogPostMeta from "../types/BlogPostMeta";
 import BackButton from "./Buttons/BackButton";
 import IconButton from "./Buttons/IconButton";
+import TonalButton from "./Buttons/TonalButton";
 import StatsTray from "./StatsTray";
 import Head from "next/head";
 
@@ -21,7 +22,26 @@ export default function BlogPost({
       </Head>
       <div className="flex mx-auto w-full sm:w-[652px] lg:w-[1024px] flex-col">
         <div className="flex justify-between items-center sticky rounded-b-lg z-10 top-0 p-1 backdrop-blur-sm bg-light/80 dark:bg-dark/80">
-          <BackButton to={meta.minifiedTitle} />
+          <TonalButton
+            href={"/" + "#" + meta.minifiedTitle}
+            icon={
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-6 h-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
+                />
+              </svg>
+            }
+            title="Go Back"
+          />
           <IconButton
             onClick={toggleTheme}
             title="Toggle Theme"
