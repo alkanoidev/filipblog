@@ -14,12 +14,12 @@ function Chip({
     <button
       onClick={onClick}
       className={classNames(
-        "text-center px-2 rounded-lg transition",
-        "border-2 border-off-dark/20 dark:border-off-light/10",
-        "hover:bg-off-dark/20 dark:hover:bg-off-light/20 whitespace-nowrap",
+        "text-center px-4 py-2 rounded-full transition",
+        "text-primary-light dark:text-primary-dark",
+        "whitespace-nowrap",
         selectedTopic === title
-          ? "bg-primary-light hover:bg-primary-light dark:bg-primary-dark dark:hover:bg-primary-dark text-light dark:text-dark border-primary"
-          : "bg-surface-light dark:bg-surface-dark"
+          ? "bg-primary-light dark:bg-primary-dark text-light dark:text-dark"
+          : "bg-surface-light dark:bg-surface-dark hover:bg-primary-light dark:hover:bg-primary-dark hover:bg-opacity-[12%] dark:hover:bg-opacity-[12%]"
       )}
     >
       {title}
