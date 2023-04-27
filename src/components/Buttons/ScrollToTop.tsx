@@ -29,11 +29,11 @@ export default function ScrollToTop() {
         "inline-flex gap-2 justify-center",
         "bg-surface-light dark:bg-surface-dark",
         // hover
-        "hover:bg-primary-light dark:hover:bg-primary-dark",
-        "hover:bg-opacity-[12%] dark:hover:bg-opacity-[12%]",
+        "lg:hover:bg-primary-light lg:dark:hover:bg-primary-dark",
+        "lg:hover:bg-opacity-[12%] lg:dark:hover:bg-opacity-[12%]",
         // focus
-        "focus:bg-primary-light dark:focus:bg-primary-dark",
-        "focus:bg-opacity-[20%] dark:focus:bg-opacity-[20%]",
+        "lg:focus:bg-primary-light lg:dark:focus:bg-primary-dark",
+        "lg:focus:bg-opacity-[20%] lg:dark:focus:bg-opacity-[20%]",
         classes
       )}
       onClick={() => {
