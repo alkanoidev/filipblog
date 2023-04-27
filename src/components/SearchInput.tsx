@@ -29,7 +29,7 @@ export default function SearchInput({ setSearchQuery }: Props) {
         ref={inputRef}
         type="text"
         className={classNames(
-          "bg-surface-light dark:bg-surface-dark ease-out w-full h-10 leading-7 pl-10 py-5 border-2 shadow border-transparent rounded-3xl outline-none transition motion-reduce:transition-none",
+          "bg-surface-light dark:bg-surface-dark ease-out w-full h-10 leading-7 pl-10 py-5 border-2 border-transparent rounded-3xl outline-none transition motion-reduce:transition-none",
           "focus:ring-2 focus:ring-primary-light/50 dark:focus:ring-primary-dark/50"
         )}
       />
