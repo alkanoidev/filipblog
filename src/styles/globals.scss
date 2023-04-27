@@ -13,6 +13,7 @@ html {
   @apply bg-light dark:bg-dark;
   scroll-behavior: smooth;
   scroll-padding-top: 60px;
+  -webkit-tap-highlight-color: transparent;
 }
 @media only screen and (max-width: 768px) {
   html {
@@ -69,6 +70,15 @@ footer {
     @apply font-semibold text-primary-light dark:text-primary-dark hover:text-primary-light/50 dark:hover:text-primary-dark/50 motion-reduce:transition-none no-underline;
   }
 }
+@layer utilities {
+  .scrollbar-hidden::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    -webkit-appearance: none;
+    scrollbar-width: none;
+  }
+}
+
 .blog-content {
   h1 {
     @apply text-5xl;

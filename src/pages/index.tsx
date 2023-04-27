@@ -55,22 +55,13 @@ export const Home: NextPage<Props> = ({ allPosts, topics }) => {
 
   return (
     <main className="px-2 sm:px-0">
-      <motion.div
-        initial={{ y: -10, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        exit={{ y: 10, opacity: 0 }}
-        transition={{ duration: 0.2 }}
-      >
+      <div>
         <div className="flex flex-col gap-3">
           <TopAppBar>
             <SearchInput setSearchQuery={setSearchQuery} />
           </TopAppBar>
           {(searchQuery === "" || typeof searchQuery === "undefined") && (
-            <motion.ul
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="mt-2 sm:mt-0 flex items-start justify-start sm:justify-center sm:flex-wrap gap-2 min-w-full overflow-x-auto"
-            >
+            <ul className="mt-2 sm:mt-0 flex scrollbar-hidden items-start justify-start sm:justify-center sm:flex-wrap gap-2 min-w-full overflow-x-auto">
               {topics.map((topic) => (
                 <li key={topic}>
                   <Chip
@@ -83,10 +74,10 @@ export const Home: NextPage<Props> = ({ allPosts, topics }) => {
                   />
                 </li>
               ))}
-            </motion.ul>
+            </ul>
           )}
         </div>
-      </motion.div>
+      </div>
 
       <motion.ul
         variants={{
