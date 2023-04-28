@@ -8,7 +8,7 @@ export default function TopicsTray({ topics }: Props) {
       {topics.map((topic) => (
         <li
           key={topic}
-          className="rounded-md border-primary-light/70 dark:border-primary-dark/50 border-2 px-2 text-sm"
+          className="rounded-full border-primary-light/70 dark:border-primary-dark/50 border-2 px-2 text-sm"
         >
           {topic}
         </li>
