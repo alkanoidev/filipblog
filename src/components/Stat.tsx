@@ -9,7 +9,7 @@ export default function Stat({ title, icon, data, dontShowDot }: PropTypes) {
   return (
     <>
       {!dontShowDot && (
-        <div className="leading-[100%] font-bold text-light-text/50 dark:text-dark-text/50">
+        <div className="leading-none font-bold text-light-text/50 dark:text-dark-text/50">
           .
         </div>
       )}

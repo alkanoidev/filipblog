@@ -1,12 +1,12 @@
 import type { GetStaticProps, NextPage } from "next";
 import { useEffect, useState } from "react";
-import PostLink from "../components/PostLink";
 import PostType from "../types/Post";
 import TopAppBar from "../components/TopAppBar";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import SearchInput from "../components/SearchInput";
 import Chip from "../components/Buttons/Chip";
+import BlogPostCard from "../components/BlogPostCard";
 
 export const getStaticProps: GetStaticProps = async () => {
   const { posts } = require("../utils/getAllPosts");
@@ -78,33 +78,21 @@ export const Home: NextPage<Props> = ({ allPosts, topics }) => {
           )}
         </div>
       </div>
-
-      <motion.ul
-        variants={{
-          hidden: { opacity: 0 },
-          show: {
-            opacity: 1,
-            transition: {
-              staggerChildren: 0.2,
-            },
-          },
-        }}
-        initial="hidden"
-        animate="show"
-        className="gap-4 mt-5 w-full flex flex-wrap justify-center"
-      >
-        {posts
-          ? posts.map((post: PostType, index) => (
-              <PostLink
-                key={post.link}
-                post={post}
-                spotlight={
-                  index === 0 && selectedTopic === "All" && searchQuery === ""
-                }
-              />
-            ))
-          : null}
-      </motion.ul>
+      <AnimatePresence>
+        <ul className="gap-4 mt-5 w-full flex flex-wrap justify-center">
+          {posts
+            ? posts.map((post: PostType, index) => (
+                <BlogPostCard
+                  key={post.link}
+                  post={post}
+                  spotlight={
+                    index === 0 && selectedTopic === "All" && searchQuery === ""
+                  }
+                />
+              ))
+            : null}
+        </ul>
+      </AnimatePresence>
     </main>
   );
 };
