@@ -48,7 +48,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
         initial="hidden"
         animate="enter"
         exit="exit"
-        transition={{ type: "linear", stiffness: 500 }}
+        transition={{ duration: 0.5 }}
       >
         <ThemeProvider>
           <Layout pageTitle="Filip's Blog" description="Filip's Personal Blog">
