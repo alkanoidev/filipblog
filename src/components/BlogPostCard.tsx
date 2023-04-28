@@ -6,7 +6,7 @@ import Link from "next/dist/client/link";
 import classNames from "../utils/classNames";
 import { motion } from "framer-motion";
 
-export default function PostLink({
+export default function BlogPostCard({
   post,
   spotlight,
 }: {
@@ -22,19 +22,15 @@ export default function PostLink({
   return (
     <Link href={basePath + link}>
       <motion.div
-        key={post.link}
-        variants={{
-          hidden: { y: 10, opacity: 0 },
-          show: { y: 0, opacity: 1 },
-          initial: { y: 10, opacity: 0 },
-          animate: { y: 0, opacity: 1 },
-          exit: { y: -10, opacity: 0 },
-        }}
+        initial={{ y: 10, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        exit={{ y: -10, opacity: 0 }}
+        transition={{ duration: 0.25 }}
         whileHover={{ scale: 1.05 }}
         id={meta.minifiedTitle}
         className={classNames(
-          "transition-all motion-reduce:transition-none z-0 text-on-surface-light dark:text-on-surface-dark no-underline",
-          "relative ease-out flex flex-col p-4 rounded-2xl gap-2 bg-surface-light dark:bg-surface-dark  sm:h-56",
+          "transition-transform motion-reduce:transition-none text-on-surface-light dark:text-on-surface-dark",
+          "relative ease-out flex flex-col p-4 rounded-2xl gap-2 bg-surface-light dark:bg-surface-dark sm:h-56",
           "overflow-y-hidden hover:cursor-pointer hover:text-light-text dark:hover:text-dark-text",
           "hover:scale-105",
           spotlight
@@ -42,10 +38,16 @@ export default function PostLink({
             : "md:w-[calc(50%-1rem)] lg:w-[calc(33.333333%-1rem)] w-full"
         )}
       >
-        <h1 className="text-xl">{meta.title}</h1>
+        <h1 className="text-xl text-primary-light dark:text-primary-dark">
+          {meta.title}
+        </h1>
         <StatsTray meta={meta} />
         <TopicsTray topics={meta.topics} />
-        <p className={`mt-6 sm:mt-2 ${spotlight && "pr-36 sm:pr-56"}`}>
+        <p
+          className={`mt-6 sm:mt-2 text-on-surface-light dark:text-on-surface-dark ${
+            spotlight && "pr-36 sm:pr-56"
+          }`}
+        >
           {meta.description}
         </p>
 
