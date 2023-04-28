@@ -30,7 +30,11 @@ export default function SearchInput({ setSearchQuery }: Props) {
         type="text"
         className={classNames(
           "bg-surface-light dark:bg-surface-dark ease-out w-full h-10 leading-7 pl-10 py-5 border-2 border-transparent rounded-3xl outline-none transition motion-reduce:transition-none",
-          "focus:ring-2 focus:ring-primary-light/50 dark:focus:ring-primary-dark/50"
+          "hover:bg-primary-light dark:hover:bg-primary-dark",
+          "hover:bg-opacity-hover dark:hover:bg-opacity-hover",
+          // focus
+          "focus:bg-primary-light dark:focus:bg-primary-dark",
+          "focus:bg-opacity-hover dark:focus:bg-opacity-hover"
         )}
       />
     </form>

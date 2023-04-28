@@ -9,11 +9,6 @@ module.exports = {
         "light-text": "#080808",
         "dark-text": "#E0E0E0",
 
-        // off: {
-        //   light: "#e8e8e8",
-        //   dark: "#0b0b0b",
-        // },
-
         dark: "#121212",
         "on-dark": "#e2e2e5",
         "off-dark": "#2a2a2a",
@@ -39,6 +34,10 @@ module.exports = {
         "on-surface": { dark: "#e2e2e5", light: "#1a1c1e" },
 
         outline: { dark: "#8c9198", light: "#72787e" },
+      },
+      backgroundOpacity: {
+        "hover": "12%",
+        "focus": "24%"
       },
       boxShadow: {
         'center': ': 0px 0px 5px 0px rgba(0,0,0,0.75)',

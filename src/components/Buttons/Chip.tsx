@@ -15,10 +15,10 @@ function Chip({
       onClick={onClick}
       className={classNames(
         "text-center px-4 py-2 rounded-full transition",
-        "text-primary-light dark:text-primary-dark",
+        "text-on-surface-light dark:text-on-surface-dark",
         "whitespace-nowrap",
         selectedTopic === title
-          ? "bg-primary-light dark:bg-primary-dark text-light dark:text-dark"
+          ? "bg-primary-light dark:bg-primary-dark bg-opacity-focus dark:bg-opacity-focus"
           : "bg-surface-light dark:bg-surface-dark hover:bg-primary-light dark:hover:bg-primary-dark hover:bg-opacity-[12%] dark:hover:bg-opacity-[12%]"
       )}
     >

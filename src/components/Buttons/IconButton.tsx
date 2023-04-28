@@ -25,10 +25,10 @@ export default function IconButton({
           "bg-surface-light dark:bg-surface-dark",
           // hover
           "hover:bg-primary-light dark:hover:bg-primary-dark",
-          "hover:bg-opacity-[12%] dark:hover:bg-opacity-[12%]",
+          "hover:bg-opacity-hover dark:hover:bg-opacity-hover",
           // focus
           "focus:bg-primary-light dark:focus:bg-primary-dark",
-          "focus:bg-opacity-[20%] dark:focus:bg-opacity-[20%]"
+          "focus:bg-opacity-focus dark:focus:bg-opacity-focus"
         )}
       >
         {icon ? icon : null}
@@ -47,10 +47,10 @@ export default function IconButton({
         "bg-surface-light dark:bg-surface-dark",
         // hover
         "hover:bg-primary-light dark:hover:bg-primary-dark",
-        "hover:bg-opacity-[12%] dark:hover:bg-opacity-[12%]",
+        "hover:bg-opacity-hover dark:hover:bg-opacity-hover",
         // focus
         "focus:bg-primary-light dark:focus:bg-primary-dark",
-        "focus:bg-opacity-[20%] dark:focus:bg-opacity-[20%]"
+        "focus:bg-opacity-focus dark:focus:bg-opacity-focus"
       )}
     >
       {icon ? icon : null}
