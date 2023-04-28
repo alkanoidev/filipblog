@@ -1,7 +1,5 @@
-import { useEffect, useRef, useState } from "react";
 import { useThemeContext } from "../context/Theme";
 import BlogPostMeta from "../types/BlogPostMeta";
-import BackButton from "./Buttons/BackButton";
 import IconButton from "./Buttons/IconButton";
 import TonalButton from "./Buttons/TonalButton";
 import StatsTray from "./StatsTray";
@@ -16,22 +14,7 @@ export default function BlogPost({
   meta: BlogPostMeta;
 }) {
   const { toggleTheme, theme } = useThemeContext();
-  const topBarRef = useRef(null);
-  const [isFixed, setIsFixed] = useState(false);
 
-  useEffect(() => {
-    let observer = new IntersectionObserver(
-      function (entries) {
-        // no intersection with screen
-        if (entries[0]?.intersectionRatio === 0) setIsFixed(true);
-        // fully intersects with screen
-        else if (entries[0]?.intersectionRatio === 1) setIsFixed(false);
-      },
-      { threshold: [0, 1] }
-    );
-
-    observer.observe(topBarRef.current!);
-  }, []);
   return (
     <>
       <Head>
@@ -39,7 +22,6 @@ export default function BlogPost({
       </Head>
       <div className="flex mx-auto w-full sm:w-[652px] lg:w-[1024px] flex-col">
         <div
-          ref={topBarRef}
           className={classNames(
             "flex justify-between items-center sticky z-10 top-0 p-1 bg-light dark:bg-dark"
           )}
