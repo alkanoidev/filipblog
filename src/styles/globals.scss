@@ -119,7 +119,7 @@ footer {
     @apply text-base w-full;
   }
   a {
-    @apply text-lg font-semibold text-primary-light dark:text-primary-dark motion-reduce:transition-none no-underline hover:underline;
+    @apply text-lg font-semibold break-words text-primary-light dark:text-primary-dark motion-reduce:transition-none no-underline hover:underline;
   }
   blockquote {
     @apply bg-surface-light my-5 rounded-2xl dark:bg-surface-dark p-4 flex gap-2 items-center;
