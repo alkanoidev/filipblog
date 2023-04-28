@@ -104,7 +104,7 @@ footer {
   h4,
   h5,
   h6 {
-    @apply mt-4 mb-2 text-on-light dark:text-on-dark font-bold;
+    @apply mt-8 mb-2 text-on-light dark:text-on-dark font-bold;
   }
   ul {
     @apply list-disc ml-5 my-4;
@@ -119,13 +119,13 @@ footer {
     @apply text-base w-full;
   }
   a {
-    @apply text-primary-light dark:text-primary-dark transition underline;
+    @apply text-lg font-semibold text-primary-light dark:text-primary-dark motion-reduce:transition-none no-underline hover:underline;
   }
   blockquote {
-    @apply bg-surface-light my-5 rounded-lg dark:bg-surface-dark p-4 flex gap-2 items-center;
+    @apply bg-surface-light my-5 rounded-2xl dark:bg-surface-dark p-4 flex gap-2 items-center;
     &::before {
       content: ">";
-      @apply text-3xl;
+      @apply text-3xl text-primary-light dark:text-primary-dark;
     }
   }
   img {
