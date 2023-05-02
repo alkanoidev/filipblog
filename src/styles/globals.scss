@@ -106,6 +106,7 @@ footer {
   h6 {
     @apply mt-8 mb-2 text-on-light dark:text-on-dark font-bold;
   }
+
   ul {
     @apply list-disc ml-5 my-4;
     li::marker {
@@ -116,10 +117,18 @@ footer {
     @apply list-decimal ml-5;
   }
   p {
-    @apply text-base w-full;
+    @apply text-base w-full mb-2;
+  }
+  h1 a,
+  h2 a,
+  h3 a,
+  h4 a,
+  h5 a,
+  h6 a {
+    font-size: inherit;
   }
   a {
-    @apply text-lg font-semibold break-words text-primary-light dark:text-primary-dark motion-reduce:transition-none no-underline hover:underline;
+    @apply underline text-lg font-semibold break-words text-primary-light dark:text-primary-dark motion-reduce:transition-none hover:text-primary-light/50 dark:hover:text-primary-dark/50;
   }
   blockquote {
     @apply bg-surface-light my-5 rounded-2xl dark:bg-surface-dark p-4 flex gap-2 items-center;
@@ -127,9 +136,12 @@ footer {
       content: ">";
       @apply text-3xl text-primary-light dark:text-primary-dark;
     }
+    p {
+      margin: 0px;
+    }
   }
   img {
-    width: 100%;
+    width: 95%;
     margin-top: 1rem;
     margin-left: auto;
     margin-right: auto;
