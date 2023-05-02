@@ -20,7 +20,7 @@ export default function ArticleLayout({
       <Head>
         <title>{meta.title}</title>
       </Head>
-      <div className="flex mx-auto w-full sm:w-[652px] lg:w-[1024px] flex-col">
+      <div className="flex mx-auto w-full sm:max-w-4xl lg:max-w-4xl flex-col">
         <div
           className={classNames(
             "flex justify-between items-center sticky z-10 top-0 p-1 bg-light dark:bg-dark"

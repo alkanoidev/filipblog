@@ -53,7 +53,7 @@ export const Home: NextPage<Props> = ({ allPosts, tags }) => {
   }, [selectedTopic, searchQuery]);
 
   return (
-    <main className="px-2 sm:px-0">
+    <main className="px-2 sm:px-0 2xl:max-w-5xl xl:max-w-4xl lg:max-w-4xl md:max-w-2xl sm:max-w-xl w-full mx-auto">
       <div>
         <div className="flex flex-col gap-3">
           <TopAppBar>
