@@ -1,16 +1,16 @@
 type Props = {
-  topics: Array<string>;
+  tags: Array<string>;
 };
 
-export default function TopicsTray({ topics }: Props) {
+export default function TagsTray({ tags }: Props) {
   return (
     <ul className="w-full flex gap-2 flex-wrap">
-      {topics.map((topic) => (
+      {tags.map((tag) => (
         <li
-          key={topic}
+          key={tag}
           className="rounded-full border-primary-light/70 dark:border-primary-dark/50 border-2 px-2 text-sm"
         >
-          {topic}
+          {tag}
         </li>
       ))}
     </ul>

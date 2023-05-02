@@ -3,7 +3,7 @@ type ArticleMeta = {
   description: string;
   date: Date;
   readTime: number;
-  topics: string[];
+  tags: string[];
   minifiedTitle: string;
 };
 

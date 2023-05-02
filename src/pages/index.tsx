@@ -10,24 +10,24 @@ import BlogPostCard from "../components/BlogPostCard";
 export const getStaticProps: GetStaticProps = async () => {
   const { posts } = require("../utils/getAllPosts");
 
-  let topics: string[] = [];
-  topics.push("All");
+  let tags: string[] = [];
+  tags.push("All");
   posts.map((post: any) => {
-    topics.push(...post.module.meta.topics);
+    tags.push(...post.module.meta.tags);
   });
-  topics = topics.filter((element, index) => {
-    return topics.indexOf(element) === index;
+  tags = tags.filter((element, index) => {
+    return tags.indexOf(element) === index;
   });
   posts.sort((a: any, b: any) => {
     return b.module.meta.date - a.module.meta.date;
   });
 
   return {
-    props: { allPosts: JSON.parse(JSON.stringify(posts)), topics },
+    props: { allPosts: JSON.parse(JSON.stringify(posts)), tags },
   };
 };
 
-export const Home: NextPage<Props> = ({ allPosts, topics }) => {
+export const Home: NextPage<Props> = ({ allPosts, tags }) => {
   const [posts, setPosts] = useState<PostType[] | null>(allPosts);
   const [selectedTopic, setSelectedTopic] = useState<string | null>("All");
   const [searchQuery, setSearchQuery] = useState<string | undefined>("");
@@ -37,7 +37,7 @@ export const Home: NextPage<Props> = ({ allPosts, topics }) => {
       setPosts(allPosts);
     } else {
       const selectedPosts = allPosts.filter((post) =>
-        post.module.meta.topics.includes(selectedTopic)
+        post.module.meta.tags.includes(selectedTopic)
       );
       setPosts(selectedPosts);
     }
@@ -60,7 +60,7 @@ export const Home: NextPage<Props> = ({ allPosts, topics }) => {
           </TopAppBar>
           {(searchQuery === "" || typeof searchQuery === "undefined") && (
             <ul className="mt-2 sm:mt-0 flex scrollbar-hidden items-start justify-start sm:justify-center sm:flex-wrap gap-2 min-w-full overflow-x-auto">
-              {topics.map((topic) => (
+              {tags.map((topic) => (
                 <li key={topic}>
                   <Chip
                     onClick={() => {
@@ -95,6 +95,6 @@ export const Home: NextPage<Props> = ({ allPosts, topics }) => {
   );
 };
 
-type Props = { allPosts: PostType[]; topics: Array<string> };
+type Props = { allPosts: PostType[]; tags: Array<string> };
 
 export default Home;

@@ -1,7 +1,7 @@
 import PostType from "../types/Post";
 import { useRouter } from "next/router";
 import StatsTray from "./StatsTray";
-import TopicsTray from "./TopicsTray";
+import TagsTray from "./TagsTray";
 import Link from "next/dist/client/link";
 import classNames from "../utils/classNames";
 import { motion } from "framer-motion";
@@ -42,7 +42,7 @@ export default function BlogPostCard({
           {meta.title}
         </h1>
         <StatsTray meta={meta} />
-        <TopicsTray topics={meta.topics} />
+        <TagsTray tags={meta.tags} />
         <p
           className={`mt-6 sm:mt-2 text-on-surface-light dark:text-on-surface-dark ${
             spotlight && "pr-36 sm:pr-56"
