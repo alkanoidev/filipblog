@@ -13,7 +13,6 @@
     "react": "18.2.0"
   },
   "dependencies": {
-    "@formkit/auto-animate": "^1.0.0-beta.1",
     "@next/mdx": "^12.2.0",
     "framer-motion": "^6.4.3",
     "next": "12.2.0",
