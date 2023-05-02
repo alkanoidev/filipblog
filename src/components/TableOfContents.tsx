@@ -25,8 +25,8 @@ export default function TableOfContents({
           />
         </svg>
 
-        <span className="leading-tight font-bold text-on-surface-light text-2xl dark:text-on-surface-dark m-0">
-          Table Of Contents
+        <span className="leading-tight font-bold text-on-surface-light text-xl dark:text-on-surface-dark m-0">
+          On This Page
         </span>
       </div>
 

@@ -161,7 +161,7 @@ footer {
         width: 100%;
         a {
           width: 100%;
-          @apply text-lg font-semibold text-on-surface-light dark:text-on-surface-dark hover:text-primary-light dark:hover:text-primary-dark motion-reduce:transition-none no-underline;
+          @apply text-base font-normal text-on-surface-light dark:text-on-surface-dark hover:text-primary-light dark:hover:text-primary-dark motion-reduce:transition-none no-underline;
         }
       }
     }
