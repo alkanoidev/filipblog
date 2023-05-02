@@ -22,7 +22,7 @@ export default function ScrollToTop() {
   return (
     <button
       className={classNames(
-        "p-3 transition text-center font-semibold focus:outline-none",
+        "p-3 transition text-center font-semibold focus:outline-none shadow",
         "items-center justify-center flex fixed bottom-[30px] right-[30px] z-50 transition-all ease-in-out",
         "w-12 h-12 group rounded-full",
         "text-primary-light dark:text-primary-dark",

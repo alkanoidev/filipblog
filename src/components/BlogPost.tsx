@@ -23,7 +23,7 @@ export default function BlogPost({
       <div className="flex mx-auto w-full sm:w-[652px] lg:w-[1024px] flex-col">
         <div
           className={classNames(
-            "flex justify-between items-center sticky z-10 top-0 p-1 bg-light dark:bg-dark"
+            "shadow flex justify-between items-center sticky z-10 top-0 p-1 bg-light dark:bg-dark"
           )}
         >
           <TonalButton
