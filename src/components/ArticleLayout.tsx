@@ -1,17 +1,17 @@
 import { useThemeContext } from "../context/Theme";
-import BlogPostMeta from "../types/BlogPostMeta";
+import ArticleMeta from "../types/ArticleMeta";
 import IconButton from "./Buttons/IconButton";
 import TonalButton from "./Buttons/TonalButton";
 import StatsTray from "./StatsTray";
 import Head from "next/head";
 import classNames from "../utils/classNames";
 
-export default function BlogPost({
+export default function ArticleLayout({
   children,
   meta,
 }: {
   children: JSX.Element | JSX.Element[];
-  meta: BlogPostMeta;
+  meta: ArticleMeta;
 }) {
   const { toggleTheme, theme } = useThemeContext();
 

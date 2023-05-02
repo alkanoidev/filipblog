@@ -1,4 +1,4 @@
-import BlogPost from "../../components/BlogPost";
+import ArticleLayout from "../../components/ArticleLayout";
 import TableOfContents from "../../components/TableOfContents";
 export const meta = {
   title: "React useEffect: array as a dependency",
@@ -8,7 +8,9 @@ export const meta = {
   readTime: 3,
   topics: ["React"],
 };
-export default ({ children }) => <BlogPost meta={meta}>{children}</BlogPost>;
+export default ({ children }) => (
+  <ArticleLayout meta={meta}>{children}</ArticleLayout>
+);
 
 <TableOfContents>
   <ul>

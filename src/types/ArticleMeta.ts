@@ -1,4 +1,4 @@
-type BlogPostMeta = {
+type ArticleMeta = {
   title: string;
   description: string;
   date: Date;
@@ -7,4 +7,4 @@ type BlogPostMeta = {
   minifiedTitle: string;
 };
 
-export default BlogPostMeta;
+export default ArticleMeta;

@@ -1,4 +1,4 @@
-import BlogPost from "../../components/BlogPost";
+import ArticleLayout from "../../components/ArticleLayout";
 
 export const meta = {
   title: "Hello World",
@@ -9,7 +9,9 @@ export const meta = {
   topics: ["#1"],
 };
 
-export default ({ children }) => <BlogPost meta={meta}>{children}</BlogPost>;
+export default ({ children }) => (
+  <ArticleLayout meta={meta}>{children}</ArticleLayout>
+);
 
 # Hello
 

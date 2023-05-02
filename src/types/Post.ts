@@ -1,9 +1,9 @@
-import BlogPostMeta from "./BlogPostMeta";
+import ArticleMeta from "./ArticleMeta";
 
 type PostType = {
   link: string;
   module: {
-    meta: BlogPostMeta;
+    meta: ArticleMeta;
   };
 };
 
