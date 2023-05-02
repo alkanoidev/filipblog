@@ -1,6 +1,6 @@
-import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
+import type { GetStaticProps, NextPage } from "next";
 import { useEffect, useState } from "react";
-import PostType from "../types/Post";
+import PostType from "../types/PostType";
 import TopAppBar from "../components/TopAppBar";
 import { AnimatePresence } from "framer-motion";
 import SearchInput from "../components/SearchInput";
@@ -12,16 +12,17 @@ export const getStaticProps: GetStaticProps = async () => {
 
   let tags: string[] = [];
   tags.push("All");
-  posts.map((post: any) => {
+  posts.map((post: PostType) => {
     tags.push(...post.module.meta.tags);
   });
+
   tags = tags.filter((element, index) => {
     return tags.indexOf(element) === index;
   });
+
   posts.sort((a: any, b: any) => {
     return b.module.meta.date - a.module.meta.date;
   });
-
   return {
     props: { allPosts: JSON.parse(JSON.stringify(posts)), tags },
   };

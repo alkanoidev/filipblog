@@ -1,4 +1,4 @@
-import PostType from "../types/Post";
+import PostType from "../types/PostType";
 import { useRouter } from "next/router";
 import StatsTray from "./StatsTray";
 import TagsTray from "./TagsTray";
@@ -13,10 +13,7 @@ export default function BlogPostCard({
   post: PostType;
   spotlight?: boolean;
 }) {
-  const {
-    link,
-    module: { meta },
-  } = post;
+  const { link, module } = post;
   const basePath = useRouter().basePath;
 
   return (
@@ -27,7 +24,7 @@ export default function BlogPostCard({
         exit={{ y: -10, opacity: 0 }}
         transition={{ duration: 0.25 }}
         whileHover={{ scale: 1.05 }}
-        id={meta.minifiedTitle}
+        id={module.meta.minifiedTitle}
         className={classNames(
           "transition-transform motion-reduce:transition-none text-on-surface-light dark:text-on-surface-dark",
           "relative ease-out flex flex-col p-4 rounded-2xl gap-2 bg-surface-light dark:bg-surface-dark sm:h-56",
@@ -39,16 +36,16 @@ export default function BlogPostCard({
         )}
       >
         <h1 className="text-xl text-primary-light dark:text-primary-dark">
-          {meta.title}
+          {module.meta.title}
         </h1>
-        <StatsTray meta={meta} />
-        <TagsTray tags={meta.tags} />
+        <StatsTray meta={module.meta} />
+        <TagsTray tags={module.meta.tags} />
         <p
           className={`mt-6 sm:mt-2 text-on-surface-light dark:text-on-surface-dark ${
             spotlight && "pr-36 sm:pr-56"
           }`}
         >
-          {meta.description}
+          {module.meta.description}
         </p>
 
         {spotlight ? (
