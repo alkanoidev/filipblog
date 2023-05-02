@@ -1,0 +1,144 @@
+import ArticleLayout from "../../components/ArticleLayout";
+import TableOfContents from "../../components/TableOfContents";
+
+export const meta = {
+  title: "Useful Resources for Tailwind CSS and Beyond",
+  minifiedTitle: "useful-resources-for-tailwind-css-and-beyond",
+  description:
+    "This is my list of resources that help me create user interfaces more effectively.",
+  date: new Date("April 18, 2023"),
+  readTime: 1,
+  tags: ["TailwindCSS"],
+};
+
+export default ({ children }) => (
+  <ArticleLayout meta={meta}>{children}</ArticleLayout>
+);
+
+<TableOfContents>
+  <ul>
+    <li>[Component Libraries](#component-libraries)</li>
+    <ul>
+      <li>[TailwindUI](#tailwindui)</li>
+      <li>[DaisyUI](#daisyui)</li>
+      <li>[ShadcnUI](#shadcnui)</li>
+      <li>[HeadlessUI](#headlessui)</li>
+    </ul>
+    <li>[Icon Packs](#icon-packs)</li>
+    <ul>
+      <li>[Heroicons](#heroicons)</li>
+      <li>[Feather](#feather)</li>
+    </ul>
+    <li>[Color Palletes](#color-palletes)</li>
+    <ul>
+      <li>[Coolors Pallete Generator](#coolors-pallete-generator)</li>
+      <li>[Material Theme Builder](#material-theme-builder)</li>
+      <li>[Color Contrast Checker](#coolors-contrast)</li>
+      <li>[Tailwind Color Shades Generator](#tailwind-shades)</li>
+      <li>[Catppuccin](#catppuccin)</li>
+    </ul>
+
+  </ul>
+</TableOfContents>
+
+This is my list of resources that help me create user interfaces more effectively.
+
+## Component Libraries <a name="component-libraries"></a>
+
+### [TailwindUI](https://tailwindui.com) <a name="tailwindui"></a>
+
+TailwindUI is a premium UI kit that provides a set of customizable and responsive UI components built using
+TailwindCSS. It includes over 250 components, such as forms, cards, navigation menus and even some more spicific ones such
+as shopping carts and product pages for ecommerce applications. Some of the components are also free to use.
+![TailwindUI](useful-resources-for-tailwind-css-and-beyond/tailwindui.webp)
+
+### [DaisyUI](https://daisyui.com/) <a name="daisyui"></a>
+
+DaisyUI is a free and open-source component library for Tailwind CSS that provides customizable UI components,
+such as forms, buttons, and cards, that can be easily integrated into your web application. It also includes a collection of
+themes that are customizable with their theme generator.
+
+![DaisyUI](useful-resources-for-tailwind-css-and-beyond/daisy.webp)
+
+### [ShadcnUI](https://ui.shadcn.com/) <a name="shadcnui"></a>
+
+ShadcnUI component library is also free and open-source but it can be used only by copying certain components
+that you need and not installing them all. It uses [Radix](https://www.radix-ui.com/) for interactive components.
+
+![ShadcnUI](useful-resources-for-tailwind-css-and-beyond/shadcnui.webp)
+
+### [HeadlessUI](https://headlessui.com/) <a name="headlessui"></a>
+
+HeadlessUI is a set of completely unstyled, fully accessible UI components, designed to integrate beautifully with Tailwind CSS.
+It includes over a dozen components, including modals, toggles, and dropdowns, that can be used to build complex UIs without any additional
+styling needed.
+
+![HeadlessUI](useful-resources-for-tailwind-css-and-beyond/headlessui.webp)
+
+## Icon Packs <a name="icon-packs"></a>
+
+As UI developers we need to make sure our icons are consistent and recognizable to the users.
+This means using the same iconography style throughout the application and avoiding mixing different icon sets that can confuse the user.
+
+In addition to consistency, it's also important to ensure that the icons we use are clear and easily understandable.
+An icon should convey its meaning quickly and effectively, without requiring the user to stop and think about what it represents.
+
+To achieve this we can use all sorts of already made and free icon packs.
+
+### [Heroicons](https://heroicons.com/) <a name="heroicons"></a>
+
+Heroicons is a collection of around 300 SVG icons made by the creators of Tailwind that can be easily copied into your projects,
+both as plain SVG and JSX-adjusted elements. It contains outlined, filled, and smaller versions of icons.
+
+![Heroicons](useful-resources-for-tailwind-css-and-beyond/heroicons.webp)
+
+### [Feather](https://feathericons.com/) <a name="feather"></a>
+
+Feather is an open-source icon pack that comes with a simple editor for adjusting size, color, and stroke width.
+Each icon is designed on a 24x24 grid that can be customized to fit your needs.
+
+![Feather](useful-resources-for-tailwind-css-and-beyond/feather.webp)
+
+## Color Palletes <a name="color-palletes"></a>
+
+Choosing the right color palette can enhance the brand identity, establish a visual hierarchy, and improve usability.
+Picking the right colors is hard but these tools can help with that.
+
+### [Coolors Pallete Generator](https://coolors.co/) <a name="coolors-pallete-generator"></a>
+
+![Coolors Pallete Generator](useful-resources-for-tailwind-css-and-beyond/coolors-pallete-gen.png)
+
+### [Material Theme Builder](https://m3.material.io/theme-builder#/dynamic) <a name="material-theme-builder"></a>
+
+![Material Theme Builder](useful-resources-for-tailwind-css-and-beyond/material-theme-builder.png)
+
+### [Color Contrast Checker](https://coolors.co/contrast-checker/112a46-acc8e5) <a name="coolors-contrast"></a>
+
+![Color Contrast Checker](useful-resources-for-tailwind-css-and-beyond/coolors-contrast.png)
+
+### [Tailwind Color Shades Generator](https://javisperez.github.io/tailwindcolorshades/?purple-heart=1e23b8&lotus=7c4141) <a name="tailwind-shades"></a>
+
+Tailwind provides a variety of pre-defined colors that can be easily used in your projects. Their colors can be easily extendable and if we want to
+follow the convention where colors are seperated into shades from 100 to 900 we can do that easily with this site.
+
+![Tailwind Color Shades Generator](useful-resources-for-tailwind-css-and-beyond/tailwindcolorshades.png)
+
+### [Catppuccin Pallete](https://github.com/catppuccin/tailwindcss) <a name="catppuccin"></a>
+
+![Soothing pastel theme for Tailwind](useful-resources-for-tailwind-css-and-beyond/catppuccin.png)
+
+## Inspiration
+
+[https://www.awwwards.com/](https://www.awwwards.com/)
+
+[https://uiverse.io/](https://uiverse.io/)
+
+## Awesome Tailwind CSS
+
+Awesome Tailwind CSS is a curated list of resources, tools, and plugins for Tailwind CSS. It includes a wide range of resources, including tutorials, code snippets, and plugins, that can help you get the most out of the framework.
+
+In conclusion, Tailwind CSS is a powerful CSS framework that can help you create stunning web applications with minimal effort. The resources listed above can help you get started with the framework and enhance your development workflow. Happy coding!
+
+> some of these things arent tailwind related and you can use them in any css framework
+
+[https://github.com/aniftyco/awesome-tailwindcss](https://github.com/aniftyco/awesome-tailwindcss)
