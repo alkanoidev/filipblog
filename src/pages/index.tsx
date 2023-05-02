@@ -1,9 +1,8 @@
-import type { GetStaticProps, NextPage } from "next";
+import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { useEffect, useState } from "react";
 import PostType from "../types/Post";
 import TopAppBar from "../components/TopAppBar";
 import { AnimatePresence } from "framer-motion";
-import { useAutoAnimate } from "@formkit/auto-animate/react";
 import SearchInput from "../components/SearchInput";
 import Chip from "../components/Buttons/Chip";
 import BlogPostCard from "../components/BlogPostCard";
@@ -31,7 +30,6 @@ export const getStaticProps: GetStaticProps = async () => {
 export const Home: NextPage<Props> = ({ allPosts, topics }) => {
   const [posts, setPosts] = useState<PostType[] | null>(allPosts);
   const [selectedTopic, setSelectedTopic] = useState<string | null>("All");
-  const [blogLinksList] = useAutoAnimate<HTMLUListElement>();
   const [searchQuery, setSearchQuery] = useState<string | undefined>("");
 
   useEffect(() => {
