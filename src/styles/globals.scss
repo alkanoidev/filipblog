@@ -117,7 +117,7 @@ footer {
     @apply list-decimal ml-5;
   }
   p {
-    @apply text-base w-full mb-2;
+    @apply text-base w-full mb-2 ml-1;
   }
   h1 a,
   h2 a,
@@ -141,7 +141,7 @@ footer {
     }
   }
   img {
-    width: 95%;
+    width: 100%;
     margin-top: 1rem;
     margin-left: auto;
     margin-right: auto;

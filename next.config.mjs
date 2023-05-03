@@ -4,6 +4,7 @@ import createMDX from "@next/mdx";
 import pkg from "next-compose-plugins";
 const { withPlugins } = pkg;
 import remarkPrism from "remark-prism";
+import lazyLoadPlugin from 'rehype-plugin-image-native-lazy-loading'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -15,7 +16,7 @@ const withMDX = createMDX({
   extension: /\.mdx?$/,
   options: {
     remarkPlugins: [remarkGfm, remarkPrism],
-    rehypePlugins: [],
+    rehypePlugins: [lazyLoadPlugin],
   },
 });
 
