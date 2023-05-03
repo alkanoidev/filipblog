@@ -28,6 +28,9 @@ export default function SearchInput({ setSearchQuery }: Props) {
         placeholder="Search by title"
         ref={inputRef}
         type="text"
+        onChange={() => {
+          setSearchQuery(inputRef.current.value);
+        }}
         className={classNames(
           "bg-surface-light dark:bg-surface-dark ease-out w-full h-10 leading-7 pl-10 py-5 border-2 border-transparent rounded-3xl outline-none transition motion-reduce:transition-none",
           "hover:bg-primary-light dark:hover:bg-primary-dark",

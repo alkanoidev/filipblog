@@ -2,10 +2,11 @@ import type { GetStaticProps, NextPage } from "next";
 import { useEffect, useState } from "react";
 import PostType from "../types/PostType";
 import TopAppBar from "../components/TopAppBar";
-import { AnimatePresence } from "framer-motion";
+import { useCycle } from "framer-motion";
 import SearchInput from "../components/SearchInput";
 import Chip from "../components/Buttons/Chip";
 import BlogPostCard from "../components/BlogPostCard";
+import useDebounce from "../hooks/useDebounce";
 
 export const getStaticProps: GetStaticProps = async () => {
   const { posts } = require("../utils/getAllPosts");
@@ -33,6 +34,10 @@ export const Home: NextPage<Props> = ({ allPosts, tags }) => {
   const [selectedTopic, setSelectedTopic] = useState<string | null>("All");
   const [searchQuery, setSearchQuery] = useState<string | undefined>("");
 
+  const [isVisible, onCycle] = useCycle(true, false);
+
+  const debounce = useDebounce(searchQuery, 500);
+
   useEffect(() => {
     if (!selectedTopic || selectedTopic.toLowerCase() === "all") {
       setPosts(allPosts);
@@ -46,11 +51,11 @@ export const Home: NextPage<Props> = ({ allPosts, tags }) => {
       const searchedPosts = allPosts.filter((post) =>
         post.module.meta.title
           .toLocaleLowerCase()
-          .includes(searchQuery.toLocaleLowerCase())
+          .includes(debounce.toLocaleLowerCase())
       );
       setPosts(searchedPosts.length > 0 ? searchedPosts : null);
     }
-  }, [selectedTopic, searchQuery]);
+  }, [selectedTopic, debounce]);
 
   return (
     <main className="px-2 sm:px-0 2xl:max-w-5xl xl:max-w-4xl lg:max-w-4xl md:max-w-2xl sm:max-w-xl w-full mx-auto">
@@ -77,21 +82,20 @@ export const Home: NextPage<Props> = ({ allPosts, tags }) => {
           )}
         </div>
       </div>
-      <AnimatePresence>
-        <ul className="gap-4 mt-5 w-full flex flex-wrap justify-center">
-          {posts
-            ? posts.map((post: PostType, index) => (
-                <BlogPostCard
-                  key={post.link}
-                  post={post}
-                  spotlight={
-                    index === 0 && selectedTopic === "All" && searchQuery === ""
-                  }
-                />
-              ))
-            : null}
-        </ul>
-      </AnimatePresence>
+      <ul className="gap-4 mt-5 w-full flex flex-wrap justify-center">
+        {posts && isVisible
+          ? posts.map((post: PostType, index) => (
+              <BlogPostCard
+                key={post.link}
+                post={post}
+                isVisible={isVisible}
+                spotlight={
+                  index === 0 && selectedTopic === "All" && searchQuery === ""
+                }
+              />
+            ))
+          : null}
+      </ul>
     </main>
   );
 };
