@@ -1,6 +1,6 @@
 import { useThemeContext } from "../context/Theme";
-import IconButton from "./Buttons/IconButton";
-import TonalButton from "./Buttons/TonalButton";
+import IconButton from "./ui/Buttons/IconButton";
+import TonalButton from "./ui/Buttons/TonalButton";
 import StatsTray from "./StatsTray";
 import Head from "next/head";
 import classNames from "../utils/classNames";

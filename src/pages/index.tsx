@@ -4,8 +4,8 @@ import PostType from "../types/PostType";
 import TopAppBar from "../components/TopAppBar";
 import { useCycle } from "framer-motion";
 import SearchInput from "../components/SearchInput";
-import Chip from "../components/Buttons/Chip";
-import BlogPostCard from "../components/BlogPostCard";
+import Chip from "../components/ui/Buttons/Chip";
+import BlogPostCard from "../components/ui/BlogPostCard";
 import useDebounce from "../hooks/useDebounce";
 
 export const getStaticProps: GetStaticProps = async () => {

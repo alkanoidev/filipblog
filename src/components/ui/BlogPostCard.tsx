@@ -1,9 +1,9 @@
-import PostType from "../types/PostType";
+import PostType from "../../types/PostType";
 import { useRouter } from "next/router";
-import StatsTray from "./StatsTray";
-import TagsTray from "./TagsTray";
+import StatsTray from "../StatsTray";
+import TagsTray from "../TagsTray";
 import Link from "next/dist/client/link";
-import classNames from "../utils/classNames";
+import classNames from "../../utils/classNames";
 import { AnimatePresence, motion } from "framer-motion";
 
 export default function BlogPostCard({

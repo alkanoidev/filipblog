@@ -1,5 +1,5 @@
 import type { ReactElement, ReactNode } from "react";
-import classNames from "../../utils/classNames";
+import classNames from "../../../utils/classNames";
 
 export default function TonalButton({
   children,

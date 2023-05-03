@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import classNames from "../../utils/classNames";
+import classNames from "../../../utils/classNames";
 
 export default function ScrollToTop() {
   const [classes, setClasses] = useState("");

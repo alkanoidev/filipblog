@@ -1,5 +1,5 @@
 import type { ReactElement } from "react";
-import classNames from "../../utils/classNames";
+import classNames from "../../../utils/classNames";
 
 export default function IconButton({
   href,

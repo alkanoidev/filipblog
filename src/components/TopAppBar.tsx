@@ -1,5 +1,5 @@
 import { useThemeContext } from "../context/Theme";
-import IconButton from "./Buttons/IconButton";
+import IconButton from "./ui/Buttons/IconButton";
 
 function TopAppBar({ children }: { children: any }) {
   const { toggleTheme, theme } = useThemeContext();
