@@ -31,7 +31,7 @@ export default function BlogPostCard({
             id={module.meta.minifiedTitle}
             className={classNames(
               "transition-transform motion-reduce:transition-none text-on-surface-light dark:text-on-surface-dark",
-              "relative ease-out flex flex-col p-4 rounded-2xl gap-2 bg-surface-light dark:bg-surface-dark sm:h-56",
+              "relative ease-out flex flex-col p-4 rounded-3xl gap-2 bg-surface-light dark:bg-surface-dark sm:h-56",
               "overflow-y-hidden hover:cursor-pointer hover:text-light-text dark:hover:text-dark-text",
               "hover:scale-105",
               spotlight
