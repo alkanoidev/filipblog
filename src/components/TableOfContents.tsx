@@ -7,7 +7,7 @@ export default function TableOfContents({
 }) {
   return (
     <div
-      className={`TOC my-5 relative bg-surface-light dark:bg-surface-dark w-full p-4 rounded-lg`}
+      className={`TOC my-5 relative bg-surface-light dark:bg-surface-dark w-full p-4 rounded-3xl`}
     >
       <div className="flex gap-2">
         <svg

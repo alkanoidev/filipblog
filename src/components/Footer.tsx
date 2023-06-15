@@ -4,21 +4,21 @@ export default function Footer() {
       <p>
         Built with{" "}
         <a
-          className="text-primary-light dark:text-primary-dark"
+          className="text-primary-light dark:text-primary-dark text-sm"
           href="https://nextjs.org/"
         >
           Next.js
         </a>
         ,{" "}
         <a
-          className="text-primary-light dark:text-primary-dark"
+          className="text-primary-light dark:text-primary-dark text-sm"
           href="https://mdxjs.com/"
         >
           MDX
         </a>{" "}
         and{" "}
         <a
-          className="text-primary-light dark:text-primary-dark"
+          className="text-primary-light dark:text-primary-dark text-sm"
           href="https://tailwindcss.com/"
         >
           Tailwind
@@ -26,13 +26,13 @@ export default function Footer() {
       </p>
       <p>
         <a
-          className="text-primary-light dark:text-primary-dark"
+          className="text-primary-light dark:text-primary-dark text-sm"
           href="https://filipivanovic.netlify.app/"
         >
           Portfolio
         </a>{" "}
         <a
-          className="text-primary-light dark:text-primary-dark"
+          className="text-primary-light dark:text-primary-dark text-sm"
           href="https://github.com/alkanoidev"
         >
           GitHub
