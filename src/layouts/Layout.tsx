@@ -1,8 +1,8 @@
 import dynamic from "next/dynamic";
 import Head from "next/head";
-import Footer from "./Footer";
+import Footer from "../components/Footer";
 
-const ScrollToTop = dynamic(() => import("./ui/Buttons/ScrollToTop"), {
+const ScrollToTop = dynamic(() => import("../components/ui/Buttons/ScrollToTop"), {
   ssr: false,
 });
 
@@ -29,6 +29,7 @@ export default function Layout({
         {children}
 
         <Footer />
+        
         <ScrollToTop />
       </div>
     </>

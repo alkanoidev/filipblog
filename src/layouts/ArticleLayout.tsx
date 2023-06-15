@@ -1,10 +1,10 @@
 import { useThemeContext } from "../context/Theme";
-import IconButton from "./ui/Buttons/IconButton";
-import TonalButton from "./ui/Buttons/TonalButton";
-import StatsTray from "./StatsTray";
 import Head from "next/head";
 import classNames from "../utils/classNames";
 import { PostMetaType } from "../types/PostType";
+import TonalButton from "../components/ui/Buttons/TonalButton";
+import IconButton from "../components/ui/Buttons/IconButton";
+import StatsTray from "../components/StatsTray";
 
 export default function ArticleLayout({
   children,
@@ -19,6 +19,16 @@ export default function ArticleLayout({
     <>
       <Head>
         <title>{meta.title}</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="true"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap"
+          rel="stylesheet"
+        />
       </Head>
       <div className="flex mx-auto w-full sm:max-w-4xl lg:max-w-4xl flex-col">
         <div

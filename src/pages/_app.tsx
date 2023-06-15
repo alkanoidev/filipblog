@@ -1,6 +1,6 @@
 import "../styles/globals.scss";
 import type { AppProps } from "next/app";
-import Layout from "../components/Layout";
+import Layout from "../layouts/Layout";
 import ThemeProvider, { useThemeContext } from "../context/Theme";
 import { motion } from "framer-motion";
 import Head from "next/head";
